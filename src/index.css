@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/Satoshi%20WEB/fonts/Satoshi-Regular.woff2') format('woff2'),
+       url('/Satoshi%20WEB/fonts/Satoshi-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/Satoshi%20WEB/fonts/Satoshi-Medium.woff2') format('woff2'),
+       url('/Satoshi%20WEB/fonts/Satoshi-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/Satoshi%20WEB/fonts/Satoshi-Bold.woff2') format('woff2'),
+       url('/Satoshi%20WEB/fonts/Satoshi-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Minimal Portfolio Design System */
+
+@layer base {
+  :root {
+    /* Warm, editorial palette */
+    --background: 40 20% 98%;
+    --foreground: 30 10% 12%;
+
+    --card: 40 15% 96%;
+    --card-foreground: 30 10% 12%;
+
+    --popover: 40 20% 98%;
+    --popover-foreground: 30 10% 12%;
+
+    /* Near-black primary */
+    --primary: 30 10% 12%;
+    --primary-foreground: 40 20% 98%;
+
+    /* Light warm gray */
+    --secondary: 35 8% 92%;
+    --secondary-foreground: 30 10% 20%;
+
+    /* Muted tones */
+    --muted: 35 8% 88%;
+    --muted-foreground: 30 6% 50%;
+
+    /* Primary brand blue for interactions */
+    --accent: 229 100% 61%;
+    --accent-foreground: 40 20% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 10% 88%;
+    --input: 35 10% 88%;
+    --ring: 229 100% 61%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar vars */
+    --sidebar-background: 40 15% 96%;
+    --sidebar-foreground: 30 10% 20%;
+    --sidebar-primary: 30 10% 12%;
+    --sidebar-primary-foreground: 40 20% 98%;
+    --sidebar-accent: 35 8% 92%;
+    --sidebar-accent-foreground: 30 10% 20%;
+    --sidebar-border: 35 10% 88%;
+    --sidebar-ring: 229 100% 61%;
+  }
+
+  .dark {
+    --background: 30 10% 8%;
+    --foreground: 40 15% 92%;
+
+    --card: 30 10% 10%;
+    --card-foreground: 40 15% 92%;
+
+    --popover: 30 10% 8%;
+    --popover-foreground: 40 15% 92%;
+
+    --primary: 40 15% 92%;
+    --primary-foreground: 30 10% 8%;
+
+    --secondary: 30 8% 16%;
+    --secondary-foreground: 40 15% 88%;
+
+    --muted: 30 8% 20%;
+    --muted-foreground: 35 6% 55%;
+
+    --accent: 229 100% 61%;
+    --accent-foreground: 40 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 8% 20%;
+    --input: 30 8% 20%;
+    --ring: 229 100% 61%;
+
+    --sidebar-background: 30 10% 10%;
+    --sidebar-foreground: 40 15% 88%;
+    --sidebar-primary: 40 15% 92%;
+    --sidebar-primary-foreground: 30 10% 8%;
+    --sidebar-accent: 30 8% 16%;
+    --sidebar-accent-foreground: 40 15% 88%;
+    --sidebar-border: 30 8% 20%;
+    --sidebar-ring: 229 100% 61%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  /* Selection color using accent */
+  ::selection {
+    @apply bg-accent/20 text-foreground;
+  }
+}
+
+@layer components {
+  .container-narrow {
+    @apply max-w-5xl mx-auto px-6 md:px-8;
+  }
+
+  .container-wide {
+    @apply w-full mx-auto px-12 md:px-16 lg:px-20;
+  }
+
+  .text-display {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight;
+  }
+
+  .text-headline {
+    @apply text-2xl md:text-3xl font-bold leading-tight tracking-tight;
+  }
+
+  .text-body-lg {
+    @apply text-lg md:text-xl leading-relaxed text-muted-foreground;
+  }
+
+  .text-body {
+    @apply text-base leading-relaxed;
+  }
+
+  .text-caption {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .link-underline {
+    @apply relative inline-block after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:bg-card;
+  }
+
+  .footer-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: rgba(255, 255, 255, 0.88);
+    transition: color 420ms cubic-bezier(0.2, 1, 0.4, 1);
+  }
+
+  .footer-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 0.375rem;
+    width: 0.375rem;
+    border-radius: 9999px;
+    background: #3A5EFF;
+    opacity: 0;
+    transform: translate(-0.5rem, -50%) scale(0.6);
+    transition:
+      opacity 420ms cubic-bezier(0.2, 1, 0.4, 1),
+      transform 420ms cubic-bezier(0.2, 1, 0.4, 1);
+  }
+
+  .footer-link:hover,
+  .footer-link:focus-visible {
+    color: #3A5EFF;
+  }
+
+  .footer-link:hover::before,
+  .footer-link:focus-visible::before {
+    opacity: 1;
+    transform: translate(0, -50%) scale(1);
+  }
+
+  .footer-link-label,
+  .footer-link-arrow {
+    transition: transform 420ms cubic-bezier(0.2, 1, 0.4, 1);
+  }
+
+  .footer-link:hover .footer-link-label,
+  .footer-link:hover .footer-link-arrow,
+  .footer-link:focus-visible .footer-link-label,
+  .footer-link:focus-visible .footer-link-arrow {
+    transform: translateX(0.875rem);
+  }
+
+  .footer-link:focus-visible {
+    outline: none;
+  }
+}
+
+.outputs-marquee {
+  overflow: hidden;
+}
+
+.outputs-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 2rem;
+  animation: outputs-marquee-loop 28s linear infinite;
+  will-change: transform;
+}
+
+.outputs-marquee-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.outputs-marquee:hover .outputs-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes outputs-marquee-loop {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 1rem));
+  }
+}
