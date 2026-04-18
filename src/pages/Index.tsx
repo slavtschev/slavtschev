@@ -587,15 +587,15 @@ export default function Index() {
                       <span>{tab.label}</span>
                       <span className="relative h-7 w-7 shrink-0" aria-hidden>
                         <span
-                          className={`absolute left-1/2 top-1/2 h-[1px] w-7 -translate-x-1/2 -translate-y-1/2 bg-current transform-gpu transition-all duration-500 ease-[cubic-bezier(0.18,0.9,0.22,1)] ${
+                          className={`absolute left-1/2 top-1/2 h-[1px] w-7 -translate-x-1/2 -translate-y-1/2 bg-current transform-gpu transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.18,0.9,0.22,1)] ${
                             activeCoreSkillTab === index ? "text-white" : "text-current"
                           }`}
                         />
                         <span
-                          className={`absolute left-1/2 top-1/2 h-7 w-[1px] -translate-x-1/2 -translate-y-1/2 bg-current origin-center transform-gpu transition-all duration-500 ease-[cubic-bezier(0.18,0.9,0.22,1)] ${
+                          className={`absolute left-1/2 top-1/2 h-7 w-[1px] -translate-x-1/2 -translate-y-1/2 bg-current origin-center transform-gpu transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.18,0.9,0.22,1)] ${
                             activeCoreSkillTab === index
-                              ? "scale-y-0"
-                              : "scale-y-100"
+                              ? "rotate-90 opacity-0"
+                              : "rotate-0 opacity-100"
                           }`}
                         />
                       </span>
