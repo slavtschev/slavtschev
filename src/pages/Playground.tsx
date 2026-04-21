@@ -8,15 +8,6 @@ type Note = {
   link: string;
 };
 
-const featuredNote: Note = {
-  title: "How thoughtful systems make design work scale better.",
-  category: "Notes",
-  date: "January 18, 2026",
-  image:
-    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-  link: "/playground",
-};
-
 const notes: Note[] = [
   {
     title: "Why performance design needs a stronger system behind it.",
@@ -86,16 +77,10 @@ export default function Playground() {
   return (
     <>
       <section className="container-wide pt-24 pb-0 md:pt-28 lg:pt-[128px] lg:pb-0">
-        <div className="grid grid-cols-1 items-start gap-y-12 lg:grid-cols-12 lg:gap-x-6">
-          <div className="lg:col-span-7">
-            <h1 className="max-w-[10ch] [font-family:'Satoshi'] text-[48px] font-medium leading-[1] tracking-[-0.035em] text-foreground">
-              Ideas that drive meaningful impact
-            </h1>
-          </div>
-
-          <div className="lg:col-start-9 lg:col-span-4">
-            <NoteCard {...featuredNote} />
-          </div>
+        <div className="grid grid-cols-1 items-start">
+          <h1 className="max-w-[14ch] [font-family:'Satoshi'] text-[48px] font-medium leading-[1] tracking-[-0.035em] text-foreground">
+            Ideas that drive meaningful impact
+          </h1>
         </div>
 
         <div className="mt-[64px] w-full border-t border-foreground/20" aria-hidden />

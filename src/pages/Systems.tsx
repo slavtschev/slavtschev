@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "@/hooks/use-in-view";
 import { Link } from "@/components/ReloadLink";
 
 type CaseStudy = {
@@ -53,7 +55,7 @@ function CaseStudyCard({
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <Link to={link} className="block lg:col-span-6">
+    <Link to={link} className="block">
       <article className="relative cursor-pointer">
         <div
           className="relative aspect-video overflow-hidden rounded-[20px] bg-muted"
@@ -91,25 +93,46 @@ function CaseStudyCard({
 }
 
 export default function Systems() {
+  const heroSection = useInView({ threshold: 0.1, once: true });
+  const gridSection = useInView({ threshold: 0.1, once: true });
+
   return (
     <>
-      <section className="container-wide pt-24 pb-0 md:pt-28 lg:pt-[128px] lg:pb-0">
+      <section ref={heroSection.ref} className="container-wide pt-24 pb-0 md:pt-28 lg:pt-[128px] lg:pb-0">
         <div className="border-b border-foreground/25 pb-[32px]">
-          <h1 className="[font-family:'Satoshi'] text-[48px] font-medium leading-[1] tracking-[-0.035em] text-foreground">
+          <motion.h1
+            className="[font-family:'Satoshi'] text-[48px] font-medium leading-[1] tracking-[-0.035em] text-foreground"
+            initial={{ opacity: 0, y: 20 }}
+            animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
             I Design Workflows, not just visuals
-          </h1>
+          </motion.h1>
         </div>
 
-        <div className="mt-[24px] flex items-center justify-between [font-family:'Satoshi'] text-[14px] font-medium uppercase tracking-[0.04em] text-foreground/75">
+        <motion.div
+          className="mt-[24px] flex items-center justify-between [font-family:'Satoshi'] text-[14px] font-medium uppercase tracking-[0.04em] text-foreground/75"
+          initial={{ opacity: 0 }}
+          animate={heroSection.isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
           <p>My Projects</p>
           <p>2018-2026</p>
-        </div>
+        </motion.div>
       </section>
 
-      <section className="container-wide pt-[64px] pb-[128px]">
+      <section ref={gridSection.ref} className="container-wide pt-[64px] pb-[128px]">
         <div className="grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-12 lg:gap-y-16">
           {caseStudies.map((project, index) => (
-            <CaseStudyCard key={`${project.title}-${index}`} {...project} />
+            <motion.div
+              key={`${project.title}-${index}`}
+              className="lg:col-span-6"
+              initial={{ opacity: 0, y: 28 }}
+              animate={gridSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
+              transition={{ duration: 0.7, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <CaseStudyCard {...project} />
+            </motion.div>
           ))}
         </div>
       </section>

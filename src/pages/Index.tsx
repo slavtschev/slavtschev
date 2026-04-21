@@ -381,13 +381,13 @@ export default function Index() {
   const [activeCoreSkillTab, setActiveCoreSkillTab] = useState(0);
 
   // Viewport detection for different sections
-  const heroSection = useInView({ threshold: 0.3, once: true });
-  const headlineSection = useInView({ threshold: 0.3, once: true });
-  const projectsSection = useInView({ threshold: 0.2, once: true });
-  const myWorkSection = useInView({ threshold: 0.3, once: true });
-  const coreSkillsSection = useInView({ threshold: 0.2, once: true });
-  const clientsSection = useInView({ threshold: 0.2, once: true });
-  const outputsSection = useInView({ threshold: 0.3, once: true });
+  const heroSection = useInView({ threshold: 0.1, once: true });
+  const headlineSection = useInView({ threshold: 0.1, once: true });
+  const projectsSection = useInView({ threshold: 0.1, once: true });
+  const myWorkSection = useInView({ threshold: 0.1, once: true });
+  const coreSkillsSection = useInView({ threshold: 0.1, once: true });
+  const clientsSection = useInView({ threshold: 0.1, once: true });
+  const outputsSection = useInView({ threshold: 0.1, once: true });
 
   return (
     <>

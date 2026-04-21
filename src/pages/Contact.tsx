@@ -1,106 +1,115 @@
-import { useState } from "react";
-import { ArrowRight, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { useInView } from "@/hooks/use-in-view";
+
+const socialLinks = [
+  { name: "Dribbble", href: "https://dribbble.com" },
+  { name: "Instagram", href: "https://instagram.com" },
+  { name: "LinkedIn", href: "https://linkedin.com" },
+  { name: "GitHub", href: "https://github.com" },
+];
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-  };
+  const pageSection = useInView({ threshold: 0.1, once: true });
 
   return (
-    <section className="container-wide py-24 md:py-32">
-      <div className="max-w-xl">
-        <h1 className="text-display mb-6">Contact</h1>
-        <p className="text-body-lg mb-12">
-          Interested in discussing systems, workflows, or potential
-          collaboration? I'd enjoy the conversation.
-        </p>
+    <section ref={pageSection.ref} className="container-wide pt-24 pb-[128px] md:pt-28 lg:pt-[128px]">
+      <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0">
+        <div className="lg:col-span-8">
+          <motion.p
+            className="[font-family:'Satoshi'] text-[14px] font-medium uppercase tracking-[0.04em] text-foreground/75"
+            initial={{ opacity: 0 }}
+            animate={pageSection.isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            Contact
+          </motion.p>
 
-        {/* Email Direct */}
-        <a
-          href="mailto:hello@marasantos.com"
-          className="inline-flex items-center gap-3 mb-16 group"
+          <motion.h1
+            className="mt-6 max-w-[14ch] [font-family:'Satoshi'] text-[48px] font-medium leading-[1] tracking-[-0.035em] text-foreground"
+            initial={{ opacity: 0, y: 20 }}
+            animate={pageSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            Let&apos;s connect
+          </motion.h1>
+
+          <motion.p
+            className="mt-6 max-w-[20ch] [font-family:'Satoshi'] text-[34px] font-medium leading-[1.08] tracking-[-0.03em] text-foreground sm:text-[38px]"
+            initial={{ opacity: 0, y: 16 }}
+            animate={pageSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+            transition={{ duration: 0.75, delay: 0.14, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            Always open to new conversations and opportunities.
+          </motion.p>
+
+          <motion.div
+            className="mt-14 space-y-8"
+            initial={{ opacity: 0, y: 18 }}
+            animate={pageSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
+            transition={{ duration: 0.75, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            <div>
+              <p className="[font-family:'Satoshi'] text-[24px] font-medium leading-[1.1] tracking-[-0.02em] text-foreground/90">
+                Email
+              </p>
+              <a
+                href="mailto:slavchev.dimitar@yahoo.com"
+                className="mt-2 inline-block [font-family:'Satoshi'] text-[20px] font-medium leading-[1.2] tracking-[-0.01em] text-foreground/90 transition-colors hover:text-accent"
+              >
+                slavchev.dimitar@yahoo.com
+              </a>
+            </div>
+
+            <div>
+              <p className="[font-family:'Satoshi'] text-[24px] font-medium leading-[1.1] tracking-[-0.02em] text-foreground/90">
+                Phone
+              </p>
+              <a
+                href="tel:+359893401023"
+                className="mt-2 inline-block [font-family:'Satoshi'] text-[20px] font-medium leading-[1.2] tracking-[-0.01em] text-foreground/90 transition-colors hover:text-accent"
+              >
+                +359893401023
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.div
+          className="lg:col-span-4 lg:justify-self-end"
+          initial={{ opacity: 0, y: 14 }}
+          animate={pageSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
+          transition={{ duration: 0.7, delay: 0.24, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <span className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-            <Mail size={20} />
-          </span>
-          <span className="text-lg group-hover:text-accent transition-colors">
-            hello@marasantos.com
-          </span>
-        </a>
-
-        {/* Contact Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium mb-2 text-muted-foreground"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              value={formData.name}
-              onChange={(e) =>
-                setFormData({ ...formData, name: e.target.value })
-              }
-              className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-1 focus:ring-accent transition-colors"
-              required
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium mb-2 text-muted-foreground"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-              className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-1 focus:ring-accent transition-colors"
-              required
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium mb-2 text-muted-foreground"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              rows={5}
-              value={formData.message}
-              onChange={(e) =>
-                setFormData({ ...formData, message: e.target.value })
-              }
-              className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-1 focus:ring-accent transition-colors resize-none"
-              required
-            />
-          </div>
-
-          <Button type="submit" size="lg">
-            Send message
-            <ArrowRight size={16} />
-          </Button>
-        </form>
+          <nav className="flex flex-col gap-4">
+            {socialLinks.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex min-w-[132px] items-center justify-between gap-5 [font-family:'Satoshi'] text-[16px] font-medium leading-none text-foreground/90 transition-colors hover:text-accent"
+              >
+                <span>{social.name}</span>
+                <ArrowUpRight
+                  size={15}
+                  className="transition-transform duration-300 ease-out group-hover:translate-x-[1px] group-hover:-translate-y-[1px]"
+                  aria-hidden="true"
+                />
+              </a>
+            ))}
+          </nav>
+        </motion.div>
       </div>
+
+      <motion.div
+        className="mt-28 [font-family:'Satoshi'] text-[15px] text-foreground/70"
+        initial={{ opacity: 0 }}
+        animate={pageSection.isInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.65, delay: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
+      >
+        Dimitar Slavchev All Rights Reserved
+      </motion.div>
     </section>
   );
 }

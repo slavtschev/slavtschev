@@ -1,4 +1,6 @@
 import { useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "@/hooks/use-in-view";
 import { Link } from "@/components/ReloadLink";
 
 type OutputCategory =
@@ -80,6 +82,8 @@ const outputProjects: OutputProject[] = [
 
 export default function Outputs() {
   const [activeFilter, setActiveFilter] = useState<OutputCategory | "all">("all");
+  const heroSection = useInView({ threshold: 0.1, once: true });
+  const gridSection = useInView({ threshold: 0.1, once: true });
 
   const visibleProjects = useMemo(() => {
     if (activeFilter === "all") {
@@ -91,12 +95,22 @@ export default function Outputs() {
 
   return (
     <>
-      <section className="container-wide pt-24 pb-0 md:pt-28 lg:pt-[128px] lg:pb-0">
-        <h1 className="[font-family:'Satoshi'] text-[48px] font-medium leading-[1] tracking-[-0.035em] text-foreground">
+      <section ref={heroSection.ref} className="container-wide pt-24 pb-0 md:pt-28 lg:pt-[128px] lg:pb-0">
+        <motion.h1
+          className="[font-family:'Satoshi'] text-[48px] font-medium leading-[1] tracking-[-0.035em] text-foreground"
+          initial={{ opacity: 0, y: 20 }}
+          animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
           Selected Outputs
-        </h1>
+        </motion.h1>
 
-        <div className="mt-[32px] grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-x-6">
+        <motion.div
+          className="mt-[32px] grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-x-6"
+          initial={{ opacity: 0, y: 14 }}
+          animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
+          transition={{ duration: 0.7, delay: 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
           <p className="lg:col-span-2 [font-family:'Satoshi'] text-[16px] font-medium leading-none text-foreground/90">
             Filters:
           </p>
@@ -121,38 +135,62 @@ export default function Outputs() {
               );
             })}
           </div>
-        </div>
+        </motion.div>
 
-        <div className="mt-[24px] w-full border-t border-foreground/20" aria-hidden />
+        <motion.div
+          className="mt-[24px] w-full border-t border-foreground/20"
+          aria-hidden
+          initial={{ opacity: 0 }}
+          animate={heroSection.isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+        />
       </section>
 
-      <section className="container-wide pt-[64px] pb-[128px]">
-        <div className="grid grid-cols-1 gap-x-6 gap-y-20 lg:grid-cols-12 lg:gap-y-24">
-          {visibleProjects.map((project) => (
-            <Link key={`${project.title}-${project.date}`} to={project.link} className="block h-full lg:col-span-4">
-              <article className="group h-full">
-                <div className="aspect-video overflow-hidden rounded-[20px] bg-muted">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                    loading="lazy"
-                  />
-                </div>
+      <section ref={gridSection.ref} className="container-wide pt-[64px] pb-[128px]">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={activeFilter}
+            className="grid grid-cols-1 gap-x-6 gap-y-20 lg:grid-cols-12 lg:gap-y-24"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {visibleProjects.map((project, index) => (
+              <motion.div
+                key={`${project.title}-${project.date}`}
+                className="lg:col-span-4"
+                initial={{ opacity: 0, y: 24 }}
+                animate={gridSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+                transition={{ duration: 0.7, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
+              >
+                <Link to={project.link} className="block h-full">
+                  <article className="group h-full">
+                    <div className="aspect-video overflow-hidden rounded-[20px] bg-muted">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                        loading="lazy"
+                      />
+                    </div>
 
-                <div className="mt-4 grid min-h-[64px] grid-cols-[minmax(0,1fr)_auto] items-start gap-6">
-                  <h2 className="[font-family:'Satoshi'] text-[24px] font-medium leading-[1.1] tracking-[-0.02em] text-foreground">
-                    {project.title}
-                  </h2>
-                  <p className="shrink-0 pt-1 [font-family:'Satoshi'] text-[16px] font-medium leading-none text-foreground/70">
-                    {project.date}
-                  </p>
-                </div>
-              </article>
-            </Link>
-          ))}
-        </div>
+                    <div className="mt-4 grid min-h-[64px] grid-cols-[minmax(0,1fr)_auto] items-start gap-6">
+                      <h2 className="[font-family:'Satoshi'] text-[24px] font-medium leading-[1.1] tracking-[-0.02em] text-foreground">
+                        {project.title}
+                      </h2>
+                      <p className="shrink-0 pt-1 [font-family:'Satoshi'] text-[16px] font-medium leading-none text-foreground/70">
+                        {project.date}
+                      </p>
+                    </div>
+                  </article>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </section>
     </>
   );
 }
+
