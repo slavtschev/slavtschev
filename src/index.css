@@ -133,13 +133,32 @@
     font-feature-settings: "ss01", "ss02", "cv01";
   }
 
+  :root {
+    --selection-foreground: hsl(var(--foreground));
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight;
   }
 
-  /* Selection color using accent */
+  /* Global selection: brand accent with section-aware readable text color. */
   ::selection {
-    @apply bg-accent/20 text-foreground;
+    background-color: hsl(var(--accent));
+    color: var(--selection-foreground);
+  }
+
+  ::-moz-selection {
+    background-color: hsl(var(--accent));
+    color: var(--selection-foreground);
+  }
+
+  [class*="text-white"],
+  [class*="text-primary-foreground"] {
+    --selection-foreground: hsl(var(--primary-foreground));
+  }
+
+  [class*="text-foreground"] {
+    --selection-foreground: hsl(var(--foreground));
   }
 }
 
@@ -242,17 +261,18 @@
   width: max-content;
   gap: 2rem;
   animation: outputs-marquee-loop 28s linear infinite;
+  animation-play-state: paused;
   will-change: transform;
+}
+
+.outputs-marquee.is-active .outputs-marquee-track {
+  animation-play-state: running;
 }
 
 .outputs-marquee-group {
   display: flex;
   align-items: flex-start;
   gap: 2rem;
-}
-
-.outputs-marquee:hover .outputs-marquee-track {
-  animation-play-state: paused;
 }
 
 @keyframes outputs-marquee-loop {

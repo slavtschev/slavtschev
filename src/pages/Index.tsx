@@ -1,10 +1,9 @@
 import { Link } from "@/components/ReloadLink";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "@/hooks/use-in-view";
-import { AnimatedText } from "@/components/AnimatedText";
 
 const whoIAmStats = [
   { label: "Years", value: "7+" },
@@ -66,37 +65,44 @@ const featuredProjects: {
 
 const clients = [
   {
-    name: "SQUIRE",
-    description:
-      "End-to-end mobile product design for a category-defining platform serving professionals globally.",
+    name: "Storytel",
+    year: "2024 - ongoing",
+    hoverText: "2024 - ongoing",
   },
   {
-    name: "reap",
-    description: "Scaled product and growth design for a fintech platform across key user flows.",
+    name: "Yettel",
+    year: "2022 - 2024",
+    hoverText: "2022 - 2024",
   },
   {
-    name: "elumity",
-    description: "Crafted UX direction and visual system updates to improve clarity and retention.",
+    name: "Telenor",
+    year: "2018 - 2022",
+    hoverText: "2018 - 2022",
   },
   {
-    name: "BOHEMIAN RESEARCH",
-    description: "Designed communication assets and digital touchpoints for research-led storytelling.",
+    name: "Athlon Technology",
+    year: "2026",
+    hoverText: "2026",
   },
   {
-    name: "IRON",
-    description: "Built campaign creative templates and workflow structures for faster production cycles.",
+    name: "Colliers International",
+    year: "2016 - 2018",
+    hoverText: "2016 - 2018",
   },
   {
-    name: "nue",
-    description: "Shaped interface foundations and brand-consistent components for product iterations.",
+    name: "StreetPhoto Lab",
+    year: "ongoing",
+    hoverText: "ongoing",
   },
   {
-    name: "gumroad",
-    description: "Supported launch-ready visuals and conversion-focused page design improvements.",
+    name: "Curly Ideas Studio",
+    year: "2025",
+    hoverText: "2025",
   },
   {
-    name: "Vannin",
-    description: "Delivered web and campaign design systems that aligned brand and performance goals.",
+    name: "Three Hills Club",
+    year: "2026",
+    hoverText: "2026",
   },
 ];
 
@@ -379,6 +385,8 @@ function FeaturedCard({
 
 export default function Index() {
   const [activeCoreSkillTab, setActiveCoreSkillTab] = useState(0);
+  const outputsTrackRef = useRef<HTMLDivElement | null>(null);
+  const outputsRateRafRef = useRef<number | null>(null);
 
   // Viewport detection for different sections
   const heroSection = useInView({ threshold: 0.1, once: true });
@@ -388,6 +396,46 @@ export default function Index() {
   const coreSkillsSection = useInView({ threshold: 0.1, once: true });
   const clientsSection = useInView({ threshold: 0.1, once: true });
   const outputsSection = useInView({ threshold: 0.1, once: true });
+
+  const tweenOutputsPlaybackRate = (targetRate: number, durationMs: number) => {
+    if (outputsRateRafRef.current !== null) {
+      window.cancelAnimationFrame(outputsRateRafRef.current);
+      outputsRateRafRef.current = null;
+    }
+
+    const animation = outputsTrackRef.current?.getAnimations()[0];
+    if (!animation) {
+      return;
+    }
+
+    const startRate = animation.playbackRate;
+    const startTime = performance.now();
+
+    const step = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / durationMs);
+      // Exponential decay gives a more natural brake-like deceleration.
+      const decay = 1 - Math.exp(-6 * progress);
+      const eased = decay / (1 - Math.exp(-6));
+      animation.playbackRate = startRate + (targetRate - startRate) * eased;
+
+      if (progress < 1) {
+        outputsRateRafRef.current = window.requestAnimationFrame(step);
+      } else {
+        outputsRateRafRef.current = null;
+      }
+    };
+
+    outputsRateRafRef.current = window.requestAnimationFrame(step);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (outputsRateRafRef.current !== null) {
+        window.cancelAnimationFrame(outputsRateRafRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -400,7 +448,7 @@ export default function Index() {
 
             <div className="w-full lg:col-start-2 lg:row-start-1">
               <motion.h1
-                className="[font-family:'Satoshi'] text-[48px] font-medium leading-[1] tracking-[-0.035em] text-foreground"
+                className="[font-family:'Satoshi'] text-[56px] sm:text-[64px] lg:text-[80px] font-medium leading-[1] tracking-[-0.035em] text-foreground"
                 initial={{ opacity: 0, y: 20 }}
                 animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -669,7 +717,7 @@ export default function Index() {
             {clients.map((client, index) => (
               <motion.article
                 key={client.name}
-                className="group relative flex min-h-[17rem] items-center justify-center overflow-hidden rounded-[16px] bg-[#e8e8e8] px-8 text-center sm:min-h-[18rem]"
+                className="group relative flex min-h-[17rem] items-center justify-center overflow-hidden rounded-[16px] border border-black/5 bg-white px-8 text-center sm:min-h-[18rem]"
                 initial={{ opacity: 0, scale: 0.92 }}
                 animate={clientsSection.isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.92 }}
                 transition={{
@@ -678,11 +726,14 @@ export default function Index() {
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
               >
-                <p className="[font-family:'Satoshi'] text-[clamp(2rem,3vw,2.6rem)] font-bold leading-none tracking-[-0.02em] text-foreground transition-all duration-300 ease-out group-hover:opacity-20 group-hover:blur-[3px]">
+                <p className="[font-family:'Satoshi'] text-[clamp(1.6rem,2.4vw,2.2rem)] font-bold leading-none tracking-[-0.02em] text-foreground transition-all duration-300 ease-out group-hover:opacity-20 group-hover:blur-[3px]">
                   {client.name}
                 </p>
-                <p className="pointer-events-none absolute inset-x-8 top-1/2 -translate-y-[56%] translate-y-3 [font-family:'Satoshi'] text-[17px] font-medium leading-[1.3] text-foreground opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
-                  {client.description}
+                <p className="pointer-events-none absolute inset-x-8 top-1/2 -translate-y-[56%] translate-y-3 [font-family:'Satoshi'] text-[22px] font-medium leading-[1.1] tracking-[-0.02em] text-foreground opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                  {client.hoverText}
+                </p>
+                <p className="pointer-events-none absolute bottom-5 right-5 [font-family:'Satoshi'] text-[13px] font-medium leading-none tracking-[0.01em] text-foreground/35 sm:text-[14px]">
+                  /{client.year}
                 </p>
               </motion.article>
             ))}
@@ -709,12 +760,14 @@ export default function Index() {
 
           <div className="relative left-1/2 mt-14 w-screen -translate-x-1/2">
             <motion.div
-              className="outputs-marquee"
+              className={`outputs-marquee ${outputsSection.isInView ? "is-active" : ""}`}
+              onMouseEnter={() => tweenOutputsPlaybackRate(0, 560)}
+              onMouseLeave={() => tweenOutputsPlaybackRate(1, 420)}
               initial={{ opacity: 0 }}
               animate={outputsSection.isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="outputs-marquee-track">
+              <div ref={outputsTrackRef} className="outputs-marquee-track">
               {[0, 1].map((groupIndex) => (
                 <div key={groupIndex} className="outputs-marquee-group" aria-hidden={groupIndex === 1}>
                   {outputsSlides.map((project) => (

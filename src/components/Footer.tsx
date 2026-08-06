@@ -1,4 +1,3 @@
-import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "@/components/ReloadLink";
 import { ArrowUpRight } from "lucide-react";
@@ -34,58 +33,57 @@ const rotatingWords = ["design", "create", "scale"];
 
 export function Footer() {
   const [activeWordIndex, setActiveWordIndex] = useState(0);
+  const [visibleWord, setVisibleWord] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const displayWord = visibleWord.length > 0 ? visibleWord : "\u00A0";
 
   useEffect(() => {
-    const interval = window.setInterval(() => {
+    const currentWord = rotatingWords[activeWordIndex];
+
+    // Pause when word is fully typed before deleting.
+    if (!isDeleting && visibleWord === currentWord) {
+      const pauseTimeout = window.setTimeout(() => {
+        setIsDeleting(true);
+      }, 900);
+
+      return () => {
+        window.clearTimeout(pauseTimeout);
+      };
+    }
+
+    // When deletion is complete, advance to next word and start typing.
+    if (isDeleting && visibleWord.length === 0) {
+      setIsDeleting(false);
       setActiveWordIndex((currentIndex) => (currentIndex + 1) % rotatingWords.length);
-    }, 1800);
+      return;
+    }
+
+    const typeDelay = isDeleting ? 55 : 90;
+    const tickTimeout = window.setTimeout(() => {
+      setVisibleWord((previousValue) => {
+        if (isDeleting) {
+          return previousValue.slice(0, -1);
+        }
+
+        return currentWord.slice(0, previousValue.length + 1);
+      });
+    }, typeDelay);
 
     return () => {
-      window.clearInterval(interval);
+      window.clearTimeout(tickTimeout);
     };
-  }, []);
+  }, [activeWordIndex, isDeleting, visibleWord]);
 
   return (
     <footer className="overflow-hidden bg-[#050505] text-white">
-      <div className="container-wide border-t border-white/10 py-12 lg:py-14">
-        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:divide-x lg:divide-white/10 lg:gap-0">
-          <div className="lg:pr-10 xl:pr-14">
-            <h2 className="max-w-[16ch] [font-family:'Satoshi'] text-[44px] font-medium leading-[1] tracking-[-0.035em] text-white sm:text-[56px] lg:text-[64px]">
-              Let&apos;s {" "}
-              <span className="inline-block min-w-[7ch] text-white/65">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={rotatingWords[activeWordIndex]}
-                    className="inline-block"
-                    initial={{ opacity: 0, y: 14 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -14 }}
-                    transition={{ duration: 0.32, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  >
-                    {rotatingWords[activeWordIndex]}
-                  </motion.span>
-                </AnimatePresence>
-              </span>
-              <br />
-              together.
-            </h2>
-          </div>
-
-          <div className="lg:pl-10 xl:pl-14">
-            <div className="aspect-[21/9] overflow-hidden rounded-[20px] border border-white/15 bg-white/5">
-              <video
-                className="h-full w-full object-cover"
-                src="/Media/pinterest-video.mp4?v=1"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-label="Footer showcase video"
-              />
-            </div>
-          </div>
-        </div>
+      <div className="container-wide border-t border-white/10 py-[4.5rem] lg:py-[5.5rem]">
+        <h2 className="w-full whitespace-nowrap [font-family:'Satoshi'] text-[clamp(44px,8.4vw,136px)] font-medium leading-[1.02] tracking-[-0.04em] text-white">
+          Let&apos;s {" "}
+          <span className="inline-flex items-center bg-accent px-[0.14em] text-accent-foreground">
+            <span className="inline-block">{displayWord}</span>
+          </span>{" "}
+          together.
+        </h2>
       </div>
 
       <div className="border-t border-white/10">
