@@ -35,7 +35,7 @@ export function Footer() {
   const [activeWordIndex, setActiveWordIndex] = useState(0);
   const [visibleWord, setVisibleWord] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const displayWord = visibleWord.length > 0 ? visibleWord : "\u00A0";
+  const displayWord = visibleWord.length > 0 ? visibleWord : " ";
 
   useEffect(() => {
     const currentWord = rotatingWords[activeWordIndex];

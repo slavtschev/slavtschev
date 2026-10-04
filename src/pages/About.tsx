@@ -91,11 +91,11 @@ const keyStats = [
 const sectionShellClassName = "container-wide pb-[72px] lg:pb-[96px]";
 const sectionGridClassName = "grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-14";
 const sectionIntroClassName =
-  "lg:col-span-2 [font-family:'Satoshi'] text-[12px] font-medium uppercase tracking-[0.2em] text-foreground/68";
+  "lg:col-span-2 text-[12px] font-medium uppercase tracking-[0.2em] text-foreground/68";
 const sectionTitleClassName =
-  "[font-family:'Satoshi'] text-[38px] font-medium leading-[1.08] tracking-[-0.03em] text-foreground sm:text-[44px] lg:text-[48px]";
+  "text-[38px] font-medium leading-[1.08] tracking-[-0.03em] text-foreground sm:text-[44px] lg:text-[48px]";
 const sectionBodyClassName =
-  "max-w-[44rem] [font-family:'Satoshi'] text-[24px] font-medium leading-[1.28] tracking-[-0.02em] text-foreground/86";
+  "max-w-[44rem] text-[24px] font-medium leading-[1.28] tracking-[-0.02em] text-foreground/86";
 
 const revealEase = [0.25, 0.46, 0.45, 0.94] as const;
 
@@ -122,7 +122,7 @@ export default function About() {
 
             <div className="lg:col-start-4 lg:col-end-13">
               <motion.h1
-                className="max-w-[14ch] [font-family:'Satoshi'] text-[56px] font-medium leading-[0.98] tracking-[-0.04em] text-foreground sm:text-[64px] lg:text-[90px]"
+                className="max-w-[14ch] text-[56px] font-medium leading-[0.98] tracking-[-0.04em] text-foreground sm:text-[64px] lg:text-[90px]"
                 initial={{ opacity: 0, y: 24 }}
                 animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
                 transition={{ duration: 0.82, ease: revealEase }}
@@ -170,10 +170,10 @@ export default function About() {
               animate={statsSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
               transition={{ duration: 0.62, delay: 0.08 * index, ease: revealEase }}
             >
-              <p className="[font-family:'Satoshi'] text-[54px] font-medium leading-[0.95] tracking-[-0.04em] text-foreground sm:text-[64px]">
+              <p className="text-[54px] font-medium leading-[0.95] tracking-[-0.04em] text-foreground sm:text-[64px]">
                 {stat.value}
               </p>
-              <p className="mt-3 max-w-[18ch] [font-family:'Satoshi'] text-[19px] font-medium leading-[1.25] text-foreground/58">
+              <p className="mt-3 max-w-[18ch] text-[19px] font-medium leading-[1.25] text-foreground/58">
                 {stat.label}
               </p>
             </motion.article>
@@ -237,7 +237,7 @@ export default function About() {
         <div className="container-wide relative">
           <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-14">
             <motion.p
-              className="lg:col-span-2 [font-family:'Satoshi'] text-[12px] font-medium uppercase tracking-[0.2em] text-white/60"
+              className="lg:col-span-2 text-[12px] font-medium uppercase tracking-[0.2em] text-white/60"
               initial={{ opacity: 0 }}
               animate={focusSection.isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6, ease: revealEase }}
@@ -272,7 +272,7 @@ export default function About() {
               <div className="mt-12 rounded-[24px] border border-white/12 bg-white/[0.03] px-5 py-6 sm:px-7 sm:py-8 lg:px-9 lg:py-9">
                 <div className="space-y-9">
                   <div>
-                    <p className="[font-family:'Satoshi'] text-[12px] font-medium uppercase tracking-[0.16em] text-white/52">
+                    <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-white/52">
                       Focus
                     </p>
                     <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-10">
@@ -287,7 +287,7 @@ export default function About() {
                           {column.map((item) => (
                             <li
                               key={item}
-                              className="flex items-center gap-3 [font-family:'Satoshi'] text-[19px] font-medium leading-[1.2] tracking-[-0.02em] text-white sm:text-[21px] lg:text-[23px]"
+                              className="flex items-center gap-3 text-[19px] font-medium leading-[1.2] tracking-[-0.02em] text-white sm:text-[21px] lg:text-[23px]"
                             >
                               <span className="text-[18px] leading-none text-accent sm:text-[19px]">+</span>
                               <span>{item}</span>
@@ -299,7 +299,7 @@ export default function About() {
                   </div>
 
                   <div>
-                    <p className="[font-family:'Satoshi'] text-[12px] font-medium uppercase tracking-[0.16em] text-white/52">
+                    <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-white/52">
                       Industries
                     </p>
                     <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-10">
@@ -317,7 +317,7 @@ export default function About() {
                             return (
                               <li
                                 key={item.label}
-                                className="flex items-center gap-3 [font-family:'Satoshi'] text-[18px] font-medium leading-[1.2] tracking-[-0.02em] text-white/95 sm:text-[20px] lg:text-[22px]"
+                                className="flex items-center gap-3 text-[18px] font-medium leading-[1.2] tracking-[-0.02em] text-white/95 sm:text-[20px] lg:text-[22px]"
                               >
                                 {Icon ? <Icon size={15} className="shrink-0 text-accent/85" aria-hidden /> : null}
                                 <span>{item.label}</span>
@@ -330,7 +330,7 @@ export default function About() {
                   </div>
 
                   <div>
-                    <p className="[font-family:'Satoshi'] text-[12px] font-medium uppercase tracking-[0.16em] text-white/52">
+                    <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-white/52">
                       Tools
                     </p>
                     <motion.div
@@ -344,7 +344,7 @@ export default function About() {
                           const Icon = item.icon;
 
                           return (
-                            <div key={item.label} className="flex items-center gap-3 [font-family:'Satoshi'] text-[16px] font-medium leading-[1.2] tracking-[-0.02em] text-white/95 sm:text-[17px] lg:text-[18px]">
+                            <div key={item.label} className="flex items-center gap-3 text-[16px] font-medium leading-[1.2] tracking-[-0.02em] text-white/95 sm:text-[17px] lg:text-[18px]">
                               {Icon ? <Icon size={15} className="shrink-0 text-accent/85" aria-hidden /> : null}
                               <span>{item.label}</span>
                             </div>

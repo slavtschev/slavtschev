@@ -547,7 +547,7 @@ export default function Index() {
           {/* Line 1: small left (4 cols), large right (8 cols) */}
           <FeaturedCard {...featuredProjects[1]} isInView={projectsSection.isInView} index={0} />
           <FeaturedCard {...featuredProjects[0]} isInView={projectsSection.isInView} index={1} />
-          
+
           {/* Line 2: large left (8 cols), small right (4 cols) */}
           <FeaturedCard {...featuredProjects[3]} isInView={projectsSection.isInView} index={2} />
           <FeaturedCard {...featuredProjects[2]} isInView={projectsSection.isInView} index={3} />

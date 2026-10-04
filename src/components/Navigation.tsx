@@ -100,9 +100,9 @@ export function Navigation() {
                 </li>
               ))}
               <li className="pt-4">
-                <Button 
-                  asChild 
-                  variant="outline" 
+                <Button
+                  asChild
+                  variant="outline"
                   className="[font-family:'Satoshi'] w-full rounded-full text-[16px] leading-none font-normal"
                 >
                   <Link to="/_private/design-system" onClick={() => setMobileOpen(false)}>

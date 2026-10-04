@@ -56,15 +56,15 @@ function NoteCard({
 
         <div className="mt-4">
           <div className="flex items-center gap-4">
-            <span className="inline-flex h-8 items-center rounded-[10px] bg-secondary px-3 [font-family:'Satoshi'] text-[14px] font-medium leading-none text-foreground">
+            <span className="inline-flex h-8 items-center rounded-[10px] bg-secondary px-3 text-[14px] font-medium leading-none text-foreground">
               {category}
             </span>
-            <p className="[font-family:'Satoshi'] text-[16px] font-medium leading-none text-foreground/70">
+            <p className="text-[16px] font-medium leading-none text-foreground/70">
               {date}
             </p>
           </div>
 
-          <h2 className="mt-4 [font-family:'Satoshi'] text-[24px] font-medium leading-[1.08] tracking-[-0.02em] text-foreground">
+          <h2 className="mt-4 text-[24px] font-medium leading-[1.08] tracking-[-0.02em] text-foreground">
             {title}
           </h2>
         </div>
@@ -78,7 +78,7 @@ export default function Playground() {
     <>
       <section className="container-wide pt-24 pb-0 md:pt-28 lg:pt-[128px] lg:pb-0">
         <div className="grid grid-cols-1 items-start">
-          <h1 className="max-w-[14ch] [font-family:'Satoshi'] text-[48px] font-medium leading-[1] tracking-[-0.035em] text-foreground">
+          <h1 className="max-w-[14ch] text-[48px] font-medium leading-[1] tracking-[-0.035em] text-foreground">
             Ideas that drive meaningful impact
           </h1>
         </div>
