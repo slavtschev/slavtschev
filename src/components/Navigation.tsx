@@ -4,6 +4,7 @@ import { Link } from "@/components/ReloadLink";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/Logo";
 
 const navLinks = [
   { name: "About", path: "/about" },
@@ -21,11 +22,8 @@ export function Navigation() {
       <nav className="container-wide h-24">
         <div className="hidden h-full md:grid md:grid-cols-[minmax(18rem,0.92fr)_minmax(0,1.8fr)] md:items-center md:gap-x-14 xl:gap-x-18">
           <div className="flex items-center justify-start min-w-0">
-            <Link
-              to="/"
-              className="[font-family:'Satoshi'] text-[24px] leading-none font-bold tracking-tight"
-            >
-              SLAVTSCHEV
+            <Link to="/" aria-label="D.SLAVCHEV, home" className="text-foreground">
+              <Logo className="h-[18px] w-auto" />
             </Link>
           </div>
 
@@ -35,7 +33,7 @@ export function Navigation() {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="[font-family:'Satoshi'] text-[16px] leading-none font-semibold text-foreground transition-colors hover:text-muted-foreground"
+                    className="text-[16px] leading-none font-semibold text-foreground transition-colors hover:text-muted-foreground"
                   >
                     {link.name}
                   </Link>
@@ -46,7 +44,7 @@ export function Navigation() {
             <div className="flex items-center justify-end min-w-0">
               <Button
                 asChild
-                className="group [font-family:'Satoshi'] h-10 rounded-full px-6 text-[16px] leading-none font-normal inline-flex items-center gap-2 hover:bg-primary hover:text-primary-foreground"
+                className="group h-10 rounded-full px-6 text-[16px] leading-none font-normal"
               >
                 <Link to="/contact">
                   Get in Touch
@@ -66,8 +64,8 @@ export function Navigation() {
             className="flex w-full items-center justify-between"
             aria-label="Toggle menu"
           >
-            <span className="[font-family:'Satoshi'] text-[24px] leading-none font-bold tracking-tight">
-              SLAVTSCHEV
+            <span aria-label="D.SLAVCHEV" className="text-foreground">
+              <Logo className="h-4 w-auto" />
             </span>
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -89,7 +87,7 @@ export function Navigation() {
                   <Link
                     to={link.path}
                     onClick={() => setMobileOpen(false)}
-                    className={`[font-family:'Satoshi'] text-[16px] leading-none font-medium ${
+                    className={`text-[16px] leading-none font-medium ${
                       location.pathname === link.path
                         ? "text-foreground"
                         : "text-muted-foreground"
@@ -102,11 +100,15 @@ export function Navigation() {
               <li className="pt-4">
                 <Button
                   asChild
-                  variant="outline"
-                  className="[font-family:'Satoshi'] w-full rounded-full text-[16px] leading-none font-normal"
+                  variant="secondary"
+                  className="group w-full rounded-full text-[16px] leading-none font-normal"
                 >
                   <Link to="/contact" onClick={() => setMobileOpen(false)}>
                     Get in Touch
+                    <ArrowUpRight
+                      size={18}
+                      className="transition-transform duration-300 ease-out group-hover:rotate-45"
+                    />
                   </Link>
                 </Button>
               </li>

@@ -22,7 +22,7 @@ export default function Contact() {
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0">
         <div className="lg:col-span-4">
           <motion.p
-            className="text-[12px] font-medium uppercase tracking-[0.2em] text-foreground/68"
+            className="web-label text-foreground/68"
             initial={{ opacity: 0 }}
             animate={pageSection.isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, ease: revealEase }}
@@ -31,7 +31,7 @@ export default function Contact() {
           </motion.p>
 
           <motion.h1
-            className="mt-5 text-[56px] font-medium leading-[0.98] tracking-[-0.04em] text-foreground sm:text-[64px] lg:text-[90px]"
+            className="mt-5 web-display text-foreground"
             initial={{ opacity: 0, y: 22 }}
             animate={pageSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
             transition={{ duration: 0.78, delay: 0.06, ease: revealEase }}
@@ -40,7 +40,7 @@ export default function Contact() {
           </motion.h1>
 
           <motion.p
-            className="mt-8 max-w-[24ch] text-[19px] font-medium leading-[1.45] tracking-[-0.01em] text-foreground/68"
+            className="mt-8 max-w-[24ch] web-lead text-foreground/68"
             initial={{ opacity: 0, y: 16 }}
             animate={pageSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.72, delay: 0.14, ease: revealEase }}
@@ -55,34 +55,34 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.2, ease: revealEase }}
           >
             <div>
-              <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-foreground/55">
+              <p className="web-label text-muted-foreground">
                 Email
               </p>
               <a
                 href="mailto:slavchev.dimitar@yahoo.com"
-                className="mt-2 inline-block text-[20px] font-medium leading-[1.25] tracking-[-0.02em] text-foreground transition-colors hover:text-accent"
+                className="mt-2 inline-block web-lead text-foreground transition-colors hover:text-accent"
               >
                 slavchev.dimitar@yahoo.com
               </a>
             </div>
 
             <div>
-              <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-foreground/55">
+              <p className="web-label text-muted-foreground">
                 Phone
               </p>
               <a
                 href="tel:+359893401023"
-                className="mt-2 inline-block text-[20px] font-medium leading-[1.25] tracking-[-0.02em] text-foreground transition-colors hover:text-accent"
+                className="mt-2 inline-block web-lead text-foreground transition-colors hover:text-accent"
               >
                 +359893401023
               </a>
             </div>
 
             <div>
-              <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-foreground/55">
+              <p className="web-label text-muted-foreground">
                 Based in
               </p>
-              <p className="mt-2 text-[20px] font-medium leading-[1.25] tracking-[-0.02em] text-foreground">
+              <p className="mt-2 web-lead text-foreground">
                 Sofia, Bulgaria
               </p>
             </div>
@@ -95,7 +95,7 @@ export default function Contact() {
           animate={pageSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
           transition={{ duration: 0.76, delay: 0.12, ease: revealEase }}
         >
-          <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-foreground/55">
+          <p className="web-label text-muted-foreground">
             Elsewhere
           </p>
           <div className="mt-4 flex flex-col border-t border-foreground/15">
@@ -107,10 +107,10 @@ export default function Contact() {
                 onClick={(event) => event.preventDefault()}
                 className="group flex items-center justify-between gap-6 border-b border-foreground/12 py-6 text-foreground transition-colors hover:text-accent"
               >
-                <span className="text-[22px] font-medium tracking-[-0.01em]">{profile.name}</span>
+                <span className="web-title">{profile.name}</span>
                 <ArrowUpRight
                   size={20}
-                  className="shrink-0 text-foreground/55 transition-transform duration-300 ease-out group-hover:rotate-45 group-hover:text-accent"
+                  className="shrink-0 text-muted-foreground transition-transform duration-300 ease-out group-hover:rotate-45 group-hover:text-accent"
                   aria-hidden="true"
                 />
               </a>

@@ -2,25 +2,18 @@ import { useEffect, useState } from "react";
 import { Link } from "@/components/ReloadLink";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
 
 const footerNavLinks = [
   { name: "Homepage", path: "/" },
   { name: "About", path: "/about" },
   { name: "Case Studies", path: "/systems" },
   { name: "Selected Outputs", path: "/outputs" },
-  { name: "Playground", path: "/playground" },
+  { name: "Notes", path: "/playground" },
   { name: "Contact", path: "/contact" },
 ];
 
-const serviceLinks = [
-  "Creative Production",
-  "UX/UI Design",
-  "Branding",
-  "Motion Design",
-  "Marketing Design",
-  "No-Code Development",
-  "Workflow Automation",
-];
+const serviceLinks = ["Creative production", "UX/UI design", "Automation", "No-code development"];
 
 // TODO: swap href="#" for the real profile URL once you have it; placeholder shown in title on hover.
 const socialLinks = [
@@ -33,19 +26,43 @@ const socialLinks = [
 const rotatingWords = ["design", "create", "scale"];
 
 export function Footer() {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [activeWordIndex, setActiveWordIndex] = useState(0);
   const [visibleWord, setVisibleWord] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const displayWord = visibleWord.length > 0 ? visibleWord : " ";
+  const displayWord = prefersReducedMotion
+    ? rotatingWords[activeWordIndex]
+    : visibleWord.length > 0
+      ? visibleWord
+      : " ";
+
+  // Reduced motion: hold each full word for 2.4s, no per-character typing.
+  useEffect(() => {
+    if (!prefersReducedMotion) {
+      return;
+    }
+
+    const holdTimeout = window.setTimeout(() => {
+      setActiveWordIndex((currentIndex) => (currentIndex + 1) % rotatingWords.length);
+    }, 2400);
+
+    return () => {
+      window.clearTimeout(holdTimeout);
+    };
+  }, [activeWordIndex, prefersReducedMotion]);
 
   useEffect(() => {
+    if (prefersReducedMotion) {
+      return;
+    }
+
     const currentWord = rotatingWords[activeWordIndex];
 
-    // Pause when word is fully typed before deleting.
+    // Hold the word fully typed for 2.4s before deleting.
     if (!isDeleting && visibleWord === currentWord) {
       const pauseTimeout = window.setTimeout(() => {
         setIsDeleting(true);
-      }, 900);
+      }, 2400);
 
       return () => {
         window.clearTimeout(pauseTimeout);
@@ -59,7 +76,7 @@ export function Footer() {
       return;
     }
 
-    const typeDelay = isDeleting ? 55 : 90;
+    const typeDelay = isDeleting ? 60 : 100;
     const tickTimeout = window.setTimeout(() => {
       setVisibleWord((previousValue) => {
         if (isDeleting) {
@@ -73,12 +90,12 @@ export function Footer() {
     return () => {
       window.clearTimeout(tickTimeout);
     };
-  }, [activeWordIndex, isDeleting, visibleWord]);
+  }, [activeWordIndex, isDeleting, prefersReducedMotion, visibleWord]);
 
   return (
-    <footer className="overflow-hidden bg-[#050505] text-white">
+    <footer className="overflow-hidden bg-foreground text-background">
       <div className="container-wide border-t border-white/10 py-[4.5rem] lg:py-[5.5rem]">
-        <h2 className="w-full whitespace-nowrap [font-family:'Satoshi'] text-[clamp(44px,8.4vw,136px)] font-medium leading-[1.02] tracking-[-0.04em] text-white">
+        <h2 className="web-display w-full whitespace-normal sm:whitespace-nowrap text-white">
           Let&apos;s {" "}
           <span className="inline-flex items-center bg-accent px-[0.14em] text-accent-foreground">
             <span className="inline-block">{displayWord}</span>
@@ -91,16 +108,16 @@ export function Footer() {
         <div className="container-wide">
           <div className="grid grid-cols-1 border-white/10 lg:grid-cols-2 lg:divide-x lg:divide-white/10">
             <div className="py-10 lg:pr-10 xl:pr-14">
-              <h2 className="max-w-[33rem] [font-family:'Satoshi'] text-[38px] font-medium leading-[1.08] tracking-[-0.03em] text-white sm:text-[48px]">
-                Build sharper digital experiences with design systems and scalable workflows.
+              <h2 className="web-headline max-w-[33rem] text-white">
+                Clear thinking. Good craft. Less noise.
               </h2>
 
               <Button
                 asChild
-                className="group mt-8 [font-family:'Satoshi'] h-10 rounded-full px-6 text-[16px] leading-none font-normal inline-flex items-center gap-2 hover:bg-primary hover:text-primary-foreground"
+                className="group mt-8 h-10 rounded-full px-6 text-[16px] leading-none font-normal"
               >
                 <Link to="/contact">
-                  Let's connect
+                  Get in Touch
                   <ArrowUpRight
                     size={18}
                     className="transition-transform duration-300 ease-out group-hover:rotate-45"
@@ -110,21 +127,21 @@ export function Footer() {
             </div>
 
             <div className="py-10 lg:pl-10 xl:pl-14">
-              <p className="max-w-[30rem] [font-family:'Satoshi'] text-[16px] leading-[1.45] text-white/82">
+              <p className="web-body max-w-[30rem] text-white/82">
                 Dimitar Slavchev
                 <br />
-                Sofia, Bulgaria
+                Designer and creative technologist, Sofia
               </p>
 
               <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
                 <div>
-                  <p className="[font-family:'Satoshi'] text-[16px] font-medium text-white/45">Navigation</p>
+                  <p className="web-label text-[#8F8F8F]">Navigation</p>
                   <nav className="mt-3 flex flex-col gap-2">
                     {footerNavLinks.map((link) => (
                       <Link
                         key={link.path}
                         to={link.path}
-                        className="footer-link [font-family:'Satoshi'] text-[16px] leading-none"
+                        className="footer-link text-[16px] leading-none"
                       >
                         <span className="footer-link-label">{link.name}</span>
                       </Link>
@@ -133,10 +150,10 @@ export function Footer() {
                 </div>
 
                 <div>
-                  <p className="[font-family:'Satoshi'] text-[16px] font-medium text-white/45">Services</p>
+                  <p className="web-label text-[#8F8F8F]">What I do</p>
                   <div className="mt-3 flex flex-col gap-2">
                     {serviceLinks.map((service) => (
-                      <p key={service} className="[font-family:'Satoshi'] text-[16px] leading-none text-white/88">
+                      <p key={service} className="text-[16px] leading-none text-white/88">
                         {service}
                       </p>
                     ))}
@@ -149,7 +166,7 @@ export function Footer() {
 
         <div className="container-wide border-t border-white/10 py-6">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center">
-            <p className="[font-family:'Satoshi'] text-[15px] text-white/62">
+            <p className="web-small text-white/62">
               © Dimitar Slavchev 2026. All rights reserved.
             </p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 md:justify-end">
@@ -159,7 +176,7 @@ export function Footer() {
                   href={social.href}
                   title={`Add your real profile: ${social.placeholder}`}
                   onClick={(event) => event.preventDefault()}
-                  className="footer-link [font-family:'Satoshi'] text-[15px]"
+                  className="footer-link text-[15px]"
                 >
                   <span className="footer-link-label">{social.name}</span>
                   <ArrowUpRight

@@ -3,113 +3,102 @@ import { useInView } from "@/hooks/use-in-view";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { Link } from "@/components/ReloadLink";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowUpRight,
-  Bot,
-  Briefcase,
-  Building2,
-  Code2,
-  Cpu,
-  Gamepad2,
-  Globe,
-  House,
-  Landmark,
-  Monitor,
-  Puzzle,
-  Search,
-  Wrench,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-interface MatrixItem {
-  label: string;
-  icon?: LucideIcon;
-}
-
-const focusColumns: string[][] = [
-  ["Product design", "Landing pages", "Redesigns"],
-  ["Apps", "Product strategy", "Brand systems"],
-  ["Websites and platforms", "No-code builds", "UX audits"],
+const steps = [
+  { number: "01", name: "Read", detail: "Understand what is already there.", image: "/about/step-01-read.svg" },
+  { number: "02", name: "Find", detail: "Find what matters.", image: "/about/step-02-find.svg" },
+  { number: "03", name: "Remove", detail: "Remove the unnecessary.", image: "/about/step-03-remove.svg" },
+  {
+    number: "04",
+    name: "Structure",
+    detail: "Give it a structure that makes it easier to understand, build, and scale.",
+    image: "/about/step-04-structure.svg",
+  },
+  { number: "05", name: "Reveal", detail: "Make what matters visible.", image: "/about/step-05-reveal.svg" },
 ];
 
-const industryColumns: MatrixItem[][] = [
-  [
-    { label: "AI products", icon: Bot },
-    { label: "SaaS", icon: Monitor },
-    { label: "Creator economy", icon: Briefcase },
-  ],
-  [
-    { label: "Fintech", icon: Landmark },
-    { label: "Crypto", icon: Cpu },
-    { label: "Gaming", icon: Gamepad2 },
-  ],
-  [
-    { label: "Ecommerce", icon: Building2 },
-    { label: "Real estate", icon: House },
-    { label: "B2B services", icon: Globe },
-  ],
-];
-
-interface ToolCategory {
-  name: string;
-  items: MatrixItem[];
-}
-
-const toolCategories: ToolCategory[] = [
+const values = [
   {
-    name: "Design Tools",
-    items: [
-      { label: "Figma", icon: Puzzle },
-      { label: "Photoshop", icon: Search },
-      { label: "Illustrator", icon: Wrench },
-      { label: "After Effects", icon: Monitor },
-    ],
+    number: "01",
+    name: "Clarity",
+    detail: "Understand the problem. Look closely, remove the unnecessary, and make what matters clear.",
   },
   {
-    name: "Web Development",
-    items: [
-      { label: "Webflow", icon: Globe },
-      { label: "JavaScript", icon: Code2 },
-      { label: "Framer", icon: Building2 },
-    ],
+    number: "02",
+    name: "Structure",
+    detail:
+      "Look for the relationships, patterns, and dependencies beneath the surface. Turn them into systems that make things easier to understand, build, and scale.",
   },
   {
-    name: "Motion Graphics",
-    items: [
-      { label: "Rive", icon: Cpu },
-      { label: "Spline", icon: Bot },
-    ],
+    number: "03",
+    name: "Craft",
+    detail: "Get the details right: spacing, naming, file structure, export settings. That's where a system holds up or breaks.",
+  },
+  {
+    number: "04",
+    name: "Curiosity",
+    detail:
+      "Stay interested beyond the boundaries of one discipline. Move between design, motion, UX, code, and automation to understand how different parts can work together.",
+  },
+  {
+    number: "05",
+    name: "Restraint",
+    detail: "Add only what the work needs. Avoid unnecessary complexity, resist trends without purpose, and let the work speak for itself.",
   },
 ];
 
-const keyStats = [
-  { value: "5+", label: "Years in production systems" },
-  { value: "40+", label: "Markets supported" },
-  { value: "10K+", label: "Assets delivered yearly" },
-  { value: "50+", label: "Brands and products" },
+const experience = [
+  {
+    period: "2024–now",
+    name: "Storytel",
+    detail: "Motion design and creative production. Campaigns localized into more than 20 markets.",
+    tags: ["Motion", "Localization", "After Effects"],
+  },
+  {
+    period: "2018–2024",
+    name: "Yettel",
+    note: "Telenor until 2022",
+    detail: "Visual identity, design systems and creative strategy for 6 years.",
+    tags: ["Identity", "Design systems", "Strategy"],
+  },
+  {
+    period: "Independent",
+    name: "Tools and sites",
+    detail:
+      "Vibe Flow for After Effects, sites on Webflow, Vite and Astro, and work for Athlon Technology, Three Hills Club, Curly Ideas Studio and StreetPhoto Lab.",
+    tags: ["Plugins", "Web", "Vibe coding"],
+  },
 ];
+
+const disciplines = [
+  { name: "Creative production", items: ["Motion design", "Templates", "Localization"] },
+  { name: "UX/UI design", items: ["Visual identity", "Design systems", "Interfaces"] },
+  { name: "Automation", items: ["After Effects plugins", "Versioning", "Workflow design"] },
+  { name: "No-code development", items: ["Webflow", "Vite and Astro, by prompting", "Prototypes"] },
+];
+
+const tools = ["Figma", "After Effects", "Illustrator", "Photoshop", "Webflow", "Framer", "JavaScript", "Rive", "Spline"];
 
 const sectionShellClassName = "container-wide pb-[72px] lg:pb-[96px]";
 const sectionGridClassName = "grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-14";
-const sectionIntroClassName =
-  "lg:col-span-2 text-[12px] font-medium uppercase tracking-[0.2em] text-foreground/68";
-const sectionTitleClassName =
-  "text-[38px] font-medium leading-[1.08] tracking-[-0.03em] text-foreground sm:text-[44px] lg:text-[48px]";
-const sectionBodyClassName =
-  "max-w-[44rem] text-[24px] font-medium leading-[1.28] tracking-[-0.02em] text-foreground/86";
+const sectionIntroClassName = "web-label lg:col-span-2 text-foreground/68";
+const sectionTitleClassName = "web-headline text-foreground";
 
 const revealEase = [0.25, 0.46, 0.45, 0.94] as const;
 
 export default function About() {
   usePageTitle("About");
   const heroSection = useInView({ threshold: 0.1, once: true });
-  const statsSection = useInView({ threshold: 0.1, once: true });
-  const philosophySection = useInView({ threshold: 0.1, once: true });
-  const focusSection = useInView({ threshold: 0.1, once: true });
+  const missionSection = useInView({ threshold: 0.1, once: true });
+  const stepsSection = useInView({ threshold: 0.1, once: true });
+  const valuesSection = useInView({ threshold: 0.1, once: true });
+  const experienceSection = useInView({ threshold: 0.1, once: true });
+  const disciplinesSection = useInView({ threshold: 0.1, once: true });
   const ctaSection = useInView({ threshold: 0.1, once: true });
 
   return (
-    <div className="[font-family:'Satoshi']">
+    <div>
       <section ref={heroSection.ref}>
         <div className="container-wide pt-24 pb-[64px] md:pt-28 lg:pt-[128px] lg:pb-[88px]">
           <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-14">
@@ -124,240 +113,254 @@ export default function About() {
 
             <div className="lg:col-start-4 lg:col-end-13">
               <motion.h1
-                className="max-w-[14ch] text-[56px] font-medium leading-[0.98] tracking-[-0.04em] text-foreground sm:text-[64px] lg:text-[90px]"
+                className="web-display max-w-[18ch] text-foreground"
                 initial={{ opacity: 0, y: 24 }}
                 animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
                 transition={{ duration: 0.82, ease: revealEase }}
               >
-                Design with structure.
-                <br />
-                Systems with taste.
+                I care about both the thing and the system behind the thing.
               </motion.h1>
 
               <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-x-6">
                 <motion.p
-                  className="lg:col-span-8 [font-family:'Satoshi'] text-[34px] font-medium leading-[1.1] tracking-[-0.03em] text-foreground/92"
+                  className="web-lead lg:col-span-8 text-foreground/92"
                   initial={{ opacity: 0, y: 16 }}
                   animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
                   transition={{ duration: 0.72, delay: 0.1, ease: revealEase }}
                 >
-                  I build the systems behind creative work so production gets faster, cleaner, and harder to break.
+                  I'm Dimitar Slavchev, a designer and creative technologist in Sofia. I spent 6 years at
+                  Yettel on visual identity, design systems and creative strategy, and the last 2 at
+                  Storytel on motion design and creative production across 20+ markets.
                 </motion.p>
 
                 <motion.p
-                  className="max-w-[18ch] lg:col-span-4 [font-family:'Satoshi'] text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-foreground/58"
+                  className="web-body lg:col-span-8 text-muted-foreground"
                   initial={{ opacity: 0, y: 12 }}
                   animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
                   transition={{ duration: 0.68, delay: 0.2, ease: revealEase }}
                 >
-                  No overcomplicated process, just clear solutions tailored to real team needs.
+                  On my own I built Vibe Flow, an After Effects plugin, and a run of sites on Webflow,
+                  Vite and Astro. Over those years my work moved from single outputs to the systems that
+                  produce them.
                 </motion.p>
               </div>
+
+              <motion.div
+                className="mt-8"
+                initial={{ opacity: 0, y: 10 }}
+                animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                transition={{ duration: 0.7, delay: 0.28, ease: revealEase }}
+              >
+                <Button asChild className="group h-10 rounded-full px-6 text-[16px] leading-none font-normal">
+                  <Link to="/contact">
+                    Get in Touch
+                    <ArrowUpRight
+                      size={18}
+                      className="transition-transform duration-300 ease-out group-hover:rotate-45"
+                    />
+                  </Link>
+                </Button>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
-      <section ref={statsSection.ref} className="container-wide pb-[72px] lg:pb-[104px]">
+      <section ref={missionSection.ref} className={sectionShellClassName}>
         <motion.div
-          className="grid grid-cols-2 gap-8 border-y border-foreground/15 py-10 lg:grid-cols-4 lg:gap-10"
+          className="grid grid-cols-1 gap-6 lg:grid-cols-2"
           initial={{ opacity: 0, y: 18 }}
-          animate={statsSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
+          animate={missionSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
           transition={{ duration: 0.75, ease: revealEase }}
         >
-          {keyStats.map((stat, index) => (
-            <motion.article
-              key={stat.label}
-              initial={{ opacity: 0, y: 12 }}
-              animate={statsSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-              transition={{ duration: 0.62, delay: 0.08 * index, ease: revealEase }}
-            >
-              <p className="text-[54px] font-medium leading-[0.95] tracking-[-0.04em] text-foreground sm:text-[64px]">
-                {stat.value}
-              </p>
-              <p className="mt-3 max-w-[18ch] text-[19px] font-medium leading-[1.25] text-foreground/58">
-                {stat.label}
-              </p>
-            </motion.article>
-          ))}
+          <div className="flex min-h-[15rem] flex-col justify-between gap-12 rounded-xl bg-card p-8">
+            <span className="web-title">Mission</span>
+            <p className="web-lead">
+              I build systems across design, technology, and production that keep working as the work
+              gets bigger.
+            </p>
+          </div>
+          <div className="flex min-h-[15rem] flex-col justify-between gap-12 rounded-xl bg-card p-8">
+            <span className="web-title">Purpose</span>
+            <p className="web-lead">
+              To combine what I know across disciplines to shape products and services I believe in.
+              Things that actually help and actually work.
+            </p>
+          </div>
         </motion.div>
       </section>
 
-      <section ref={philosophySection.ref} className={sectionShellClassName}>
+      <section ref={stepsSection.ref} className={sectionShellClassName}>
+        <div className="flex flex-wrap items-end justify-between gap-6 pb-12">
+          <div className="max-w-[28rem]">
+            <p className="web-label text-muted-foreground">How I work</p>
+            <h2 className={`mt-4 ${sectionTitleClassName}`}>Every project runs the same 5 steps.</h2>
+          </div>
+          <p className="max-w-[24rem] web-body text-muted-foreground">
+            The logo is the last one: a D that exists only in the space the form leaves open.
+          </p>
+        </div>
+
+        <motion.ol
+          className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5"
+          initial={{ opacity: 0, y: 16 }}
+          animate={stepsSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+          transition={{ duration: 0.7, ease: revealEase }}
+        >
+          {steps.map((step) => (
+            <li key={step.number} className="flex flex-col gap-4">
+              <img src={step.image} alt="" className="aspect-square w-full rounded-lg" loading="lazy" />
+              <span className="web-label text-muted-foreground">
+                {step.number}
+              </span>
+              <span className="web-title">{step.name}</span>
+              <span className="web-body text-muted-foreground">{step.detail}</span>
+            </li>
+          ))}
+        </motion.ol>
+      </section>
+
+      <section ref={valuesSection.ref} className="bg-foreground py-[72px] text-background lg:py-[96px]">
+        <div className="container-wide">
+          <div className="pb-12">
+            <p className="web-label text-background/55">Values</p>
+            <h2 className="web-headline mt-4">
+              The 5 values behind the work.
+            </h2>
+          </div>
+
+          <motion.div
+            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5"
+            initial={{ opacity: 0, y: 16 }}
+            animate={valuesSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+            transition={{ duration: 0.7, ease: revealEase }}
+          >
+            {values.map((value) => (
+              <div key={value.number} className="flex flex-col gap-4 rounded-xl bg-background/10 p-6">
+                <span className="web-label text-background/55">
+                  {value.number}
+                </span>
+                <span className="web-title">{value.name}</span>
+                <span className="web-body text-background/65">{value.detail}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section ref={experienceSection.ref} className={sectionShellClassName}>
         <div className={sectionGridClassName}>
           <motion.p
             className={sectionIntroClassName}
             initial={{ opacity: 0 }}
-            animate={philosophySection.isInView ? { opacity: 1 } : { opacity: 0 }}
+            animate={experienceSection.isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, ease: revealEase }}
           >
-            Approach
+            Experience
           </motion.p>
 
           <div className="lg:col-start-4 lg:col-end-13">
             <motion.h2
               className={sectionTitleClassName}
               initial={{ opacity: 0, y: 20 }}
-              animate={philosophySection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              animate={experienceSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.08, ease: revealEase }}
             >
-              I do not like doing the same thing twice.
+              From campaigns to the systems behind them.
             </motion.h2>
 
-            <motion.p
-              className={`mt-8 ${sectionBodyClassName}`}
-              initial={{ opacity: 0, y: 18 }}
-              animate={philosophySection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
-              transition={{ duration: 0.74, delay: 0.15, ease: revealEase }}
-            >
-              If something is repetitive, it can be improved or automated. My work sits between design and systems, building workflows and tools that make production faster, cleaner, and more reliable.
-            </motion.p>
-
-            <motion.p
-              className="mt-6 max-w-[44rem] [font-family:'Satoshi'] text-[24px] font-medium leading-[1.28] tracking-[-0.02em] text-foreground/62"
-              initial={{ opacity: 0, y: 18 }}
-              animate={philosophySection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
-              transition={{ duration: 0.74, delay: 0.22, ease: revealEase }}
-            >
-              Over 5+ years in high-volume digital advertising, I shifted from campaign execution toward system design, templates, and automation that scale creative output without losing quality.
-            </motion.p>
+            <div className="mt-10 flex flex-col border-t border-foreground/15">
+              {experience.map((item, index) => (
+                <motion.div
+                  key={item.name}
+                  className="flex flex-col gap-2 border-b border-foreground/12 py-6 sm:flex-row sm:gap-8"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={experienceSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+                  transition={{ duration: 0.6, delay: 0.1 + index * 0.08, ease: revealEase }}
+                >
+                  <span className="shrink-0 web-label text-muted-foreground sm:w-32">
+                    {item.period}
+                  </span>
+                  <div className="flex flex-col gap-2">
+                    <span className="web-title">
+                      {item.name}
+                      {item.note ? (
+                        <span className="ml-2 web-small text-muted-foreground">
+                          {item.note}
+                        </span>
+                      ) : null}
+                    </span>
+                    <span className="max-w-[40rem] web-body text-muted-foreground">
+                      {item.detail}
+                    </span>
+                    <span className="flex flex-wrap gap-2 pt-1">
+                      {item.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-flex h-8 items-center rounded-full bg-card px-4 text-[14px] font-medium text-foreground/68"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section ref={focusSection.ref} className="relative overflow-hidden bg-black py-[88px] lg:py-[112px]">
-        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/12" />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-20 top-8 h-56 w-56 rounded-full bg-accent/20 blur-3xl"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -left-12 bottom-10 h-44 w-44 rounded-full bg-accent/15 blur-3xl"
-        />
+      <section ref={disciplinesSection.ref} className={sectionShellClassName}>
+        <div className={sectionGridClassName}>
+          <motion.p
+            className={sectionIntroClassName}
+            initial={{ opacity: 0 }}
+            animate={disciplinesSection.isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.6, ease: revealEase }}
+          >
+            What I do
+          </motion.p>
 
-        <div className="container-wide relative">
-          <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-14">
-            <motion.p
-              className="lg:col-span-2 text-[12px] font-medium uppercase tracking-[0.2em] text-white/60"
-              initial={{ opacity: 0 }}
-              animate={focusSection.isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.6, ease: revealEase }}
-            >
-              Services
-            </motion.p>
-
-            <motion.div
-              className="lg:col-start-4 lg:col-end-13"
+          <div className="lg:col-start-4 lg:col-end-13">
+            <motion.h2
+              className={sectionTitleClassName}
               initial={{ opacity: 0, y: 20 }}
-              animate={focusSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.75, delay: 0.1, ease: revealEase }}
+              animate={disciplinesSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.8, delay: 0.08, ease: revealEase }}
             >
-              <motion.h3
-                className={`${sectionTitleClassName} text-primary-foreground`}
-                initial={{ opacity: 0, y: 12 }}
-                animate={focusSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-                transition={{ duration: 0.68, delay: 0.16, ease: revealEase }}
-              >
-                Focus, industries, and tools that drive execution.
-              </motion.h3>
+              4 disciplines, a single way of working.
+            </motion.h2>
 
-              <motion.p
-                className={`${sectionBodyClassName} mt-6 max-w-[52rem] text-primary-foreground/70`}
-                initial={{ opacity: 0, y: 10 }}
-                animate={focusSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                transition={{ duration: 0.64, delay: 0.22, ease: revealEase }}
-              >
-                Clear product work, practical strategy, and production systems built for speed.
-              </motion.p>
-
-              <div className="mt-12 rounded-[24px] border border-white/12 bg-white/[0.03] px-5 py-6 sm:px-7 sm:py-8 lg:px-9 lg:py-9">
-                <div className="space-y-9">
-                  <div>
-                    <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-white/52">
-                      Focus
-                    </p>
-                    <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-10">
-                      {focusColumns.map((column, columnIndex) => (
-                        <motion.ul
-                          key={`focus-col-${columnIndex}`}
-                          className="space-y-2.5"
-                          initial={{ opacity: 0, y: 8 }}
-                          animate={focusSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
-                          transition={{ duration: 0.58, delay: 0.24 + columnIndex * 0.06, ease: revealEase }}
-                        >
-                          {column.map((item) => (
-                            <li
-                              key={item}
-                              className="flex items-center gap-3 text-[19px] font-medium leading-[1.2] tracking-[-0.02em] text-white sm:text-[21px] lg:text-[23px]"
-                            >
-                              <span className="text-[18px] leading-none text-accent sm:text-[19px]">+</span>
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </motion.ul>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-white/52">
-                      Industries
-                    </p>
-                    <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-10">
-                      {industryColumns.map((column, columnIndex) => (
-                        <motion.ul
-                          key={`industry-col-${columnIndex}`}
-                          className="space-y-2.5"
-                          initial={{ opacity: 0, y: 8 }}
-                          animate={focusSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
-                          transition={{ duration: 0.58, delay: 0.3 + columnIndex * 0.06, ease: revealEase }}
-                        >
-                          {column.map((item) => {
-                            const Icon = item.icon;
-
-                            return (
-                              <li
-                                key={item.label}
-                                className="flex items-center gap-3 text-[18px] font-medium leading-[1.2] tracking-[-0.02em] text-white/95 sm:text-[20px] lg:text-[22px]"
-                              >
-                                {Icon ? <Icon size={15} className="shrink-0 text-accent/85" aria-hidden /> : null}
-                                <span>{item.label}</span>
-                              </li>
-                            );
-                          })}
-                        </motion.ul>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-white/52">
-                      Tools
-                    </p>
-                    <motion.div
-                      className="mt-4 flex flex-wrap gap-x-6 gap-y-3.5"
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={focusSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
-                      transition={{ duration: 0.58, delay: 0.36, ease: revealEase }}
-                    >
-                      {toolCategories.map((category) =>
-                        category.items.map((item) => {
-                          const Icon = item.icon;
-
-                          return (
-                            <div key={item.label} className="flex items-center gap-3 text-[16px] font-medium leading-[1.2] tracking-[-0.02em] text-white/95 sm:text-[17px] lg:text-[18px]">
-                              {Icon ? <Icon size={15} className="shrink-0 text-accent/85" aria-hidden /> : null}
-                              <span>{item.label}</span>
-                            </div>
-                          );
-                        })
-                      )}
-                    </motion.div>
-                  </div>
+            <div className="mt-10 grid grid-cols-1 gap-8 border-t border-foreground/15 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+              {disciplines.map((discipline) => (
+                <div key={discipline.name} className="flex flex-col gap-3">
+                  <span className="web-title">{discipline.name}</span>
+                  <span className="web-body text-muted-foreground">
+                    {discipline.items.map((item, i) => (
+                      <span key={item}>
+                        {item}
+                        {i < discipline.items.length - 1 ? <br /> : null}
+                      </span>
+                    ))}
+                  </span>
                 </div>
-              </div>
-            </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-10 flex flex-wrap items-center gap-2">
+              <span className="mr-2 web-label text-muted-foreground">
+                Tools
+              </span>
+              {tools.map((tool) => (
+                <span
+                  key={tool}
+                  className="inline-flex h-8 items-center rounded-full bg-card px-4 text-[14px] font-medium text-foreground/68"
+                >
+                  {tool}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -380,16 +383,16 @@ export default function About() {
               animate={ctaSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.08, ease: revealEase }}
             >
-              Ready to bring your ideas to life?
+              Got a project in mind?
             </motion.h2>
 
             <motion.p
-              className={`mt-8 ${sectionBodyClassName}`}
+              className="mt-8 max-w-[44rem] web-lead text-foreground/68"
               initial={{ opacity: 0, y: 18 }}
               animate={ctaSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
               transition={{ duration: 0.74, delay: 0.15, ease: revealEase }}
             >
-              Let's collaborate. Whether you need a complete design system built from scratch, workflow automation to scale production, or strategic guidance on product direction—I'm available for focused projects and partnerships.
+              Share what you're building and where you're blocked. I'll tell you plainly if I can help.
             </motion.p>
 
             <motion.div
@@ -398,12 +401,9 @@ export default function About() {
               animate={ctaSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
               transition={{ duration: 0.72, delay: 0.22, ease: revealEase }}
             >
-              <Button
-                asChild
-                className="group [font-family:'Satoshi'] h-10 rounded-full px-6 text-[16px] leading-none font-normal inline-flex items-center gap-2 hover:bg-primary hover:text-primary-foreground"
-              >
+              <Button asChild className="group h-10 rounded-full px-6 text-[16px] leading-none font-normal">
                 <Link to="/contact">
-                  Start a conversation
+                  Get in Touch
                   <ArrowUpRight
                     size={18}
                     className="transition-transform duration-300 ease-out group-hover:rotate-45"

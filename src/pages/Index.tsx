@@ -1,17 +1,10 @@
 import { Link } from "@/components/ReloadLink";
-import { SectionHeading } from "@/components/SectionHeading";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "@/hooks/use-in-view";
 import { usePageTitle } from "@/hooks/use-page-title";
-
-const whoIAmStats = [
-  { label: "Years", value: "7+" },
-  { label: "Brands", value: "50+" },
-  { label: "Markets", value: "40+" },
-  { label: "Assets/year", value: "10K+" },
-];
+import { Button } from "@/components/ui/button";
 
 const featuredProjects: {
   title: string;
@@ -105,85 +98,28 @@ const clients = [
 
 const outputsSlides = [
   {
-    title: "Radiant",
-    image:
-      "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1400&q=80",
-    link: "/outputs",
+    title: "Storytel",
+    image: "/work/storytel.jpg",
+    link: "/systems",
     widthClass: "w-[80vw] sm:w-[42vw] lg:w-[26rem]",
   },
   {
-    title: "Savings Interaction",
-    image:
-      "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1400&q=80",
-    link: "/outputs",
+    title: "Localization platform",
+    image: "/work/localization-platform.jpg",
+    link: "/systems",
     widthClass: "w-[80vw] sm:w-[42vw] lg:w-[18rem]",
   },
   {
-    title: "Crystal AI",
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80",
-    link: "/outputs",
+    title: "Yettel",
+    image: "/work/yettel.png",
+    link: "/systems",
     widthClass: "w-[80vw] sm:w-[42vw] lg:w-[26rem]",
   },
   {
-    title: "Mobile Wallet",
-    image:
-      "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?auto=format&fit=crop&w=1400&q=80",
-    link: "/outputs",
+    title: "Photography sites",
+    image: "/work/photography-sites.jpg",
+    link: "/systems",
     widthClass: "w-[80vw] sm:w-[42vw] lg:w-[18rem]",
-  },
-  {
-    title: "Nova Commerce",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80",
-    link: "/outputs",
-    widthClass: "w-[80vw] sm:w-[42vw] lg:w-[24rem]",
-  },
-  {
-    title: "Pulse Dashboard",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80",
-    link: "/outputs",
-    widthClass: "w-[80vw] sm:w-[42vw] lg:w-[20rem]",
-  },
-];
-
-const expertiseAreas = [
-  {
-    title: "Creative Systems & Automation",
-    bullets: [
-      "Scalable production frameworks",
-      "Template architecture design",
-      "Workflow optimization",
-      "Asset management systems",
-    ],
-  },
-  {
-    title: "Motion & Video Production",
-    bullets: [
-      "Modular motion templates",
-      "Video localization pipelines",
-      "Social-first video content",
-      "Animation systems design",
-    ],
-  },
-  {
-    title: "Digital Marketing Creatives",
-    bullets: [
-      "Display & programmatic ads",
-      "Social media campaigns",
-      "Email design systems",
-      "Performance creative testing",
-    ],
-  },
-  {
-    title: "Web Design & Vibe Coding",
-    bullets: [
-      "Portfolio & landing pages",
-      "Design system implementation",
-      "Interactive prototypes",
-      "Component-driven development",
-    ],
   },
 ];
 
@@ -192,113 +128,29 @@ const coreSkillsTabs = [
     label: "Creative Production",
     lead: "I do a mix of things and I try to make each skill support the others.",
     paragraph:
-      "I have worked with major brands running high-volume campaigns where fast adaptation matters. My role combines concept, execution, and production systems so work ships consistently across channels.",
-    images: [
-      {
-        src: "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=420&q=80",
-        alt: "Creative setup with campaign notes",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=420&q=80",
-        alt: "Team reviewing production plan",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=420&q=80",
-        alt: "Studio desk with storyboard",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=420&q=80",
-        alt: "Campaign analytics on monitor",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?auto=format&fit=crop&w=420&q=80",
-        alt: "Creative team workshop session",
-      },
-    ],
+      "Motion design and creative production for campaigns localized into 20+ markets, at Storytel. Concept, execution and the production system behind it, so work ships consistently across markets.",
+    image: { src: "/work/storytel.jpg", alt: "A grid of campaign versions for Storytel, one per market" },
   },
   {
     label: "UX/UI Design",
     lead: "I turn complexity into interfaces that feel clear, fast, and intentional.",
     paragraph:
-      "From early wireframes to polished UI systems, I focus on hierarchy, consistency, and real user behavior. The goal is always simple: reduce friction and improve outcomes.",
-    images: [
-      {
-        src: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=420&q=80",
-        alt: "UI design boards and sketches",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=420&q=80",
-        alt: "Product interface mockups",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1519222970733-f546218fa6d7?auto=format&fit=crop&w=420&q=80",
-        alt: "Design system components",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=420&q=80",
-        alt: "Prototype testing on laptop",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=420&q=80",
-        alt: "Wireframe and UI flow review",
-      },
-    ],
+      "A concept for a localization platform: one place for every language and format of a campaign, with QA built in. Product thinking applied to the same localization problem Storytel's campaigns run into.",
+    image: { src: "/work/localization-platform.jpg", alt: "The localization platform overview: languages, versions, items to review" },
   },
   {
     label: "Automation",
     lead: "I design workflows that remove repetitive work and protect creative quality.",
     paragraph:
-      "By combining templates, no-code logic, and structured asset systems, I make teams faster without sacrificing control. Automation supports creativity instead of replacing it.",
-    images: [
-      {
-        src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=420&q=80",
-        alt: "Automated workflow dashboard",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1516110833967-0b5716ca1387?auto=format&fit=crop&w=420&q=80",
-        alt: "Process mapping on wall",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=420&q=80",
-        alt: "Data pipeline charts",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=420&q=80",
-        alt: "Code and automation scripts",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=420&q=80",
-        alt: "Automation nodes and process editor",
-      },
-    ],
+      "Vibe Flow, an After Effects plugin I built by prompting: it swaps a master comp into every language version automatically, instead of by hand.",
+    image: { src: "/notes/vibe-flow.jpg", alt: "Vibe Flow running inside After Effects, rendering language versions" },
   },
   {
     label: "No Code Development",
     lead: "I build functional digital products quickly with modern no-code tools.",
     paragraph:
-      "Landing pages, content systems, and campaign tools can move from idea to launch in days. I use no-code stacks where speed and iteration are the highest priority.",
-    images: [
-      {
-        src: "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=420&q=80",
-        alt: "No-code interface builder",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=420&q=80",
-        alt: "Website blocks and components",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=420&q=80",
-        alt: "Rapid page prototyping session",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1484557052118-f32bd25b45b5?auto=format&fit=crop&w=420&q=80",
-        alt: "Publishing workflow on dashboard",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=420&q=80",
-        alt: "No-code website builder canvas",
-      },
-    ],
+      "Portfolio sites for photographers, built on Webflow, Vite and Astro by prompting and shipped to production, start to finish.",
+    image: { src: "/work/photography-sites.jpg", alt: "Four photography and product sites in browser windows" },
   },
 ] as const;
 
@@ -355,10 +207,11 @@ function FeaturedCard({
               src={image}
               alt={title}
               className="h-full w-full object-cover"
+              loading="lazy"
             />
           </div>
           <div className="pt-4">
-            <h3 className="[font-family:'Satoshi'] text-foreground text-[24px] font-medium leading-[1.1]">{title}</h3>
+            <h3 className="web-title text-foreground">{title}</h3>
             <div
               className={`mt-3 flex flex-wrap gap-2 transition-all duration-500 ease-[cubic-bezier(0.2,1,0.4,1)] ${
                 isHovered ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
@@ -367,7 +220,7 @@ function FeaturedCard({
               {tags.map((tag) => (
                 <span
                   key={tag}
-                  className="inline-block rounded-[10px] border border-[#CACACA] bg-transparent px-5 py-2.5 [font-family:'Satoshi'] text-[14px] font-medium leading-none text-foreground/80"
+                  className="inline-block rounded-[10px] border border-[#CACACA] bg-transparent px-5 py-2.5 text-[14px] font-medium leading-none text-foreground/80"
                 >
                   {tag}
                 </span>
@@ -446,14 +299,14 @@ export default function Index() {
 
             <div className="w-full lg:col-start-2 lg:row-start-1">
               <motion.h1
-                className="[font-family:'Satoshi'] text-[56px] sm:text-[64px] lg:text-[80px] font-medium leading-[1] tracking-[-0.035em] text-foreground"
+                className="web-display text-foreground"
                 initial={{ opacity: 0, y: 20 }}
                 animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                I Design Workflows,
+                I design the work,
                 <br />
-                Not Just Visuals
+                and the workflow.
               </motion.h1>
             </div>
 
@@ -479,7 +332,7 @@ export default function Index() {
               </motion.div>
 
               <motion.p
-                className="mt-8 max-w-[23rem] [font-family:'Satoshi'] text-[24px] font-medium leading-[1.25] tracking-[-0.025em] text-foreground/68"
+                className="web-lead mt-8 max-w-[23rem] text-foreground/68"
                 initial={{ opacity: 0, y: 10 }}
                 animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
                 transition={{ duration: 0.7, delay: 0.35 }}
@@ -494,7 +347,7 @@ export default function Index() {
               >
                 <Link
                   to="/systems"
-                  className="group mt-7 inline-flex items-center gap-3 [font-family:'Satoshi'] text-[20px] font-medium text-black transition-colors"
+                  className="group mt-7 inline-flex items-center gap-3 text-[20px] font-medium text-black transition-colors"
                 >
                   <span>Take a look at my work</span>
                   <ArrowUpRight
@@ -532,12 +385,12 @@ export default function Index() {
       {/* Headline Section */}
       <section ref={headlineSection.ref} className="container-wide pt-[128px] pb-32">
         <motion.h2
-          className="[font-family:'Satoshi'] text-[48px] font-medium leading-[1.1] tracking-[-0.035em] text-foreground text-center mx-auto max-w-4xl"
+          className="web-headline text-foreground text-center mx-auto max-w-4xl"
           initial={{ opacity: 0, y: 20 }}
           animate={headlineSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          Versatile visual designer with 6+ years in digital advertising and creative production.
+          Designer and creative technologist with 8 years in advertising and creative production.
         </motion.h2>
       </section>
 
@@ -558,7 +411,7 @@ export default function Index() {
         <div className="container-wide">
           <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-12 lg:items-start lg:gap-x-6">
             <motion.p
-              className="lg:col-start-1 lg:col-span-1 [font-family:'Satoshi'] text-[16px] font-medium uppercase leading-none tracking-[0.04em] text-foreground/90"
+              className="web-label lg:col-start-1 lg:col-span-1 text-foreground/90"
               initial={{ opacity: 0 }}
               animate={myWorkSection.isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6 }}
@@ -567,7 +420,7 @@ export default function Index() {
             </motion.p>
 
             <motion.h3
-              className="lg:col-start-3 lg:col-end-10 w-full max-w-none [font-family:'Satoshi'] text-[48px] font-medium leading-[1.04] tracking-[-0.03em] text-foreground"
+              className="web-headline lg:col-start-3 lg:col-end-10 w-full max-w-none text-foreground"
               initial={{ opacity: 0, y: 20 }}
               animate={myWorkSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -581,16 +434,15 @@ export default function Index() {
               animate={myWorkSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <Link
-                to="/systems"
-                className="group inline-flex h-10 items-center gap-2 rounded-full bg-primary px-6 [font-family:'Satoshi'] text-[16px] font-normal leading-none text-primary-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
-              >
-                View My Work
-                <ArrowUpRight
-                  size={18}
-                  className="transition-transform duration-300 ease-out group-hover:rotate-45"
-                />
-              </Link>
+              <Button asChild className="group h-10 rounded-full px-6 text-[16px] leading-none font-normal">
+                <Link to="/systems">
+                  View My Work
+                  <ArrowUpRight
+                    size={18}
+                    className="transition-transform duration-300 ease-out group-hover:rotate-45"
+                  />
+                </Link>
+              </Button>
             </motion.div>
           </div>
         </div>
@@ -602,7 +454,7 @@ export default function Index() {
           <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-16">
             <div className="lg:col-start-1 lg:col-span-6">
               <motion.p
-                className="[font-family:'Satoshi'] text-[14px] font-medium uppercase tracking-[0.08em] text-white/65"
+                className="web-label text-white/65"
                 initial={{ opacity: 0 }}
                 animate={coreSkillsSection.isInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.6 }}
@@ -610,7 +462,7 @@ export default function Index() {
                 Core Skills
               </motion.p>
               <motion.h3
-                className="mt-16 max-w-[34rem] [font-family:'Satoshi'] text-[44px] font-medium leading-[1.02] tracking-[-0.03em] text-white sm:text-[52px]"
+                className="web-headline mt-16 max-w-[34rem] text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={coreSkillsSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
@@ -626,7 +478,7 @@ export default function Index() {
                     key={tab.label}
                     type="button"
                     onClick={() => setActiveCoreSkillTab(index)}
-                    className={`group w-full border-b border-white/25 py-4 text-left [font-family:'Satoshi'] text-[48px] font-medium leading-[1.05] tracking-[-0.02em] transition-colors ${
+                    className={`web-headline group w-full border-b border-white/25 py-4 text-left transition-colors ${
                       activeCoreSkillTab === index ? "bg-white/8 text-white" : "text-[#ABABAB] hover:text-zinc-100"
                     }`}
                     aria-pressed={activeCoreSkillTab === index}
@@ -660,7 +512,7 @@ export default function Index() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-                className="max-w-[39rem] lg:col-start-1 lg:col-span-6 [font-family:'Satoshi'] text-[24px] font-normal leading-[1.25] text-white/90"
+                className="web-lead max-w-[39rem] lg:col-start-1 lg:col-span-6 text-white/90"
               >
                 {coreSkillsTabs[activeCoreSkillTab].paragraph}
               </motion.p>
@@ -673,13 +525,14 @@ export default function Index() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.46, ease: [0.22, 1, 0.36, 1] }}
-                className="grid w-max grid-cols-2 gap-4 lg:col-start-8 lg:col-span-5"
+                className="aspect-square w-full max-w-[22rem] overflow-hidden rounded-[20px] bg-white/10 lg:col-start-8 lg:col-span-5"
               >
-                {coreSkillsTabs[activeCoreSkillTab].images.map((image) => (
-                  <div key={image.src} className="h-[90px] w-[90px] overflow-hidden rounded-[20px] bg-white/10">
-                    <img src={image.src} alt={image.alt} className="h-full w-full object-cover" />
-                  </div>
-                ))}
+                <img
+                  src={coreSkillsTabs[activeCoreSkillTab].image.src}
+                  alt={coreSkillsTabs[activeCoreSkillTab].image.alt}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
               </motion.div>
             </AnimatePresence>
           </div>
@@ -691,7 +544,7 @@ export default function Index() {
         <div className="container-wide">
           <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-12 lg:gap-x-6">
             <motion.p
-              className="lg:col-span-2 [font-family:'Satoshi'] text-[16px] font-normal uppercase tracking-[0.04em] text-foreground/65"
+              className="web-label lg:col-span-2 text-foreground/65"
               initial={{ opacity: 0 }}
               animate={clientsSection.isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6 }}
@@ -699,7 +552,7 @@ export default function Index() {
               WORKED WITH
             </motion.p>
             <motion.h3
-              className="lg:col-start-4 lg:col-end-13 w-full max-w-none [font-family:'Satoshi'] text-[44px] font-medium leading-[1.03] tracking-[-0.03em] text-foreground sm:text-[52px]"
+              className="web-headline lg:col-start-4 lg:col-end-13 w-full max-w-none text-foreground"
               initial={{ opacity: 0, y: 20 }}
               animate={clientsSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -709,7 +562,7 @@ export default function Index() {
           </div>
 
           <motion.div
-            className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+            className="mt-14 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4"
             initial={{ opacity: 0 }}
             animate={clientsSection.isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -717,7 +570,7 @@ export default function Index() {
             {clients.map((client, index) => (
               <motion.article
                 key={client.name}
-                className="group relative flex min-h-[17rem] items-center justify-center overflow-hidden rounded-[16px] border border-black/5 bg-white px-8 text-center sm:min-h-[18rem]"
+                className="group relative flex min-h-[9rem] items-center justify-center overflow-hidden rounded-[16px] border border-black/5 bg-white px-4 text-center sm:min-h-[17rem] sm:px-8 lg:min-h-[18rem]"
                 initial={{ opacity: 0, scale: 0.92 }}
                 animate={clientsSection.isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.92 }}
                 transition={{
@@ -726,13 +579,13 @@ export default function Index() {
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
               >
-                <p className="[font-family:'Satoshi'] text-[clamp(1.6rem,2.4vw,2.2rem)] font-bold leading-none tracking-[-0.02em] text-foreground transition-all duration-300 ease-out group-hover:opacity-20 group-hover:blur-[3px]">
+                <p className="text-[clamp(1.6rem,2.4vw,2.2rem)] font-bold leading-none tracking-[-0.02em] text-foreground transition-all duration-300 ease-out group-hover:opacity-20 group-hover:blur-[3px]">
                   {client.name}
                 </p>
-                <p className="pointer-events-none absolute inset-x-8 top-1/2 -translate-y-[56%] translate-y-3 [font-family:'Satoshi'] text-[22px] font-medium leading-[1.1] tracking-[-0.02em] text-foreground opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                <p className="pointer-events-none absolute inset-x-8 top-1/2 -translate-y-[56%] translate-y-3 text-[22px] font-medium leading-[1.1] tracking-[-0.02em] text-foreground opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
                   {client.hoverText}
                 </p>
-                <p className="pointer-events-none absolute bottom-5 right-5 [font-family:'Satoshi'] text-[13px] font-medium leading-none tracking-[0.01em] text-foreground/35 sm:text-[14px]">
+                <p className="pointer-events-none absolute bottom-5 right-5 text-[13px] font-medium leading-none tracking-[0.01em] text-muted-foreground sm:text-[14px]">
                   /{client.year}
                 </p>
               </motion.article>
@@ -750,7 +603,7 @@ export default function Index() {
             animate={outputsSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <h3 className="[font-family:'Satoshi'] text-[48px] font-medium leading-[1.04] tracking-[-0.03em] text-foreground">
+            <h3 className="web-headline text-foreground">
               Check out my recent
               <br />
               work on
@@ -778,9 +631,10 @@ export default function Index() {
                             src={project.image}
                             alt={project.title}
                             className="h-full w-full object-contain p-3 transition-transform duration-300 group-hover:scale-[1.02] md:p-4"
+                            loading="lazy"
                           />
                         </div>
-                        <h4 className="mt-3 pb-1 [font-family:'Satoshi'] text-[22px] font-medium leading-[1.16] tracking-[-0.02em] text-foreground lg:text-[24px]">
+                        <h4 className="web-title mt-3 pb-1 text-foreground">
                           {project.title}
                         </h4>
                       </article>
