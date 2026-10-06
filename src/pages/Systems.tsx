@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/use-in-view";
 import { Link } from "@/components/ReloadLink";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 type CaseStudy = {
   title: string;
@@ -93,6 +94,7 @@ function CaseStudyCard({
 }
 
 export default function Systems() {
+  usePageTitle("Case Studies");
   const heroSection = useInView({ threshold: 0.1, once: true });
   const gridSection = useInView({ threshold: 0.1, once: true });
 

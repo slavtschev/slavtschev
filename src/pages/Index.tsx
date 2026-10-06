@@ -4,6 +4,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "@/hooks/use-in-view";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 const whoIAmStats = [
   { label: "Years", value: "7+" },
@@ -22,44 +23,40 @@ const featuredProjects: {
   tags: string[];
 }[] = [
   {
-    title: "Global Campaign System",
-    description: "Scalable creative production for 40+ markets",
-    hoverText: "Led creative systems design for a global FMCG brand. Built automated workflows producing 2000+ assets monthly.",
+    title: "Storytel",
+    description: "Motion design and creative production for campaigns localized into 20+ markets.",
+    hoverText: "Motion design and creative production for campaigns localized into 20+ markets.",
     link: "/systems",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    image: "/work/storytel.jpg",
     size: "large",
-    tags: ["Creative Systems", "Automation", "Production"],
+    tags: ["Motion", "Localization", "After Effects"],
   },
   {
-    title: "Motion Template Engine",
-    description: "Automated video localization pipeline",
-    hoverText: "Designed a modular motion system reducing video production time by 80%.",
+    title: "Localization platform",
+    description: "One place for every language and format of a campaign, with QA built in.",
+    hoverText: "One place for every language and format of a campaign, with QA built in.",
     link: "/systems",
-    image:
-      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80",
+    image: "/work/localization-platform.jpg",
     size: "small",
-    tags: ["Motion Design", "Video", "Automation"],
+    tags: ["Product", "UX/UI"],
   },
   {
-    title: "E-commerce Visual System",
-    description: "Design system for rapid content scaling",
-    hoverText: "Created component-based design system for a D2C brand across 12 product categories.",
+    title: "Yettel",
+    description: "Visual identity, design systems and creative strategy, at Telenor and then Yettel.",
+    hoverText: "Visual identity, design systems and creative strategy, at Telenor and then Yettel.",
     link: "/systems",
-    image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
+    image: "/work/yettel.png",
     size: "small",
-    tags: ["Design System", "E-commerce", "Web Design"],
+    tags: ["Identity", "Design systems", "Strategy"],
   },
   {
-    title: "DOOH Network Toolkit",
-    description: "Dynamic out-of-home content framework",
-    hoverText: "Built a modular system for real-time digital signage across 200+ locations.",
-    link: "/outputs",
-    image:
-      "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1200&q=80",
+    title: "Photography sites",
+    description: "Portfolio sites for photographers, built by prompting and shipped to production.",
+    hoverText: "Portfolio sites for photographers, built by prompting and shipped to production.",
+    link: "/systems",
+    image: "/work/photography-sites.jpg",
     size: "medium",
-    tags: ["Creative Production", "Signage", "Automation"],
+    tags: ["Web", "Vibe coding"],
   },
 ];
 
@@ -384,6 +381,7 @@ function FeaturedCard({
 }
 
 export default function Index() {
+  usePageTitle("Dimitar Slavchev");
   const [activeCoreSkillTab, setActiveCoreSkillTab] = useState(0);
   const outputsTrackRef = useRef<HTMLDivElement | null>(null);
   const outputsRateRafRef = useRef<number | null>(null);
@@ -509,14 +507,16 @@ export default function Index() {
 
             <div className="w-full lg:col-start-2 lg:row-start-2 lg:h-full lg:self-end">
               <motion.div
-                className="aspect-video overflow-hidden rounded-[12px] rounded-tr-none bg-card lg:ml-auto lg:mr-[-5rem] 2xl:aspect-[21/9]"
+                className="aspect-video overflow-hidden rounded-[12px] rounded-tr-none bg-card lg:ml-auto lg:mr-[-5rem]"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={heroSection.isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <video
-                  src="/Media/1715091338-30fps.mp4"
-                  className="h-full w-full object-cover object-bottom"
+                  src="/Media/showreel.mp4"
+                  poster="/Media/showreel-poster.jpg"
+                  aria-label="Showreel: Storytel campaigns, Vibe Flow in After Effects, a localization platform, photography sites and three apps"
+                  className="h-full w-full object-cover"
                   autoPlay
                   muted
                   loop

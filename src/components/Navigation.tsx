@@ -48,7 +48,7 @@ export function Navigation() {
                 asChild
                 className="group [font-family:'Satoshi'] h-10 rounded-full px-6 text-[16px] leading-none font-normal inline-flex items-center gap-2 hover:bg-primary hover:text-primary-foreground"
               >
-                <Link to="/_private/design-system">
+                <Link to="/contact">
                   Get in Touch
                   <ArrowUpRight
                     size={18}
@@ -105,7 +105,7 @@ export function Navigation() {
                   variant="outline"
                   className="[font-family:'Satoshi'] w-full rounded-full text-[16px] leading-none font-normal"
                 >
-                  <Link to="/_private/design-system" onClick={() => setMobileOpen(false)}>
+                  <Link to="/contact" onClick={() => setMobileOpen(false)}>
                     Get in Touch
                   </Link>
                 </Button>
