@@ -99,7 +99,7 @@ export default function Outputs() {
     <>
       <section ref={heroSection.ref} className="container-wide pt-24 pb-0 md:pt-28 lg:pt-[128px] lg:pb-0">
         <motion.h1
-          className="text-[48px] font-medium leading-[1] tracking-[-0.035em] text-foreground"
+          className="web-headline text-foreground"
           initial={{ opacity: 0, y: 20 }}
           animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -178,10 +178,10 @@ export default function Outputs() {
                     </div>
 
                     <div className="mt-4 grid min-h-[64px] grid-cols-[minmax(0,1fr)_auto] items-start gap-6">
-                      <h2 className="text-[24px] font-medium leading-[1.1] tracking-[-0.02em] text-foreground">
+                      <h2 className="web-title text-foreground">
                         {project.title}
                       </h2>
-                      <p className="shrink-0 pt-1 text-[16px] font-medium leading-none text-foreground/70">
+                      <p className="web-small shrink-0 pt-1 text-foreground/70">
                         {project.date}
                       </p>
                     </div>

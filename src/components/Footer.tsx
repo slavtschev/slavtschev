@@ -68,9 +68,9 @@ export function Footer() {
   }, [activeWordIndex, isDeleting, visibleWord]);
 
   return (
-    <footer className="overflow-hidden bg-[#050505] text-white">
+    <footer className="overflow-hidden bg-foreground text-background">
       <div className="container-wide border-t border-white/10 py-[4.5rem] lg:py-[5.5rem]">
-        <h2 className="w-full whitespace-nowrap text-[clamp(44px,8.4vw,136px)] font-medium leading-[1.02] tracking-[-0.04em] text-white">
+        <h2 className="web-display w-full whitespace-nowrap text-white">
           Let&apos;s {" "}
           <span className="inline-flex items-center bg-accent px-[0.14em] text-accent-foreground">
             <span className="inline-block">{displayWord}</span>
@@ -83,7 +83,7 @@ export function Footer() {
         <div className="container-wide">
           <div className="grid grid-cols-1 border-white/10 lg:grid-cols-2 lg:divide-x lg:divide-white/10">
             <div className="py-10 lg:pr-10 xl:pr-14">
-              <h2 className="max-w-[33rem] text-[38px] font-medium leading-[1.08] tracking-[-0.03em] text-white sm:text-[48px]">
+              <h2 className="web-headline max-w-[33rem] text-white">
                 Clear thinking. Good craft. Less noise.
               </h2>
 
@@ -102,7 +102,7 @@ export function Footer() {
             </div>
 
             <div className="py-10 lg:pl-10 xl:pl-14">
-              <p className="max-w-[30rem] text-[16px] leading-[1.45] text-white/82">
+              <p className="web-body max-w-[30rem] text-white/82">
                 Dimitar Slavchev
                 <br />
                 Designer and creative technologist, Sofia
@@ -110,7 +110,7 @@ export function Footer() {
 
               <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
                 <div>
-                  <p className="text-[16px] font-medium text-white/45">Navigation</p>
+                  <p className="web-label text-white/45">Navigation</p>
                   <nav className="mt-3 flex flex-col gap-2">
                     {footerNavLinks.map((link) => (
                       <Link
@@ -125,7 +125,7 @@ export function Footer() {
                 </div>
 
                 <div>
-                  <p className="text-[16px] font-medium text-white/45">What I do</p>
+                  <p className="web-label text-white/45">What I do</p>
                   <div className="mt-3 flex flex-col gap-2">
                     {serviceLinks.map((service) => (
                       <p key={service} className="text-[16px] leading-none text-white/88">
@@ -141,7 +141,7 @@ export function Footer() {
 
         <div className="container-wide border-t border-white/10 py-6">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center">
-            <p className="text-[15px] text-white/62">
+            <p className="web-small text-white/62">
               © Dimitar Slavchev 2026. All rights reserved.
             </p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 md:justify-end">

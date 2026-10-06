@@ -164,24 +164,57 @@
     @apply w-full mx-auto px-12 md:px-16 lg:px-20;
   }
 
-  .text-display {
-    @apply text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight;
+  /*
+   * The 7 web text styles (design system tokens.json, "Web" group).
+   * Fluid between a 390px and 1440px viewport, flat below/above.
+   */
+  .web-display {
+    font-size: clamp(56px, calc(56px + (100vw - 390px) * 0.03238), 90px);
+    line-height: 0.95;
+    font-weight: 600;
+    letter-spacing: -0.04em;
   }
 
-  .text-headline {
-    @apply text-2xl md:text-3xl font-bold leading-tight tracking-tight;
+  .web-headline {
+    font-size: clamp(36px, calc(36px + (100vw - 390px) * 0.01143), 48px);
+    line-height: 1.05;
+    font-weight: 600;
+    letter-spacing: -0.03em;
   }
 
-  .text-body-lg {
-    @apply text-lg md:text-xl leading-relaxed text-muted-foreground;
+  .web-title {
+    @apply font-expanded;
+    font-size: 22px;
+    line-height: 1.15;
+    font-weight: 700;
   }
 
-  .text-body {
-    @apply text-base leading-relaxed;
+  .web-lead {
+    font-size: clamp(20px, calc(20px + (100vw - 390px) * 0.0019), 22px);
+    line-height: 1.35;
+    font-weight: 400;
+    letter-spacing: -0.01em;
   }
 
-  .text-caption {
-    @apply text-sm text-muted-foreground;
+  .web-body {
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 400;
+  }
+
+  .web-small {
+    font-size: 14px;
+    line-height: 1.45;
+    font-weight: 400;
+  }
+
+  .web-label {
+    @apply font-mono;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
   .link-underline {

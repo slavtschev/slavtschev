@@ -1,5 +1,4 @@
 import { Link } from "@/components/ReloadLink";
-import { SectionHeading } from "@/components/SectionHeading";
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -352,7 +351,7 @@ function FeaturedCard({
             />
           </div>
           <div className="pt-4">
-            <h3 className="text-foreground text-[24px] font-medium leading-[1.1]">{title}</h3>
+            <h3 className="web-title text-foreground">{title}</h3>
             <div
               className={`mt-3 flex flex-wrap gap-2 transition-all duration-500 ease-[cubic-bezier(0.2,1,0.4,1)] ${
                 isHovered ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
@@ -440,7 +439,7 @@ export default function Index() {
 
             <div className="w-full lg:col-start-2 lg:row-start-1">
               <motion.h1
-                className="text-[56px] sm:text-[64px] lg:text-[80px] font-medium leading-[1] tracking-[-0.035em] text-foreground"
+                className="web-display text-foreground"
                 initial={{ opacity: 0, y: 20 }}
                 animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -473,7 +472,7 @@ export default function Index() {
               </motion.div>
 
               <motion.p
-                className="mt-8 max-w-[23rem] text-[24px] font-medium leading-[1.25] tracking-[-0.025em] text-foreground/68"
+                className="web-lead mt-8 max-w-[23rem] text-foreground/68"
                 initial={{ opacity: 0, y: 10 }}
                 animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
                 transition={{ duration: 0.7, delay: 0.35 }}
@@ -526,7 +525,7 @@ export default function Index() {
       {/* Headline Section */}
       <section ref={headlineSection.ref} className="container-wide pt-[128px] pb-32">
         <motion.h2
-          className="text-[48px] font-medium leading-[1.1] tracking-[-0.035em] text-foreground text-center mx-auto max-w-4xl"
+          className="web-headline text-foreground text-center mx-auto max-w-4xl"
           initial={{ opacity: 0, y: 20 }}
           animate={headlineSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -552,7 +551,7 @@ export default function Index() {
         <div className="container-wide">
           <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-12 lg:items-start lg:gap-x-6">
             <motion.p
-              className="lg:col-start-1 lg:col-span-1 text-[16px] font-medium uppercase leading-none tracking-[0.04em] text-foreground/90"
+              className="web-label lg:col-start-1 lg:col-span-1 text-foreground/90"
               initial={{ opacity: 0 }}
               animate={myWorkSection.isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6 }}
@@ -561,7 +560,7 @@ export default function Index() {
             </motion.p>
 
             <motion.h3
-              className="lg:col-start-3 lg:col-end-10 w-full max-w-none text-[48px] font-medium leading-[1.04] tracking-[-0.03em] text-foreground"
+              className="web-headline lg:col-start-3 lg:col-end-10 w-full max-w-none text-foreground"
               initial={{ opacity: 0, y: 20 }}
               animate={myWorkSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -595,7 +594,7 @@ export default function Index() {
           <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-16">
             <div className="lg:col-start-1 lg:col-span-6">
               <motion.p
-                className="text-[14px] font-medium uppercase tracking-[0.08em] text-white/65"
+                className="web-label text-white/65"
                 initial={{ opacity: 0 }}
                 animate={coreSkillsSection.isInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.6 }}
@@ -603,7 +602,7 @@ export default function Index() {
                 Core Skills
               </motion.p>
               <motion.h3
-                className="mt-16 max-w-[34rem] text-[44px] font-medium leading-[1.02] tracking-[-0.03em] text-white sm:text-[52px]"
+                className="web-headline mt-16 max-w-[34rem] text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={coreSkillsSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
@@ -619,7 +618,7 @@ export default function Index() {
                     key={tab.label}
                     type="button"
                     onClick={() => setActiveCoreSkillTab(index)}
-                    className={`group w-full border-b border-white/25 py-4 text-left text-[48px] font-medium leading-[1.05] tracking-[-0.02em] transition-colors ${
+                    className={`web-headline group w-full border-b border-white/25 py-4 text-left transition-colors ${
                       activeCoreSkillTab === index ? "bg-white/8 text-white" : "text-[#ABABAB] hover:text-zinc-100"
                     }`}
                     aria-pressed={activeCoreSkillTab === index}
@@ -653,7 +652,7 @@ export default function Index() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-                className="max-w-[39rem] lg:col-start-1 lg:col-span-6 text-[24px] font-normal leading-[1.25] text-white/90"
+                className="web-lead max-w-[39rem] lg:col-start-1 lg:col-span-6 text-white/90"
               >
                 {coreSkillsTabs[activeCoreSkillTab].paragraph}
               </motion.p>
@@ -684,7 +683,7 @@ export default function Index() {
         <div className="container-wide">
           <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-12 lg:gap-x-6">
             <motion.p
-              className="lg:col-span-2 text-[16px] font-normal uppercase tracking-[0.04em] text-foreground/65"
+              className="web-label lg:col-span-2 text-foreground/65"
               initial={{ opacity: 0 }}
               animate={clientsSection.isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6 }}
@@ -692,7 +691,7 @@ export default function Index() {
               WORKED WITH
             </motion.p>
             <motion.h3
-              className="lg:col-start-4 lg:col-end-13 w-full max-w-none text-[44px] font-medium leading-[1.03] tracking-[-0.03em] text-foreground sm:text-[52px]"
+              className="web-headline lg:col-start-4 lg:col-end-13 w-full max-w-none text-foreground"
               initial={{ opacity: 0, y: 20 }}
               animate={clientsSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -743,7 +742,7 @@ export default function Index() {
             animate={outputsSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <h3 className="text-[48px] font-medium leading-[1.04] tracking-[-0.03em] text-foreground">
+            <h3 className="web-headline text-foreground">
               Check out my recent
               <br />
               work on
@@ -773,7 +772,7 @@ export default function Index() {
                             className="h-full w-full object-contain p-3 transition-transform duration-300 group-hover:scale-[1.02] md:p-4"
                           />
                         </div>
-                        <h4 className="mt-3 pb-1 text-[22px] font-medium leading-[1.16] tracking-[-0.02em] text-foreground lg:text-[24px]">
+                        <h4 className="web-title mt-3 pb-1 text-foreground">
                           {project.title}
                         </h4>
                       </article>
