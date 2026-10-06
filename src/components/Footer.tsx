@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "@/components/ReloadLink";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
 
 const footerNavLinks = [
   { name: "Homepage", path: "/" },
@@ -25,19 +26,43 @@ const socialLinks = [
 const rotatingWords = ["design", "create", "scale"];
 
 export function Footer() {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [activeWordIndex, setActiveWordIndex] = useState(0);
   const [visibleWord, setVisibleWord] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const displayWord = visibleWord.length > 0 ? visibleWord : " ";
+  const displayWord = prefersReducedMotion
+    ? rotatingWords[activeWordIndex]
+    : visibleWord.length > 0
+      ? visibleWord
+      : " ";
+
+  // Reduced motion: hold each full word for 2.4s, no per-character typing.
+  useEffect(() => {
+    if (!prefersReducedMotion) {
+      return;
+    }
+
+    const holdTimeout = window.setTimeout(() => {
+      setActiveWordIndex((currentIndex) => (currentIndex + 1) % rotatingWords.length);
+    }, 2400);
+
+    return () => {
+      window.clearTimeout(holdTimeout);
+    };
+  }, [activeWordIndex, prefersReducedMotion]);
 
   useEffect(() => {
+    if (prefersReducedMotion) {
+      return;
+    }
+
     const currentWord = rotatingWords[activeWordIndex];
 
-    // Pause when word is fully typed before deleting.
+    // Hold the word fully typed for 2.4s before deleting.
     if (!isDeleting && visibleWord === currentWord) {
       const pauseTimeout = window.setTimeout(() => {
         setIsDeleting(true);
-      }, 900);
+      }, 2400);
 
       return () => {
         window.clearTimeout(pauseTimeout);
@@ -51,7 +76,7 @@ export function Footer() {
       return;
     }
 
-    const typeDelay = isDeleting ? 55 : 90;
+    const typeDelay = isDeleting ? 60 : 100;
     const tickTimeout = window.setTimeout(() => {
       setVisibleWord((previousValue) => {
         if (isDeleting) {
@@ -65,7 +90,7 @@ export function Footer() {
     return () => {
       window.clearTimeout(tickTimeout);
     };
-  }, [activeWordIndex, isDeleting, visibleWord]);
+  }, [activeWordIndex, isDeleting, prefersReducedMotion, visibleWord]);
 
   return (
     <footer className="overflow-hidden bg-foreground text-background">
