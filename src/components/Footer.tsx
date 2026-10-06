@@ -114,7 +114,7 @@ export function Footer() {
 
               <Button
                 asChild
-                className="group mt-8 h-10 rounded-full px-6 text-[16px] leading-none font-normal"
+                className="group mt-8 h-10 rounded-full bg-background px-6 text-[16px] leading-none font-normal text-foreground hover:bg-background/90"
               >
                 <Link to="/contact">
                   Get in Touch
