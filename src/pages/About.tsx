@@ -3,6 +3,7 @@ import { useInView } from "@/hooks/use-in-view";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { Link } from "@/components/ReloadLink";
 import { Button } from "@/components/ui/button";
+import { ToolIcon } from "@/components/ToolIcon";
 import { ArrowUpRight } from "lucide-react";
 
 const steps = [
@@ -248,7 +249,7 @@ export default function About() {
         </div>
       </section>
 
-      <section ref={experienceSection.ref} className={sectionShellClassName}>
+      <section ref={experienceSection.ref} className={`${sectionShellClassName} pt-[72px] lg:pt-[96px]`}>
         <div className={sectionGridClassName}>
           <motion.p
             className={sectionIntroClassName}
@@ -355,8 +356,9 @@ export default function About() {
               {tools.map((tool) => (
                 <span
                   key={tool}
-                  className="inline-flex h-8 items-center rounded-full bg-card px-4 text-[14px] font-medium text-foreground/68"
+                  className="inline-flex h-8 items-center gap-2 rounded-full bg-card px-4 text-[14px] font-medium text-foreground/68"
                 >
+                  <ToolIcon name={tool} className="h-[14px] w-[14px] shrink-0" />
                   {tool}
                 </span>
               ))}
