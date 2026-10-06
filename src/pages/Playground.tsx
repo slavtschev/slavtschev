@@ -1,5 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
-import { Link } from "@/components/ReloadLink";
 import { usePageTitle } from "@/hooks/use-page-title";
 
 const note = {
@@ -7,7 +5,6 @@ const note = {
   category: "After Effects",
   description: "How I built a localization plugin for After Effects by prompting, one step at a time.",
   image: "/notes/vibe-flow.jpg",
-  link: "/playground",
 };
 
 export default function Playground() {
@@ -25,33 +22,25 @@ export default function Playground() {
       </section>
 
       <section className="container-wide pt-[64px] pb-[128px]">
-        <Link to={note.link} className="group block">
-          <article className="grid grid-cols-1 items-center gap-8 rounded-[20px] bg-foreground p-8 text-background sm:p-10 lg:grid-cols-2 lg:gap-12">
-            <div className="aspect-video overflow-hidden rounded-[12px] bg-background/10">
-              <img
-                src={note.image}
-                alt="Vibe Flow running inside After Effects, rendering 24 language versions"
-                className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                loading="lazy"
-              />
-            </div>
+        <article className="grid grid-cols-1 items-center gap-8 rounded-[20px] bg-foreground p-8 text-background sm:p-10 lg:grid-cols-2 lg:gap-12">
+          <div className="aspect-video overflow-hidden rounded-[12px] bg-background/10">
+            <img
+              src={note.image}
+              alt="Vibe Flow running inside After Effects, rendering 24 language versions"
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
 
-            <div className="flex flex-col items-start gap-4">
-              <span className="inline-flex h-8 items-center rounded-[10px] bg-background/10 px-3 web-small text-background/80">
-                {note.category}
-              </span>
-              <h2 className="web-title text-background">{note.title}</h2>
-              <p className="web-body text-background/68">{note.description}</p>
-              <span className="mt-2 inline-flex items-center gap-2 web-body text-background">
-                Read the note
-                <ArrowUpRight
-                  size={18}
-                  className="transition-transform duration-300 ease-out group-hover:rotate-45"
-                />
-              </span>
-            </div>
-          </article>
-        </Link>
+          <div className="flex flex-col items-start gap-4">
+            <span className="inline-flex h-8 items-center rounded-[10px] bg-background/10 px-3 web-small text-background/80">
+              {note.category}
+            </span>
+            <h2 className="web-title text-background">{note.title}</h2>
+            <p className="web-body text-background/68">{note.description}</p>
+            <p className="web-small text-background/55">Full write-up coming soon.</p>
+          </div>
+        </article>
       </section>
     </>
   );

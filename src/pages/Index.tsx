@@ -560,7 +560,7 @@ export default function Index() {
           </div>
 
           <motion.div
-            className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+            className="mt-14 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4"
             initial={{ opacity: 0 }}
             animate={clientsSection.isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -568,7 +568,7 @@ export default function Index() {
             {clients.map((client, index) => (
               <motion.article
                 key={client.name}
-                className="group relative flex min-h-[17rem] items-center justify-center overflow-hidden rounded-[16px] border border-black/5 bg-white px-8 text-center sm:min-h-[18rem]"
+                className="group relative flex min-h-[9rem] items-center justify-center overflow-hidden rounded-[16px] border border-black/5 bg-white px-4 text-center sm:min-h-[17rem] sm:px-8 lg:min-h-[18rem]"
                 initial={{ opacity: 0, scale: 0.92 }}
                 animate={clientsSection.isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.92 }}
                 transition={{
@@ -583,7 +583,7 @@ export default function Index() {
                 <p className="pointer-events-none absolute inset-x-8 top-1/2 -translate-y-[56%] translate-y-3 text-[22px] font-medium leading-[1.1] tracking-[-0.02em] text-foreground opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
                   {client.hoverText}
                 </p>
-                <p className="pointer-events-none absolute bottom-5 right-5 text-[13px] font-medium leading-none tracking-[0.01em] text-foreground/35 sm:text-[14px]">
+                <p className="pointer-events-none absolute bottom-5 right-5 text-[13px] font-medium leading-none tracking-[0.01em] text-muted-foreground sm:text-[14px]">
                   /{client.year}
                 </p>
               </motion.article>

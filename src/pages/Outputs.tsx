@@ -89,7 +89,7 @@ export default function Outputs() {
             Filters:
           </p>
 
-          <div className="lg:col-start-4 lg:col-end-13 flex flex-nowrap gap-4 overflow-x-auto lg:justify-end">
+          <div className="lg:col-start-4 lg:col-end-13 flex flex-nowrap justify-start gap-4 overflow-x-auto lg:flex-wrap lg:justify-end lg:overflow-visible">
             {filters.map((filter) => {
               const isActive = activeFilter === filter.value;
 

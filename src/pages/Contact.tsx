@@ -55,7 +55,7 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.2, ease: revealEase }}
           >
             <div>
-              <p className="web-label text-foreground/55">
+              <p className="web-label text-muted-foreground">
                 Email
               </p>
               <a
@@ -67,7 +67,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <p className="web-label text-foreground/55">
+              <p className="web-label text-muted-foreground">
                 Phone
               </p>
               <a
@@ -79,7 +79,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <p className="web-label text-foreground/55">
+              <p className="web-label text-muted-foreground">
                 Based in
               </p>
               <p className="mt-2 web-lead text-foreground">
@@ -95,7 +95,7 @@ export default function Contact() {
           animate={pageSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
           transition={{ duration: 0.76, delay: 0.12, ease: revealEase }}
         >
-          <p className="web-label text-foreground/55">
+          <p className="web-label text-muted-foreground">
             Elsewhere
           </p>
           <div className="mt-4 flex flex-col border-t border-foreground/15">
@@ -110,7 +110,7 @@ export default function Contact() {
                 <span className="web-title">{profile.name}</span>
                 <ArrowUpRight
                   size={20}
-                  className="shrink-0 text-foreground/55 transition-transform duration-300 ease-out group-hover:rotate-45 group-hover:text-accent"
+                  className="shrink-0 text-muted-foreground transition-transform duration-300 ease-out group-hover:rotate-45 group-hover:text-accent"
                   aria-hidden="true"
                 />
               </a>

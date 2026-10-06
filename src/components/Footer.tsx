@@ -70,7 +70,7 @@ export function Footer() {
   return (
     <footer className="overflow-hidden bg-foreground text-background">
       <div className="container-wide border-t border-white/10 py-[4.5rem] lg:py-[5.5rem]">
-        <h2 className="web-display w-full whitespace-nowrap text-white">
+        <h2 className="web-display w-full whitespace-normal sm:whitespace-nowrap text-white">
           Let&apos;s {" "}
           <span className="inline-flex items-center bg-accent px-[0.14em] text-accent-foreground">
             <span className="inline-block">{displayWord}</span>
@@ -110,7 +110,7 @@ export function Footer() {
 
               <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
                 <div>
-                  <p className="web-label text-white/45">Navigation</p>
+                  <p className="web-label text-[#8F8F8F]">Navigation</p>
                   <nav className="mt-3 flex flex-col gap-2">
                     {footerNavLinks.map((link) => (
                       <Link
@@ -125,7 +125,7 @@ export function Footer() {
                 </div>
 
                 <div>
-                  <p className="web-label text-white/45">What I do</p>
+                  <p className="web-label text-[#8F8F8F]">What I do</p>
                   <div className="mt-3 flex flex-col gap-2">
                     {serviceLinks.map((service) => (
                       <p key={service} className="text-[16px] leading-none text-white/88">

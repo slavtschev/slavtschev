@@ -134,7 +134,7 @@ export default function About() {
                 </motion.p>
 
                 <motion.p
-                  className="web-body lg:col-span-8 text-foreground/58"
+                  className="web-body lg:col-span-8 text-muted-foreground"
                   initial={{ opacity: 0, y: 12 }}
                   animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
                   transition={{ duration: 0.68, delay: 0.2, ease: revealEase }}
@@ -193,10 +193,10 @@ export default function About() {
       <section ref={stepsSection.ref} className={sectionShellClassName}>
         <div className="flex flex-wrap items-end justify-between gap-6 pb-12">
           <div className="max-w-[28rem]">
-            <p className="web-label text-foreground/58">How I work</p>
+            <p className="web-label text-muted-foreground">How I work</p>
             <h2 className={`mt-4 ${sectionTitleClassName}`}>Every project runs the same 5 steps.</h2>
           </div>
-          <p className="max-w-[24rem] web-body text-foreground/58">
+          <p className="max-w-[24rem] web-body text-muted-foreground">
             The logo is the last one: a D that exists only in the space the form leaves open.
           </p>
         </div>
@@ -210,11 +210,11 @@ export default function About() {
           {steps.map((step) => (
             <li key={step.number} className="flex flex-col gap-4">
               <img src={step.image} alt="" className="aspect-square w-full rounded-lg" />
-              <span className="web-label text-foreground/55">
+              <span className="web-label text-muted-foreground">
                 {step.number}
               </span>
               <span className="web-title">{step.name}</span>
-              <span className="web-body text-foreground/58">{step.detail}</span>
+              <span className="web-body text-muted-foreground">{step.detail}</span>
             </li>
           ))}
         </motion.ol>
@@ -278,19 +278,19 @@ export default function About() {
                   animate={experienceSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
                   transition={{ duration: 0.6, delay: 0.1 + index * 0.08, ease: revealEase }}
                 >
-                  <span className="shrink-0 web-label text-foreground/55 sm:w-32">
+                  <span className="shrink-0 web-label text-muted-foreground sm:w-32">
                     {item.period}
                   </span>
                   <div className="flex flex-col gap-2">
                     <span className="web-title">
                       {item.name}
                       {item.note ? (
-                        <span className="ml-2 web-small text-foreground/55">
+                        <span className="ml-2 web-small text-muted-foreground">
                           {item.note}
                         </span>
                       ) : null}
                     </span>
-                    <span className="max-w-[40rem] web-body text-foreground/58">
+                    <span className="max-w-[40rem] web-body text-muted-foreground">
                       {item.detail}
                     </span>
                     <span className="flex flex-wrap gap-2 pt-1">
@@ -336,7 +336,7 @@ export default function About() {
               {disciplines.map((discipline) => (
                 <div key={discipline.name} className="flex flex-col gap-3">
                   <span className="web-title">{discipline.name}</span>
-                  <span className="web-body text-foreground/58">
+                  <span className="web-body text-muted-foreground">
                     {discipline.items.map((item, i) => (
                       <span key={item}>
                         {item}
@@ -349,7 +349,7 @@ export default function About() {
             </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-2">
-              <span className="mr-2 web-label text-foreground/55">
+              <span className="mr-2 web-label text-muted-foreground">
                 Tools
               </span>
               {tools.map((tool) => (
