@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "@/hooks/use-in-view";
 import { Link } from "@/components/ReloadLink";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 type OutputCategory =
   | "web-design"
@@ -81,6 +82,7 @@ const outputProjects: OutputProject[] = [
 ];
 
 export default function Outputs() {
+  usePageTitle("Outputs");
   const [activeFilter, setActiveFilter] = useState<OutputCategory | "all">("all");
   const heroSection = useInView({ threshold: 0.1, once: true });
   const gridSection = useInView({ threshold: 0.1, once: true });

@@ -22,11 +22,12 @@ const serviceLinks = [
   "Workflow Automation",
 ];
 
+// TODO: swap href="#" for the real profile URL once you have it; placeholder shown in title on hover.
 const socialLinks = [
-  { name: "Dribbble", href: "https://dribbble.com" },
-  { name: "GitHub", href: "https://github.com" },
-  { name: "LinkedIn", href: "https://linkedin.com" },
-  { name: "Instagram", href: "https://instagram.com" },
+  { name: "LinkedIn", href: "#", placeholder: "linkedin.com/in/your-name" },
+  { name: "GitHub", href: "#", placeholder: "github.com/your-name" },
+  { name: "Dribbble", href: "#", placeholder: "dribbble.com/your-name" },
+  { name: "Instagram", href: "#", placeholder: "instagram.com/your-name" },
 ];
 
 const rotatingWords = ["design", "create", "scale"];
@@ -156,8 +157,8 @@ export function Footer() {
                 <a
                   key={social.name}
                   href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  title={`Add your real profile: ${social.placeholder}`}
+                  onClick={(event) => event.preventDefault()}
                   className="footer-link [font-family:'Satoshi'] text-[15px]"
                 >
                   <span className="footer-link-label">{social.name}</span>

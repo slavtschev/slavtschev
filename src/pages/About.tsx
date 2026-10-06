@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/use-in-view";
+import { usePageTitle } from "@/hooks/use-page-title";
 import { Link } from "@/components/ReloadLink";
 import { Button } from "@/components/ui/button";
 import {
@@ -100,6 +101,7 @@ const sectionBodyClassName =
 const revealEase = [0.25, 0.46, 0.45, 0.94] as const;
 
 export default function About() {
+  usePageTitle("About");
   const heroSection = useInView({ threshold: 0.1, once: true });
   const statsSection = useInView({ threshold: 0.1, once: true });
   const philosophySection = useInView({ threshold: 0.1, once: true });

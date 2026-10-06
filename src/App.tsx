@@ -11,9 +11,6 @@ import Playground from "./pages/Playground";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import RiottersTest from "./pages/RiottersTest";
-import DesignSystemPrivate from "./pages/DesignSystemPrivate";
-import DesignSystemComponentsPrivate from "./pages/DesignSystemComponentsPrivate";
 
 const queryClient = new QueryClient();
 
@@ -31,9 +28,6 @@ const App = () => (
             <Route path="/playground" element={<Playground />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/riotters-test" element={<RiottersTest />} />
-            <Route path="/_private/design-system" element={<DesignSystemPrivate />} />
-            <Route path="/_private/design-system/components" element={<DesignSystemComponentsPrivate />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

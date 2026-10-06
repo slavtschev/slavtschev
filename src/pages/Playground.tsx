@@ -1,4 +1,5 @@
 import { Link } from "@/components/ReloadLink";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 type Note = {
   title: string;
@@ -74,6 +75,7 @@ function NoteCard({
 }
 
 export default function Playground() {
+  usePageTitle("Notes");
   return (
     <>
       <section className="container-wide pt-24 pb-0 md:pt-28 lg:pt-[128px] lg:pb-0">
