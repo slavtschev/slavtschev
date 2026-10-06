@@ -98,85 +98,28 @@ const clients = [
 
 const outputsSlides = [
   {
-    title: "Radiant",
-    image:
-      "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1400&q=80",
-    link: "/outputs",
+    title: "Storytel",
+    image: "/work/storytel.jpg",
+    link: "/systems",
     widthClass: "w-[80vw] sm:w-[42vw] lg:w-[26rem]",
   },
   {
-    title: "Savings Interaction",
-    image:
-      "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1400&q=80",
-    link: "/outputs",
+    title: "Localization platform",
+    image: "/work/localization-platform.jpg",
+    link: "/systems",
     widthClass: "w-[80vw] sm:w-[42vw] lg:w-[18rem]",
   },
   {
-    title: "Crystal AI",
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80",
-    link: "/outputs",
+    title: "Yettel",
+    image: "/work/yettel.png",
+    link: "/systems",
     widthClass: "w-[80vw] sm:w-[42vw] lg:w-[26rem]",
   },
   {
-    title: "Mobile Wallet",
-    image:
-      "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?auto=format&fit=crop&w=1400&q=80",
-    link: "/outputs",
+    title: "Photography sites",
+    image: "/work/photography-sites.jpg",
+    link: "/systems",
     widthClass: "w-[80vw] sm:w-[42vw] lg:w-[18rem]",
-  },
-  {
-    title: "Nova Commerce",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80",
-    link: "/outputs",
-    widthClass: "w-[80vw] sm:w-[42vw] lg:w-[24rem]",
-  },
-  {
-    title: "Pulse Dashboard",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80",
-    link: "/outputs",
-    widthClass: "w-[80vw] sm:w-[42vw] lg:w-[20rem]",
-  },
-];
-
-const expertiseAreas = [
-  {
-    title: "Creative Systems & Automation",
-    bullets: [
-      "Scalable production frameworks",
-      "Template architecture design",
-      "Workflow optimization",
-      "Asset management systems",
-    ],
-  },
-  {
-    title: "Motion & Video Production",
-    bullets: [
-      "Modular motion templates",
-      "Video localization pipelines",
-      "Social-first video content",
-      "Animation systems design",
-    ],
-  },
-  {
-    title: "Digital Marketing Creatives",
-    bullets: [
-      "Display & programmatic ads",
-      "Social media campaigns",
-      "Email design systems",
-      "Performance creative testing",
-    ],
-  },
-  {
-    title: "Web Design & Vibe Coding",
-    bullets: [
-      "Portfolio & landing pages",
-      "Design system implementation",
-      "Interactive prototypes",
-      "Component-driven development",
-    ],
   },
 ];
 
@@ -185,113 +128,29 @@ const coreSkillsTabs = [
     label: "Creative Production",
     lead: "I do a mix of things and I try to make each skill support the others.",
     paragraph:
-      "I have worked with major brands running high-volume campaigns where fast adaptation matters. My role combines concept, execution, and production systems so work ships consistently across channels.",
-    images: [
-      {
-        src: "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=420&q=80",
-        alt: "Creative setup with campaign notes",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=420&q=80",
-        alt: "Team reviewing production plan",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=420&q=80",
-        alt: "Studio desk with storyboard",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=420&q=80",
-        alt: "Campaign analytics on monitor",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?auto=format&fit=crop&w=420&q=80",
-        alt: "Creative team workshop session",
-      },
-    ],
+      "Motion design and creative production for campaigns localized into 20+ markets, at Storytel. Concept, execution and the production system behind it, so work ships consistently across markets.",
+    image: { src: "/work/storytel.jpg", alt: "A grid of campaign versions for Storytel, one per market" },
   },
   {
     label: "UX/UI Design",
     lead: "I turn complexity into interfaces that feel clear, fast, and intentional.",
     paragraph:
-      "From early wireframes to polished UI systems, I focus on hierarchy, consistency, and real user behavior. The goal is always simple: reduce friction and improve outcomes.",
-    images: [
-      {
-        src: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=420&q=80",
-        alt: "UI design boards and sketches",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=420&q=80",
-        alt: "Product interface mockups",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1519222970733-f546218fa6d7?auto=format&fit=crop&w=420&q=80",
-        alt: "Design system components",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=420&q=80",
-        alt: "Prototype testing on laptop",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=420&q=80",
-        alt: "Wireframe and UI flow review",
-      },
-    ],
+      "A concept for a localization platform: one place for every language and format of a campaign, with QA built in. Product thinking applied to the same localization problem Storytel's campaigns run into.",
+    image: { src: "/work/localization-platform.jpg", alt: "The localization platform overview: languages, versions, items to review" },
   },
   {
     label: "Automation",
     lead: "I design workflows that remove repetitive work and protect creative quality.",
     paragraph:
-      "By combining templates, no-code logic, and structured asset systems, I make teams faster without sacrificing control. Automation supports creativity instead of replacing it.",
-    images: [
-      {
-        src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=420&q=80",
-        alt: "Automated workflow dashboard",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1516110833967-0b5716ca1387?auto=format&fit=crop&w=420&q=80",
-        alt: "Process mapping on wall",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=420&q=80",
-        alt: "Data pipeline charts",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=420&q=80",
-        alt: "Code and automation scripts",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=420&q=80",
-        alt: "Automation nodes and process editor",
-      },
-    ],
+      "Vibe Flow, an After Effects plugin I built by prompting: it swaps a master comp into every language version automatically, instead of by hand.",
+    image: { src: "/notes/vibe-flow.jpg", alt: "Vibe Flow running inside After Effects, rendering language versions" },
   },
   {
     label: "No Code Development",
     lead: "I build functional digital products quickly with modern no-code tools.",
     paragraph:
-      "Landing pages, content systems, and campaign tools can move from idea to launch in days. I use no-code stacks where speed and iteration are the highest priority.",
-    images: [
-      {
-        src: "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=420&q=80",
-        alt: "No-code interface builder",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=420&q=80",
-        alt: "Website blocks and components",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=420&q=80",
-        alt: "Rapid page prototyping session",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1484557052118-f32bd25b45b5?auto=format&fit=crop&w=420&q=80",
-        alt: "Publishing workflow on dashboard",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=420&q=80",
-        alt: "No-code website builder canvas",
-      },
-    ],
+      "Portfolio sites for photographers, built on Webflow, Vite and Astro by prompting and shipped to production, start to finish.",
+    image: { src: "/work/photography-sites.jpg", alt: "Four photography and product sites in browser windows" },
   },
 ] as const;
 
@@ -665,13 +524,13 @@ export default function Index() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.46, ease: [0.22, 1, 0.36, 1] }}
-                className="grid w-max grid-cols-2 gap-4 lg:col-start-8 lg:col-span-5"
+                className="aspect-square w-full max-w-[22rem] overflow-hidden rounded-[20px] bg-white/10 lg:col-start-8 lg:col-span-5"
               >
-                {coreSkillsTabs[activeCoreSkillTab].images.map((image) => (
-                  <div key={image.src} className="h-[90px] w-[90px] overflow-hidden rounded-[20px] bg-white/10">
-                    <img src={image.src} alt={image.alt} className="h-full w-full object-cover" />
-                  </div>
-                ))}
+                <img
+                  src={coreSkillsTabs[activeCoreSkillTab].image.src}
+                  alt={coreSkillsTabs[activeCoreSkillTab].image.alt}
+                  className="h-full w-full object-cover"
+                />
               </motion.div>
             </AnimatePresence>
           </div>

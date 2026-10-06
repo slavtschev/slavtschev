@@ -4,13 +4,7 @@ import { useInView } from "@/hooks/use-in-view";
 import { Link } from "@/components/ReloadLink";
 import { usePageTitle } from "@/hooks/use-page-title";
 
-type OutputCategory =
-  | "web-design"
-  | "motion-design"
-  | "ux-ui"
-  | "development"
-  | "dooh"
-  | "performance-marketing-design";
+type OutputCategory = "motion" | "identity" | "product" | "web";
 
 type OutputProject = {
   title: string;
@@ -22,62 +16,40 @@ type OutputProject = {
 
 const filters: { label: string; value: OutputCategory | "all" }[] = [
   { label: "ALL", value: "all" },
-  { label: "WEB DESIGN", value: "web-design" },
-  { label: "MOTION DESIGN", value: "motion-design" },
-  { label: "UX/UI", value: "ux-ui" },
-  { label: "DEVELOPMENT", value: "development" },
-  { label: "DOOH", value: "dooh" },
-  { label: "PERFORMANCE MARKETING DESIGN", value: "performance-marketing-design" },
+  { label: "MOTION", value: "motion" },
+  { label: "IDENTITY", value: "identity" },
+  { label: "PRODUCT", value: "product" },
+  { label: "WEB", value: "web" },
 ];
 
 const outputProjects: OutputProject[] = [
   {
-    title: "Robust Present Ready",
-    date: "03/2025",
-    category: "performance-marketing-design",
-    image:
-      "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=1200&q=80",
-    link: "/outputs",
+    title: "Storytel",
+    date: "2024–now",
+    category: "motion",
+    image: "/work/storytel.jpg",
+    link: "/systems",
   },
   {
-    title: "Motion Launch Frames",
-    date: "03/2025",
-    category: "motion-design",
-    image:
-      "https://images.unsplash.com/photo-1558655146-364adaf1fcc9?auto=format&fit=crop&w=1200&q=80",
-    link: "/outputs",
+    title: "Yettel",
+    date: "2018–2024",
+    category: "identity",
+    image: "/work/yettel.png",
+    link: "/systems",
   },
   {
-    title: "Soda City Cup",
-    date: "02/2025",
-    category: "dooh",
-    image:
-      "https://images.unsplash.com/photo-1543253687-c931c8e01820?auto=format&fit=crop&w=1200&q=80",
-    link: "/outputs",
+    title: "Localization platform",
+    date: "Concept",
+    category: "product",
+    image: "/work/localization-platform.jpg",
+    link: "/systems",
   },
   {
-    title: "Editorial Website",
-    date: "01/2025",
-    category: "web-design",
-    image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80",
-    link: "/outputs",
-  },
-  {
-    title: "Pulse Product Site",
-    date: "12/2024",
-    category: "development",
-    image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80",
-    link: "/outputs",
-  },
-  {
-    title: "UX/UI Product Flow",
-    date: "11/2024",
-    category: "ux-ui",
-    image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=80",
-    link: "/outputs",
+    title: "Photography sites",
+    date: "Independent",
+    category: "web",
+    image: "/work/photography-sites.jpg",
+    link: "/systems",
   },
 ];
 

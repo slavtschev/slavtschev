@@ -13,32 +13,28 @@ type CaseStudy = {
 
 const caseStudies: CaseStudy[] = [
   {
-    title: "Photographers Portfolios",
+    title: "Storytel",
     link: "/systems",
-    image:
-      "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?auto=format&fit=crop&w=1400&q=80",
-    tags: ["Web Design", "No code Development"],
+    image: "/work/storytel.jpg",
+    tags: ["Motion", "Localization", "After Effects"],
   },
   {
-    title: "Photographers Portfolios",
+    title: "Yettel",
     link: "/systems",
-    image:
-      "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1400&q=80",
-    tags: ["Web Design", "No code Development"],
+    image: "/work/yettel.png",
+    tags: ["Identity", "Design systems", "Strategy"],
   },
   {
-    title: "Photographers Portfolios",
+    title: "Localization platform",
     link: "/systems",
-    image:
-      "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=1400&q=80",
-    tags: ["Web Design", "No code Development"],
+    image: "/work/localization-platform.jpg",
+    tags: ["Product", "UX/UI"],
   },
   {
-    title: "Photographers Portfolios",
+    title: "Photography sites",
     link: "/systems",
-    image:
-      "https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?auto=format&fit=crop&w=1400&q=80",
-    tags: ["Web Design", "No code Development"],
+    image: "/work/photography-sites.jpg",
+    tags: ["Web", "Vibe coding"],
   },
 ];
 

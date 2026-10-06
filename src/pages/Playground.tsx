@@ -1,78 +1,14 @@
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "@/components/ReloadLink";
 import { usePageTitle } from "@/hooks/use-page-title";
 
-type Note = {
-  title: string;
-  category: string;
-  date: string;
-  image: string;
-  link: string;
+const note = {
+  title: "Vibe Flow: vibe coding in After Effects",
+  category: "After Effects",
+  description: "How I built a localization plugin for After Effects by prompting, one step at a time.",
+  image: "/notes/vibe-flow.jpg",
+  link: "/playground",
 };
-
-const notes: Note[] = [
-  {
-    title: "Why performance design needs a stronger system behind it.",
-    category: "Notes",
-    date: "January 9, 2026",
-    image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
-    link: "/playground",
-  },
-  {
-    title: "Building faster workflows without flattening creative quality.",
-    category: "Notes",
-    date: "January 12, 2026",
-    image:
-      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
-    link: "/playground",
-  },
-  {
-    title: "What I look for when shaping clearer digital experiences.",
-    category: "Notes",
-    date: "January 15, 2026",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
-    link: "/playground",
-  },
-];
-
-function NoteCard({
-  title,
-  category,
-  date,
-  image,
-  link,
-}: Note) {
-  return (
-    <Link to={link} className="block h-full">
-      <article className="group h-full">
-        <div className="aspect-video overflow-hidden rounded-[20px] bg-muted">
-          <img
-            src={image}
-            alt={title}
-            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-            loading="lazy"
-          />
-        </div>
-
-        <div className="mt-4">
-          <div className="flex items-center gap-4">
-            <span className="inline-flex h-8 items-center rounded-[10px] bg-secondary px-3 text-[14px] font-medium leading-none text-foreground">
-              {category}
-            </span>
-            <p className="web-small text-foreground/70">
-              {date}
-            </p>
-          </div>
-
-          <h2 className="web-title mt-4 text-foreground">
-            {title}
-          </h2>
-        </div>
-      </article>
-    </Link>
-  );
-}
 
 export default function Playground() {
   usePageTitle("Notes");
@@ -89,13 +25,33 @@ export default function Playground() {
       </section>
 
       <section className="container-wide pt-[64px] pb-[128px]">
-        <div className="grid grid-cols-1 gap-x-6 gap-y-16 lg:grid-cols-12">
-          {notes.map((note) => (
-            <div key={`${note.title}-${note.date}`} className="lg:col-span-4">
-              <NoteCard {...note} />
+        <Link to={note.link} className="group block">
+          <article className="grid grid-cols-1 items-center gap-8 rounded-[20px] bg-foreground p-8 text-background sm:p-10 lg:grid-cols-2 lg:gap-12">
+            <div className="aspect-video overflow-hidden rounded-[12px] bg-background/10">
+              <img
+                src={note.image}
+                alt="Vibe Flow running inside After Effects, rendering 24 language versions"
+                className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                loading="lazy"
+              />
             </div>
-          ))}
-        </div>
+
+            <div className="flex flex-col items-start gap-4">
+              <span className="inline-flex h-8 items-center rounded-[10px] bg-background/10 px-3 web-small text-background/80">
+                {note.category}
+              </span>
+              <h2 className="web-title text-background">{note.title}</h2>
+              <p className="web-body text-background/68">{note.description}</p>
+              <span className="mt-2 inline-flex items-center gap-2 web-body text-background">
+                Read the note
+                <ArrowUpRight
+                  size={18}
+                  className="transition-transform duration-300 ease-out group-hover:rotate-45"
+                />
+              </span>
+            </div>
+          </article>
+        </Link>
       </section>
     </>
   );
