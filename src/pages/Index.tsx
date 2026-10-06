@@ -1,10 +1,11 @@
 import { Link } from "@/components/ReloadLink";
 import { SectionHeading } from "@/components/SectionHeading";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "@/hooks/use-in-view";
 import { usePageTitle } from "@/hooks/use-page-title";
+import { Button } from "@/components/ui/button";
 
 const whoIAmStats = [
   { label: "Years", value: "7+" },
@@ -358,7 +359,7 @@ function FeaturedCard({
             />
           </div>
           <div className="pt-4">
-            <h3 className="[font-family:'Satoshi'] text-foreground text-[24px] font-medium leading-[1.1]">{title}</h3>
+            <h3 className="text-foreground text-[24px] font-medium leading-[1.1]">{title}</h3>
             <div
               className={`mt-3 flex flex-wrap gap-2 transition-all duration-500 ease-[cubic-bezier(0.2,1,0.4,1)] ${
                 isHovered ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
@@ -367,7 +368,7 @@ function FeaturedCard({
               {tags.map((tag) => (
                 <span
                   key={tag}
-                  className="inline-block rounded-[10px] border border-[#CACACA] bg-transparent px-5 py-2.5 [font-family:'Satoshi'] text-[14px] font-medium leading-none text-foreground/80"
+                  className="inline-block rounded-[10px] border border-[#CACACA] bg-transparent px-5 py-2.5 text-[14px] font-medium leading-none text-foreground/80"
                 >
                   {tag}
                 </span>
@@ -446,7 +447,7 @@ export default function Index() {
 
             <div className="w-full lg:col-start-2 lg:row-start-1">
               <motion.h1
-                className="[font-family:'Satoshi'] text-[56px] sm:text-[64px] lg:text-[80px] font-medium leading-[1] tracking-[-0.035em] text-foreground"
+                className="text-[56px] sm:text-[64px] lg:text-[80px] font-medium leading-[1] tracking-[-0.035em] text-foreground"
                 initial={{ opacity: 0, y: 20 }}
                 animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -479,7 +480,7 @@ export default function Index() {
               </motion.div>
 
               <motion.p
-                className="mt-8 max-w-[23rem] [font-family:'Satoshi'] text-[24px] font-medium leading-[1.25] tracking-[-0.025em] text-foreground/68"
+                className="mt-8 max-w-[23rem] text-[24px] font-medium leading-[1.25] tracking-[-0.025em] text-foreground/68"
                 initial={{ opacity: 0, y: 10 }}
                 animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
                 transition={{ duration: 0.7, delay: 0.35 }}
@@ -494,7 +495,7 @@ export default function Index() {
               >
                 <Link
                   to="/systems"
-                  className="group mt-7 inline-flex items-center gap-3 [font-family:'Satoshi'] text-[20px] font-medium text-black transition-colors"
+                  className="group mt-7 inline-flex items-center gap-3 text-[20px] font-medium text-black transition-colors"
                 >
                   <span>Take a look at my work</span>
                   <ArrowUpRight
@@ -532,7 +533,7 @@ export default function Index() {
       {/* Headline Section */}
       <section ref={headlineSection.ref} className="container-wide pt-[128px] pb-32">
         <motion.h2
-          className="[font-family:'Satoshi'] text-[48px] font-medium leading-[1.1] tracking-[-0.035em] text-foreground text-center mx-auto max-w-4xl"
+          className="text-[48px] font-medium leading-[1.1] tracking-[-0.035em] text-foreground text-center mx-auto max-w-4xl"
           initial={{ opacity: 0, y: 20 }}
           animate={headlineSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -558,7 +559,7 @@ export default function Index() {
         <div className="container-wide">
           <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-12 lg:items-start lg:gap-x-6">
             <motion.p
-              className="lg:col-start-1 lg:col-span-1 [font-family:'Satoshi'] text-[16px] font-medium uppercase leading-none tracking-[0.04em] text-foreground/90"
+              className="lg:col-start-1 lg:col-span-1 text-[16px] font-medium uppercase leading-none tracking-[0.04em] text-foreground/90"
               initial={{ opacity: 0 }}
               animate={myWorkSection.isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6 }}
@@ -567,7 +568,7 @@ export default function Index() {
             </motion.p>
 
             <motion.h3
-              className="lg:col-start-3 lg:col-end-10 w-full max-w-none [font-family:'Satoshi'] text-[48px] font-medium leading-[1.04] tracking-[-0.03em] text-foreground"
+              className="lg:col-start-3 lg:col-end-10 w-full max-w-none text-[48px] font-medium leading-[1.04] tracking-[-0.03em] text-foreground"
               initial={{ opacity: 0, y: 20 }}
               animate={myWorkSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -581,16 +582,15 @@ export default function Index() {
               animate={myWorkSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <Link
-                to="/systems"
-                className="group inline-flex h-10 items-center gap-2 rounded-full bg-primary px-6 [font-family:'Satoshi'] text-[16px] font-normal leading-none text-primary-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
-              >
-                View My Work
-                <ArrowUpRight
-                  size={18}
-                  className="transition-transform duration-300 ease-out group-hover:rotate-45"
-                />
-              </Link>
+              <Button asChild className="group h-10 rounded-full px-6 text-[16px] leading-none font-normal">
+                <Link to="/systems">
+                  View My Work
+                  <ArrowUpRight
+                    size={18}
+                    className="transition-transform duration-300 ease-out group-hover:rotate-45"
+                  />
+                </Link>
+              </Button>
             </motion.div>
           </div>
         </div>
@@ -602,7 +602,7 @@ export default function Index() {
           <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-16">
             <div className="lg:col-start-1 lg:col-span-6">
               <motion.p
-                className="[font-family:'Satoshi'] text-[14px] font-medium uppercase tracking-[0.08em] text-white/65"
+                className="text-[14px] font-medium uppercase tracking-[0.08em] text-white/65"
                 initial={{ opacity: 0 }}
                 animate={coreSkillsSection.isInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.6 }}
@@ -610,7 +610,7 @@ export default function Index() {
                 Core Skills
               </motion.p>
               <motion.h3
-                className="mt-16 max-w-[34rem] [font-family:'Satoshi'] text-[44px] font-medium leading-[1.02] tracking-[-0.03em] text-white sm:text-[52px]"
+                className="mt-16 max-w-[34rem] text-[44px] font-medium leading-[1.02] tracking-[-0.03em] text-white sm:text-[52px]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={coreSkillsSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
@@ -626,7 +626,7 @@ export default function Index() {
                     key={tab.label}
                     type="button"
                     onClick={() => setActiveCoreSkillTab(index)}
-                    className={`group w-full border-b border-white/25 py-4 text-left [font-family:'Satoshi'] text-[48px] font-medium leading-[1.05] tracking-[-0.02em] transition-colors ${
+                    className={`group w-full border-b border-white/25 py-4 text-left text-[48px] font-medium leading-[1.05] tracking-[-0.02em] transition-colors ${
                       activeCoreSkillTab === index ? "bg-white/8 text-white" : "text-[#ABABAB] hover:text-zinc-100"
                     }`}
                     aria-pressed={activeCoreSkillTab === index}
@@ -660,7 +660,7 @@ export default function Index() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-                className="max-w-[39rem] lg:col-start-1 lg:col-span-6 [font-family:'Satoshi'] text-[24px] font-normal leading-[1.25] text-white/90"
+                className="max-w-[39rem] lg:col-start-1 lg:col-span-6 text-[24px] font-normal leading-[1.25] text-white/90"
               >
                 {coreSkillsTabs[activeCoreSkillTab].paragraph}
               </motion.p>
@@ -691,7 +691,7 @@ export default function Index() {
         <div className="container-wide">
           <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-12 lg:gap-x-6">
             <motion.p
-              className="lg:col-span-2 [font-family:'Satoshi'] text-[16px] font-normal uppercase tracking-[0.04em] text-foreground/65"
+              className="lg:col-span-2 text-[16px] font-normal uppercase tracking-[0.04em] text-foreground/65"
               initial={{ opacity: 0 }}
               animate={clientsSection.isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6 }}
@@ -699,7 +699,7 @@ export default function Index() {
               WORKED WITH
             </motion.p>
             <motion.h3
-              className="lg:col-start-4 lg:col-end-13 w-full max-w-none [font-family:'Satoshi'] text-[44px] font-medium leading-[1.03] tracking-[-0.03em] text-foreground sm:text-[52px]"
+              className="lg:col-start-4 lg:col-end-13 w-full max-w-none text-[44px] font-medium leading-[1.03] tracking-[-0.03em] text-foreground sm:text-[52px]"
               initial={{ opacity: 0, y: 20 }}
               animate={clientsSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -726,13 +726,13 @@ export default function Index() {
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
               >
-                <p className="[font-family:'Satoshi'] text-[clamp(1.6rem,2.4vw,2.2rem)] font-bold leading-none tracking-[-0.02em] text-foreground transition-all duration-300 ease-out group-hover:opacity-20 group-hover:blur-[3px]">
+                <p className="text-[clamp(1.6rem,2.4vw,2.2rem)] font-bold leading-none tracking-[-0.02em] text-foreground transition-all duration-300 ease-out group-hover:opacity-20 group-hover:blur-[3px]">
                   {client.name}
                 </p>
-                <p className="pointer-events-none absolute inset-x-8 top-1/2 -translate-y-[56%] translate-y-3 [font-family:'Satoshi'] text-[22px] font-medium leading-[1.1] tracking-[-0.02em] text-foreground opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                <p className="pointer-events-none absolute inset-x-8 top-1/2 -translate-y-[56%] translate-y-3 text-[22px] font-medium leading-[1.1] tracking-[-0.02em] text-foreground opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
                   {client.hoverText}
                 </p>
-                <p className="pointer-events-none absolute bottom-5 right-5 [font-family:'Satoshi'] text-[13px] font-medium leading-none tracking-[0.01em] text-foreground/35 sm:text-[14px]">
+                <p className="pointer-events-none absolute bottom-5 right-5 text-[13px] font-medium leading-none tracking-[0.01em] text-foreground/35 sm:text-[14px]">
                   /{client.year}
                 </p>
               </motion.article>
@@ -750,7 +750,7 @@ export default function Index() {
             animate={outputsSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <h3 className="[font-family:'Satoshi'] text-[48px] font-medium leading-[1.04] tracking-[-0.03em] text-foreground">
+            <h3 className="text-[48px] font-medium leading-[1.04] tracking-[-0.03em] text-foreground">
               Check out my recent
               <br />
               work on
@@ -780,7 +780,7 @@ export default function Index() {
                             className="h-full w-full object-contain p-3 transition-transform duration-300 group-hover:scale-[1.02] md:p-4"
                           />
                         </div>
-                        <h4 className="mt-3 pb-1 [font-family:'Satoshi'] text-[22px] font-medium leading-[1.16] tracking-[-0.02em] text-foreground lg:text-[24px]">
+                        <h4 className="mt-3 pb-1 text-[22px] font-medium leading-[1.16] tracking-[-0.02em] text-foreground lg:text-[24px]">
                           {project.title}
                         </h4>
                       </article>

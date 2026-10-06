@@ -67,7 +67,7 @@ function CaseStudyCard({
         </div>
 
         <div className="pt-4 pb-14">
-          <h3 className="[font-family:'Satoshi'] text-[36px] font-medium leading-[1.08] tracking-[-0.02em] text-foreground">
+          <h3 className="text-[36px] font-medium leading-[1.08] tracking-[-0.02em] text-foreground">
             {title}
           </h3>
 
@@ -81,7 +81,7 @@ function CaseStudyCard({
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="inline-block rounded-[10px] border border-[#CACACA] bg-transparent px-5 py-2.5 [font-family:'Satoshi'] text-[14px] font-medium leading-none text-foreground/80"
+                className="inline-block rounded-[10px] border border-[#CACACA] bg-transparent px-5 py-2.5 text-[14px] font-medium leading-none text-foreground/80"
               >
                 {tag}
               </span>
@@ -103,7 +103,7 @@ export default function Systems() {
       <section ref={heroSection.ref} className="container-wide pt-24 pb-0 md:pt-28 lg:pt-[128px] lg:pb-0">
         <div className="border-b border-foreground/25 pb-[32px]">
           <motion.h1
-            className="[font-family:'Satoshi'] text-[48px] font-medium leading-[1] tracking-[-0.035em] text-foreground"
+            className="text-[48px] font-medium leading-[1] tracking-[-0.035em] text-foreground"
             initial={{ opacity: 0, y: 20 }}
             animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -113,7 +113,7 @@ export default function Systems() {
         </div>
 
         <motion.div
-          className="mt-[24px] flex items-center justify-between [font-family:'Satoshi'] text-[14px] font-medium uppercase tracking-[0.04em] text-foreground/75"
+          className="mt-[24px] flex items-center justify-between text-[14px] font-medium uppercase tracking-[0.04em] text-foreground/75"
           initial={{ opacity: 0 }}
           animate={heroSection.isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}

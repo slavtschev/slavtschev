@@ -109,7 +109,7 @@ export default function About() {
   const ctaSection = useInView({ threshold: 0.1, once: true });
 
   return (
-    <div className="[font-family:'Satoshi']">
+    <div>
       <section ref={heroSection.ref}>
         <div className="container-wide pt-24 pb-[64px] md:pt-28 lg:pt-[128px] lg:pb-[88px]">
           <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-14">
@@ -136,7 +136,7 @@ export default function About() {
 
               <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-x-6">
                 <motion.p
-                  className="lg:col-span-8 [font-family:'Satoshi'] text-[34px] font-medium leading-[1.1] tracking-[-0.03em] text-foreground/92"
+                  className="lg:col-span-8 text-[34px] font-medium leading-[1.1] tracking-[-0.03em] text-foreground/92"
                   initial={{ opacity: 0, y: 16 }}
                   animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
                   transition={{ duration: 0.72, delay: 0.1, ease: revealEase }}
@@ -145,7 +145,7 @@ export default function About() {
                 </motion.p>
 
                 <motion.p
-                  className="max-w-[18ch] lg:col-span-4 [font-family:'Satoshi'] text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-foreground/58"
+                  className="max-w-[18ch] lg:col-span-4 text-[22px] font-medium leading-[1.2] tracking-[-0.02em] text-foreground/58"
                   initial={{ opacity: 0, y: 12 }}
                   animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
                   transition={{ duration: 0.68, delay: 0.2, ease: revealEase }}
@@ -214,7 +214,7 @@ export default function About() {
             </motion.p>
 
             <motion.p
-              className="mt-6 max-w-[44rem] [font-family:'Satoshi'] text-[24px] font-medium leading-[1.28] tracking-[-0.02em] text-foreground/62"
+              className="mt-6 max-w-[44rem] text-[24px] font-medium leading-[1.28] tracking-[-0.02em] text-foreground/62"
               initial={{ opacity: 0, y: 18 }}
               animate={philosophySection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
               transition={{ duration: 0.74, delay: 0.22, ease: revealEase }}
@@ -400,7 +400,7 @@ export default function About() {
             >
               <Button
                 asChild
-                className="group [font-family:'Satoshi'] h-10 rounded-full px-6 text-[16px] leading-none font-normal inline-flex items-center gap-2 hover:bg-primary hover:text-primary-foreground"
+                className="group h-10 rounded-full px-6 text-[16px] leading-none font-normal"
               >
                 <Link to="/contact">
                   Start a conversation

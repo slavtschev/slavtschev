@@ -3,28 +3,25 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/Satoshi%20WEB/fonts/Satoshi-Regular.woff2') format('woff2'),
-       url('/Satoshi%20WEB/fonts/Satoshi-Regular.woff') format('woff');
-  font-weight: 400;
+  font-family: 'Archivo';
+  src: url('/fonts/Archivo-Variable.woff2') format('woff2');
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/Satoshi%20WEB/fonts/Satoshi-Medium.woff2') format('woff2'),
-       url('/Satoshi%20WEB/fonts/Satoshi-Medium.woff') format('woff');
-  font-weight: 500;
+  font-family: 'Archivo Expanded';
+  src: url('/fonts/ArchivoExpanded-Variable.woff2') format('woff2');
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/Satoshi%20WEB/fonts/Satoshi-Bold.woff2') format('woff2'),
-       url('/Satoshi%20WEB/fonts/Satoshi-Bold.woff') format('woff');
-  font-weight: 700;
+  font-family: 'Martian Mono';
+  src: url('/fonts/MartianMono-Variable.woff2') format('woff2');
+  font-weight: 100 800;
   font-style: normal;
   font-display: swap;
 }
@@ -33,89 +30,85 @@
 
 @layer base {
   :root {
-    /* Warm, editorial palette */
-    --background: 40 20% 98%;
-    --foreground: 30 10% 12%;
+    /* Paper, Mist, Ink, Signal — see design system tokens.json */
+    --background: 0 0% 100%; /* Paper #FFFFFF */
+    --foreground: 0 0% 9%; /* Ink #161616 */
 
-    --card: 40 15% 96%;
-    --card-foreground: 30 10% 12%;
+    --card: 0 0% 96%; /* Mist #F5F5F5 */
+    --card-foreground: 0 0% 9%;
 
-    --popover: 40 20% 98%;
-    --popover-foreground: 30 10% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
 
-    /* Near-black primary */
-    --primary: 30 10% 12%;
-    --primary-foreground: 40 20% 98%;
+    --primary: 0 0% 9%; /* Ink */
+    --primary-foreground: 0 0% 100%; /* Paper */
 
-    /* Light warm gray */
-    --secondary: 35 8% 92%;
-    --secondary-foreground: 30 10% 20%;
+    --secondary: 0 0% 96%; /* Mist */
+    --secondary-foreground: 0 0% 9%;
 
-    /* Muted tones */
-    --muted: 35 8% 88%;
-    --muted-foreground: 30 6% 50%;
+    --muted: 0 0% 96%; /* Mist */
+    --muted-foreground: 0 0% 42%; /* #6B6B6B */
 
-    /* Primary brand blue for interactions */
-    --accent: 229 100% 61%;
-    --accent-foreground: 40 20% 98%;
+    --accent: 235 100% 62%; /* Signal #3B4BFF */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 35 10% 88%;
-    --input: 35 10% 88%;
-    --ring: 229 100% 61%;
+    --border: 0 0% 90%; /* #E5E5E5 */
+    --input: 0 0% 90%;
+    --ring: 235 100% 62%;
 
     --radius: 0.75rem;
 
     /* Sidebar vars */
-    --sidebar-background: 40 15% 96%;
-    --sidebar-foreground: 30 10% 20%;
-    --sidebar-primary: 30 10% 12%;
-    --sidebar-primary-foreground: 40 20% 98%;
-    --sidebar-accent: 35 8% 92%;
-    --sidebar-accent-foreground: 30 10% 20%;
-    --sidebar-border: 35 10% 88%;
-    --sidebar-ring: 229 100% 61%;
+    --sidebar-background: 0 0% 96%;
+    --sidebar-foreground: 0 0% 9%;
+    --sidebar-primary: 0 0% 9%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 235 100% 62%;
   }
 
   .dark {
-    --background: 30 10% 8%;
-    --foreground: 40 15% 92%;
+    --background: 0 0% 9%; /* Ink */
+    --foreground: 0 0% 100%; /* Paper */
 
-    --card: 30 10% 10%;
-    --card-foreground: 40 15% 92%;
+    --card: 0 0% 13%; /* #222222 */
+    --card-foreground: 0 0% 100%;
 
-    --popover: 30 10% 8%;
-    --popover-foreground: 40 15% 92%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 40 15% 92%;
-    --primary-foreground: 30 10% 8%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 9%;
 
-    --secondary: 30 8% 16%;
-    --secondary-foreground: 40 15% 88%;
+    --secondary: 0 0% 13%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 30 8% 20%;
-    --muted-foreground: 35 6% 55%;
+    --muted: 0 0% 13%;
+    --muted-foreground: 0 0% 56%; /* #8F8F8F */
 
-    --accent: 229 100% 61%;
-    --accent-foreground: 40 20% 98%;
+    --accent: 235 100% 72%; /* #727DFF, lifted so it still reads on Ink */
+    --accent-foreground: 0 0% 9%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 30 8% 20%;
-    --input: 30 8% 20%;
-    --ring: 229 100% 61%;
+    --border: 0 0% 18%; /* #2E2E2E */
+    --input: 0 0% 18%;
+    --ring: 235 100% 72%;
 
-    --sidebar-background: 30 10% 10%;
-    --sidebar-foreground: 40 15% 88%;
-    --sidebar-primary: 40 15% 92%;
-    --sidebar-primary-foreground: 30 10% 8%;
-    --sidebar-accent: 30 8% 16%;
-    --sidebar-accent-foreground: 40 15% 88%;
-    --sidebar-border: 30 8% 20%;
-    --sidebar-ring: 229 100% 61%;
+    --sidebar-background: 0 0% 13%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 9%;
+    --sidebar-accent: 0 0% 13%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 235 100% 72%;
   }
 }
 
