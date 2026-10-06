@@ -35,7 +35,7 @@ const outputProjects: OutputProject[] = [
     date: "2018–2024",
     category: "identity",
     image: "/work/yettel.png",
-    link: "/systems",
+    link: "/systems/yettel",
   },
   {
     title: "Localization platform",

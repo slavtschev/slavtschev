@@ -37,7 +37,7 @@ const featuredProjects: {
     title: "Yettel",
     description: "Visual identity, design systems and creative strategy, at Telenor and then Yettel.",
     hoverText: "Visual identity, design systems and creative strategy, at Telenor and then Yettel.",
-    link: "/systems",
+    link: "/systems/yettel",
     image: "/work/yettel.png",
     size: "small",
     tags: ["Identity", "Design systems", "Strategy"],
@@ -112,7 +112,7 @@ const outputsSlides = [
   {
     title: "Yettel",
     image: "/work/yettel.png",
-    link: "/systems",
+    link: "/systems/yettel",
     widthClass: "w-[80vw] sm:w-[42vw] lg:w-[26rem]",
   },
   {
@@ -361,8 +361,8 @@ export default function Index() {
             <div className="w-full lg:col-start-2 lg:row-start-2 lg:h-full lg:self-end">
               <motion.div
                 className="aspect-video overflow-hidden rounded-[12px] rounded-tr-none bg-card lg:ml-auto lg:mr-[-5rem]"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={heroSection.isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0 }}
+                animate={heroSection.isInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <video

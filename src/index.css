@@ -3,26 +3,18 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Archivo';
-  src: url('/fonts/Archivo-Variable.woff2') format('woff2');
-  font-weight: 100 900;
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Variable.woff2') format('woff2');
+  font-weight: 300 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Archivo Expanded';
-  src: url('/fonts/ArchivoExpanded-Variable.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Martian Mono';
-  src: url('/fonts/MartianMono-Variable.woff2') format('woff2');
-  font-weight: 100 800;
-  font-style: normal;
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-VariableItalic.woff2') format('woff2');
+  font-weight: 300 900;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -183,10 +175,10 @@
   }
 
   .web-title {
-    @apply font-expanded;
     font-size: 22px;
     line-height: 1.15;
     font-weight: 700;
+    letter-spacing: -0.01em;
   }
 
   .web-lead {
@@ -209,11 +201,10 @@
   }
 
   .web-label {
-    @apply font-mono;
     font-size: 12px;
     line-height: 1;
-    font-weight: 500;
-    letter-spacing: 0.06em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 

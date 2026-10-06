@@ -14,9 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Archivo", "Inter", "system-ui", "-apple-system", '"Segoe UI"', "Arial", "sans-serif"],
-        expanded: ['"Archivo Expanded"', "Archivo", "Inter", "system-ui", "sans-serif"],
-        mono: ['"Martian Mono"', "ui-monospace", '"SF Mono"', "Menlo", "monospace"],
+        sans: ["Satoshi", "Inter", "system-ui", "-apple-system", '"Segoe UI"', "Arial", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

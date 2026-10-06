@@ -1,3 +1,5 @@
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "@/components/ReloadLink";
 import { usePageTitle } from "@/hooks/use-page-title";
 
 const note = {
@@ -5,6 +7,7 @@ const note = {
   category: "After Effects",
   description: "How I built a localization plugin for After Effects by prompting, one step at a time.",
   image: "/notes/vibe-flow.jpg",
+  path: "/playground/vibe-flow",
 };
 
 export default function Playground() {
@@ -22,7 +25,10 @@ export default function Playground() {
       </section>
 
       <section className="container-wide pt-[64px] pb-[128px]">
-        <article className="grid grid-cols-1 items-center gap-8 rounded-[20px] bg-foreground p-8 text-background sm:p-10 lg:grid-cols-2 lg:gap-12">
+        <Link
+          to={note.path}
+          className="group grid grid-cols-1 items-center gap-8 rounded-[20px] bg-foreground p-8 text-background no-underline sm:p-10 lg:grid-cols-2 lg:gap-12"
+        >
           <div className="aspect-video overflow-hidden rounded-[12px] bg-background/10">
             <img
               src={note.image}
@@ -38,9 +44,16 @@ export default function Playground() {
             </span>
             <h2 className="web-title text-background">{note.title}</h2>
             <p className="web-body text-background/68">{note.description}</p>
-            <p className="web-small text-background/55">Full write-up coming soon.</p>
+            <span className="flex items-center gap-2 web-small text-background/80">
+              Read the note
+              <ArrowUpRight
+                size={16}
+                className="transition-transform duration-300 ease-out group-hover:rotate-45"
+                aria-hidden="true"
+              />
+            </span>
           </div>
-        </article>
+        </Link>
       </section>
     </>
   );
