@@ -207,6 +207,7 @@ function FeaturedCard({
               src={image}
               alt={title}
               className="h-full w-full object-cover"
+              loading="lazy"
             />
           </div>
           <div className="pt-4">
@@ -530,6 +531,7 @@ export default function Index() {
                   src={coreSkillsTabs[activeCoreSkillTab].image.src}
                   alt={coreSkillsTabs[activeCoreSkillTab].image.alt}
                   className="h-full w-full object-cover"
+                  loading="lazy"
                 />
               </motion.div>
             </AnimatePresence>
@@ -629,6 +631,7 @@ export default function Index() {
                             src={project.image}
                             alt={project.title}
                             className="h-full w-full object-contain p-3 transition-transform duration-300 group-hover:scale-[1.02] md:p-4"
+                            loading="lazy"
                           />
                         </div>
                         <h4 className="web-title mt-3 pb-1 text-foreground">

@@ -209,7 +209,7 @@ export default function About() {
         >
           {steps.map((step) => (
             <li key={step.number} className="flex flex-col gap-4">
-              <img src={step.image} alt="" className="aspect-square w-full rounded-lg" />
+              <img src={step.image} alt="" className="aspect-square w-full rounded-lg" loading="lazy" />
               <span className="web-label text-muted-foreground">
                 {step.number}
               </span>
