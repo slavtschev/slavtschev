@@ -8,19 +8,11 @@ const footerNavLinks = [
   { name: "About", path: "/about" },
   { name: "Case Studies", path: "/systems" },
   { name: "Selected Outputs", path: "/outputs" },
-  { name: "Playground", path: "/playground" },
+  { name: "Notes", path: "/playground" },
   { name: "Contact", path: "/contact" },
 ];
 
-const serviceLinks = [
-  "Creative Production",
-  "UX/UI Design",
-  "Branding",
-  "Motion Design",
-  "Marketing Design",
-  "No-Code Development",
-  "Workflow Automation",
-];
+const serviceLinks = ["Creative production", "UX/UI design", "Automation", "No-code development"];
 
 // TODO: swap href="#" for the real profile URL once you have it; placeholder shown in title on hover.
 const socialLinks = [
@@ -92,7 +84,7 @@ export function Footer() {
           <div className="grid grid-cols-1 border-white/10 lg:grid-cols-2 lg:divide-x lg:divide-white/10">
             <div className="py-10 lg:pr-10 xl:pr-14">
               <h2 className="max-w-[33rem] text-[38px] font-medium leading-[1.08] tracking-[-0.03em] text-white sm:text-[48px]">
-                Build sharper digital experiences with design systems and scalable workflows.
+                Clear thinking. Good craft. Less noise.
               </h2>
 
               <Button
@@ -100,7 +92,7 @@ export function Footer() {
                 className="group mt-8 h-10 rounded-full px-6 text-[16px] leading-none font-normal"
               >
                 <Link to="/contact">
-                  Let's connect
+                  Get in Touch
                   <ArrowUpRight
                     size={18}
                     className="transition-transform duration-300 ease-out group-hover:rotate-45"
@@ -113,7 +105,7 @@ export function Footer() {
               <p className="max-w-[30rem] text-[16px] leading-[1.45] text-white/82">
                 Dimitar Slavchev
                 <br />
-                Sofia, Bulgaria
+                Designer and creative technologist, Sofia
               </p>
 
               <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
@@ -133,7 +125,7 @@ export function Footer() {
                 </div>
 
                 <div>
-                  <p className="text-[16px] font-medium text-white/45">Services</p>
+                  <p className="text-[16px] font-medium text-white/45">What I do</p>
                   <div className="mt-3 flex flex-col gap-2">
                     {serviceLinks.map((service) => (
                       <p key={service} className="text-[16px] leading-none text-white/88">

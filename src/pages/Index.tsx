@@ -7,13 +7,6 @@ import { useInView } from "@/hooks/use-in-view";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { Button } from "@/components/ui/button";
 
-const whoIAmStats = [
-  { label: "Years", value: "7+" },
-  { label: "Brands", value: "50+" },
-  { label: "Markets", value: "40+" },
-  { label: "Assets/year", value: "10K+" },
-];
-
 const featuredProjects: {
   title: string;
   description: string;
@@ -452,9 +445,9 @@ export default function Index() {
                 animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                I Design Workflows,
+                I design the work,
                 <br />
-                Not Just Visuals
+                and the workflow.
               </motion.h1>
             </div>
 
@@ -538,7 +531,7 @@ export default function Index() {
           animate={headlineSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          Versatile visual designer with 6+ years in digital advertising and creative production.
+          Designer and creative technologist with 8 years in advertising and creative production.
         </motion.h2>
       </section>
 
