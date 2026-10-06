@@ -37,7 +37,7 @@ const featuredProjects: {
     title: "Yettel",
     description: "Visual identity, design systems and creative strategy, at Telenor and then Yettel.",
     hoverText: "Visual identity, design systems and creative strategy, at Telenor and then Yettel.",
-    link: "/systems",
+    link: "/systems/yettel",
     image: "/work/yettel.png",
     size: "small",
     tags: ["Identity", "Design systems", "Strategy"],
@@ -112,7 +112,7 @@ const outputsSlides = [
   {
     title: "Yettel",
     image: "/work/yettel.png",
-    link: "/systems",
+    link: "/systems/yettel",
     widthClass: "w-[80vw] sm:w-[42vw] lg:w-[26rem]",
   },
   {

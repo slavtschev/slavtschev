@@ -20,7 +20,7 @@ const caseStudies: CaseStudy[] = [
   },
   {
     title: "Yettel",
-    link: "/systems",
+    link: "/systems/yettel",
     image: "/work/yettel.png",
     tags: ["Identity", "Design systems", "Strategy"],
   },

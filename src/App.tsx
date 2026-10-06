@@ -7,6 +7,7 @@ const Systems = lazy(() => import("./pages/Systems"));
 const Outputs = lazy(() => import("./pages/Outputs"));
 const Playground = lazy(() => import("./pages/Playground"));
 const Note = lazy(() => import("./pages/Note"));
+const CaseStudyYettel = lazy(() => import("./pages/CaseStudyYettel"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -18,6 +19,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/systems" element={<Systems />} />
+          <Route path="/systems/yettel" element={<CaseStudyYettel />} />
           <Route path="/outputs" element={<Outputs />} />
           <Route path="/playground" element={<Playground />} />
           <Route path="/playground/vibe-flow" element={<Note />} />
