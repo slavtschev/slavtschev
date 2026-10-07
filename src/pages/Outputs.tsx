@@ -117,10 +117,7 @@ export default function Outputs() {
             transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <span className="web-label text-muted-foreground">Screens, sites and motion</span>
-            <div className="flex items-start gap-4">
-              <h1 className="web-display text-foreground">Outputs</h1>
-              <span className="web-label pt-2 text-foreground">({outputProjects.length})</span>
-            </div>
+            <h1 className="web-display text-foreground">Outputs</h1>
           </motion.div>
           <motion.p
             className="web-lead max-w-[24rem] text-foreground/68"

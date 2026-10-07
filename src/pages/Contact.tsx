@@ -4,17 +4,17 @@ import { ArrowUpRight, Check, Copy } from "lucide-react";
 import { useInView } from "@/hooks/use-in-view";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { Button } from "@/components/ui/button";
+import { Section } from "@/components/Section";
 
 const revealEase = [0.25, 0.46, 0.45, 0.94] as const;
 
 const email = "slavchev.dimitar@yahoo.com";
 
-// TODO: swap href="#" for the real profile URL once you have it; placeholder shown in title on hover.
 const profileLinks = [
-  { name: "LinkedIn", href: "#", placeholder: "linkedin.com/in/your-name" },
-  { name: "Dribbble", href: "#", placeholder: "dribbble.com/your-name" },
-  { name: "GitHub", href: "#", placeholder: "github.com/your-name" },
-  { name: "Instagram", href: "#", placeholder: "instagram.com/your-name" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/slavtschev/", placeholder: "linkedin.com/in/slavtschev" },
+  { name: "Dribbble", href: "https://dribbble.com/slavtschev", placeholder: "dribbble.com/slavtschev" },
+  { name: "GitHub", href: "https://github.com/slavtschev", placeholder: "github.com/slavtschev" },
+  { name: "Instagram", href: "https://www.instagram.com/slavtschev/", placeholder: "instagram.com/slavtschev" },
 ];
 
 const quickFacts: { label: string; value: string; href?: string }[] = [
@@ -70,10 +70,10 @@ export default function Contact() {
 
   return (
     <div>
-      <section ref={pageSection.ref} className="container-wide pt-24 pb-0 md:pt-28 lg:pt-[128px]">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+      <Section size="hero" ref={pageSection.ref}>
+        <div className="grid grid-cols-1 gap-y-6 lg:grid-cols-12 lg:items-end lg:gap-x-6">
           <motion.div
-            className="flex max-w-[34rem] flex-col gap-4"
+            className="flex flex-col gap-4 lg:col-span-7"
             initial={{ opacity: 0, y: 16 }}
             animate={pageSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.7, ease: revealEase }}
@@ -82,7 +82,7 @@ export default function Contact() {
             <h1 className="web-display text-foreground">Contact</h1>
           </motion.div>
           <motion.p
-            className="web-lead max-w-[24rem] text-foreground/68"
+            className="web-lead text-foreground/68 lg:col-span-5"
             initial={{ opacity: 0, y: 16 }}
             animate={pageSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.7, delay: 0.1, ease: revealEase }}
@@ -90,7 +90,7 @@ export default function Contact() {
             Email is the quickest way to reach me. My profiles and the basics are below.
           </motion.p>
         </div>
-      </section>
+      </Section>
 
       <section ref={bannerSection.ref} className="container-wide pt-16 lg:pt-24">
         <motion.div
@@ -105,7 +105,7 @@ export default function Contact() {
             aria-hidden="true"
             className="order-2 hidden h-full w-full object-cover object-right sm:absolute sm:inset-0 sm:order-none sm:block"
           />
-          <div className="order-1 flex flex-col items-start gap-6 sm:absolute sm:inset-0 sm:order-none sm:flex sm:max-w-[22rem] sm:items-center sm:justify-center sm:p-12">
+          <div className="order-1 flex flex-col items-start gap-6 sm:absolute sm:inset-0 sm:order-none sm:flex sm:max-w-[22rem] sm:items-center sm:justify-center sm:py-12 sm:pl-0 sm:pr-12">
             <span className="web-label text-muted-foreground">Email</span>
             <a
               href={`mailto:${email}`}
@@ -157,8 +157,8 @@ export default function Contact() {
                 <a
                   key={profile.name}
                   href={profile.href}
-                  title={`Add your real profile: ${profile.placeholder}`}
-                  onClick={(event) => event.preventDefault()}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-foreground/15 py-6 text-foreground transition-colors hover:text-accent"
                 >
                   <span className="web-title w-[10rem] shrink-0">{profile.name}</span>
