@@ -7,6 +7,7 @@ const Systems = lazy(() => import("./pages/Systems"));
 const Outputs = lazy(() => import("./pages/Outputs"));
 const Playground = lazy(() => import("./pages/Playground"));
 const Note = lazy(() => import("./pages/Note"));
+const NoteDigitalExperiences = lazy(() => import("./pages/NoteDigitalExperiences"));
 const CaseStudyYettel = lazy(() => import("./pages/CaseStudyYettel"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/outputs" element={<Outputs />} />
           <Route path="/playground" element={<Playground />} />
           <Route path="/playground/vibe-flow" element={<Note />} />
+          <Route path="/playground/digital-experiences" element={<NoteDigitalExperiences />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

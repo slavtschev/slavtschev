@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "@/hooks/use-in-view";
 import { usePageTitle } from "@/hooks/use-page-title";
 import { Button } from "@/components/ui/button";
+import { ToolIcon } from "@/components/ToolIcon";
 
 const featuredProjects: {
   title: string;
@@ -130,6 +131,7 @@ const coreSkillsTabs = [
     paragraph:
       "Motion design and creative production for campaigns localized into 20+ markets, at Storytel. Concept, execution and the production system behind it, so work ships consistently across markets.",
     image: { src: "/work/storytel.jpg", alt: "A grid of campaign versions for Storytel, one per market" },
+    tools: ["After Effects", "Illustrator", "Photoshop"],
   },
   {
     label: "UX/UI Design",
@@ -137,6 +139,7 @@ const coreSkillsTabs = [
     paragraph:
       "A concept for a localization platform: one place for every language and format of a campaign, with QA built in. Product thinking applied to the same localization problem Storytel's campaigns run into.",
     image: { src: "/work/localization-platform.jpg", alt: "The localization platform overview: languages, versions, items to review" },
+    tools: ["Figma", "Framer"],
   },
   {
     label: "Automation",
@@ -144,6 +147,7 @@ const coreSkillsTabs = [
     paragraph:
       "Vibe Flow, an After Effects plugin I built by prompting: it swaps a master comp into every language version automatically, instead of by hand.",
     image: { src: "/notes/vibe-flow.jpg", alt: "Vibe Flow running inside After Effects, rendering language versions" },
+    tools: ["After Effects", "JavaScript"],
   },
   {
     label: "No Code Development",
@@ -151,6 +155,7 @@ const coreSkillsTabs = [
     paragraph:
       "Portfolio sites for photographers, built on Webflow, Vite and Astro by prompting and shipped to production, start to finish.",
     image: { src: "/work/photography-sites.jpg", alt: "Four photography and product sites in browser windows" },
+    tools: ["Webflow", "JavaScript"],
   },
 ] as const;
 
@@ -383,7 +388,7 @@ export default function Index() {
       </section>
 
       {/* Headline Section */}
-      <section ref={headlineSection.ref} className="container-wide pt-[128px] pb-32">
+      <section ref={headlineSection.ref} className="container-wide pt-20 pb-20 lg:pt-[128px] lg:pb-32">
         <motion.h2
           className="web-headline text-foreground text-center mx-auto max-w-4xl"
           initial={{ opacity: 0, y: 20 }}
@@ -407,7 +412,7 @@ export default function Index() {
         </div>
       </section>
 
-      <section ref={myWorkSection.ref} className="py-32">
+      <section ref={myWorkSection.ref} className="py-20 lg:py-32">
         <div className="container-wide">
           <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-12 lg:items-start lg:gap-x-6">
             <motion.p
@@ -506,16 +511,27 @@ export default function Index() {
             </div>
 
             <AnimatePresence mode="wait" initial={false}>
-              <motion.p
+              <motion.div
                 key={`core-skills-paragraph-${activeCoreSkillTab}`}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-                className="web-lead max-w-[39rem] lg:col-start-1 lg:col-span-6 text-white/90"
+                className="max-w-[39rem] lg:col-start-1 lg:col-span-6"
               >
-                {coreSkillsTabs[activeCoreSkillTab].paragraph}
-              </motion.p>
+                <p className="web-lead text-white/90">{coreSkillsTabs[activeCoreSkillTab].paragraph}</p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {coreSkillsTabs[activeCoreSkillTab].tools.map((tool) => (
+                    <span
+                      key={tool}
+                      title={tool}
+                      className="flex h-10 w-10 items-center justify-center rounded-[10px] bg-white/10 text-white/80"
+                    >
+                      <ToolIcon name={tool} className="h-[18px] w-[18px]" />
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
             </AnimatePresence>
 
             <AnimatePresence mode="wait" initial={false}>

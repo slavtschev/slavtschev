@@ -104,6 +104,74 @@
   }
 }
 
+/*
+ * Yettel case-study theme: scoped re-skin, navy + lime, pulled from the
+ * case-study artifact's own design. Applied only to that page's content
+ * wrapper (never Nav/Footer) by putting .theme-yettel on a container div;
+ * it overrides the same token names the rest of the site already uses,
+ * so existing bg-background/text-foreground/bg-accent etc. classes just
+ * pick up the new palette within that scope.
+ */
+.theme-yettel {
+  --background: 207 100% 12.5%;
+  --foreground: 100 19% 94%;
+  --card: 207 76% 16%;
+  --card-foreground: 100 19% 94%;
+  --popover: 207 100% 12.5%;
+  --popover-foreground: 100 19% 94%;
+  --primary: 78 100% 50%;
+  --primary-foreground: 207 100% 12.5%;
+  --secondary: 207 60% 20%;
+  --secondary-foreground: 100 19% 94%;
+  --muted: 207 55% 22%;
+  --muted-foreground: 207 24% 63%;
+  --accent: 78 100% 50%;
+  --accent-foreground: 207 100% 12.5%;
+  --border: 209 52% 25%;
+  --input: 209 52% 25%;
+  --ring: 78 100% 50%;
+  --selection-foreground: hsl(207 100% 12.5%);
+  --cs-deep: 207 100% 9.4%;
+  --cs-light: 198 47% 85%;
+  color-scheme: dark;
+}
+.theme-yettel .cs-deep {
+  background-color: hsl(var(--cs-deep));
+  color: hsl(var(--foreground));
+}
+.theme-yettel .cs-light {
+  --background: 198 47% 85%;
+  --foreground: 207 100% 12.5%;
+  --card: 0 0% 100%;
+  --card-foreground: 207 100% 12.5%;
+  --secondary: 198 45% 92%;
+  --secondary-foreground: 207 100% 12.5%;
+  --muted-foreground: 207 35% 32%;
+  --accent: 207 100% 12.5%;
+  --accent-foreground: 78 100% 50%;
+  --primary: 207 100% 12.5%;
+  --primary-foreground: 78 100% 50%;
+  --border: 205 30% 72%;
+  --input: 205 30% 72%;
+  --ring: 207 100% 12.5%;
+  --selection-foreground: hsl(78 100% 50%);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  color-scheme: light;
+}
+.theme-yettel .cs-curve {
+  border-top-left-radius: 50% clamp(28px, 4vw, 64px);
+  border-top-right-radius: 50% clamp(28px, 4vw, 64px);
+}
+.theme-yettel .cs-tag {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+  padding: 0 0.32em 0 0.1em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -153,7 +221,11 @@
   }
 
   .container-wide {
-    @apply w-full mx-auto px-12 md:px-16 lg:px-20;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(20px, calc(20px + (100vw - 390px) * 0.05714), 80px);
+    padding-right: clamp(20px, calc(20px + (100vw - 390px) * 0.05714), 80px);
   }
 
   /*

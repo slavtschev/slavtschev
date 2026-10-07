@@ -96,7 +96,7 @@ export default function About() {
   const valuesSection = useInView({ threshold: 0.1, once: true });
   const experienceSection = useInView({ threshold: 0.1, once: true });
   const disciplinesSection = useInView({ threshold: 0.1, once: true });
-  const ctaSection = useInView({ threshold: 0.1, once: true });
+  const photographySection = useInView({ threshold: 0.1, once: true });
 
   return (
     <div>
@@ -113,55 +113,81 @@ export default function About() {
             </motion.p>
 
             <div className="lg:col-start-4 lg:col-end-13">
-              <motion.h1
-                className="web-display max-w-[18ch] text-foreground"
-                initial={{ opacity: 0, y: 24 }}
-                animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-                transition={{ duration: 0.82, ease: revealEase }}
-              >
-                I care about both the thing and the system behind the thing.
-              </motion.h1>
+              <div className="flex flex-wrap items-end gap-10">
+                <div className="min-w-[280px] flex-1">
+                  <motion.h1
+                    className="web-display max-w-[18ch] text-foreground"
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+                    transition={{ duration: 0.82, ease: revealEase }}
+                  >
+                    I care about both the thing and the system behind the thing.
+                  </motion.h1>
 
-              <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-x-6">
-                <motion.p
-                  className="web-lead lg:col-span-8 text-foreground/92"
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-                  transition={{ duration: 0.72, delay: 0.1, ease: revealEase }}
-                >
-                  I'm Dimitar Slavchev, a designer and creative technologist in Sofia. I spent 6 years at
-                  Yettel on visual identity, design systems and creative strategy, and the last 2 at
-                  Storytel on motion design and creative production across 20+ markets.
-                </motion.p>
+                  <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-x-6">
+                    <motion.p
+                      className="web-lead lg:col-span-8 text-foreground/92"
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+                      transition={{ duration: 0.72, delay: 0.1, ease: revealEase }}
+                    >
+                      I'm Dimitar Slavchev, a designer and creative technologist in Sofia. I spent 6 years at
+                      Yettel on visual identity, design systems and creative strategy, and the last 2 at
+                      Storytel on motion design and creative production across 20+ markets.
+                    </motion.p>
 
-                <motion.p
-                  className="web-body lg:col-span-8 text-muted-foreground"
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-                  transition={{ duration: 0.68, delay: 0.2, ease: revealEase }}
-                >
-                  On my own I built Vibe Flow, an After Effects plugin, and a run of sites on Webflow,
-                  Vite and Astro. Over those years my work moved from single outputs to the systems that
-                  produce them.
-                </motion.p>
+                    <motion.p
+                      className="web-body lg:col-span-8 text-muted-foreground"
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+                      transition={{ duration: 0.68, delay: 0.2, ease: revealEase }}
+                    >
+                      On my own I built Vibe Flow, an After Effects plugin, and a run of sites on Webflow,
+                      Vite and Astro. Over those years my work moved from single outputs to the systems that
+                      produce them.
+                    </motion.p>
+                  </div>
+
+                  <motion.div
+                    className="mt-8 flex flex-wrap gap-2"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                    transition={{ duration: 0.7, delay: 0.28, ease: revealEase }}
+                  >
+                    <Button asChild className="group h-10 rounded-full px-6 text-[16px] leading-none font-normal">
+                      <Link to="/contact">
+                        Get in Touch
+                        <ArrowUpRight
+                          size={18}
+                          className="transition-transform duration-300 ease-out group-hover:rotate-45"
+                        />
+                      </Link>
+                    </Button>
+                    <button
+                      type="button"
+                      title="Add a real CV file to enable this button"
+                      onClick={(event) => event.preventDefault()}
+                      className="group inline-flex h-10 items-center gap-2 rounded-full bg-card px-6 text-[16px] font-normal leading-none text-foreground transition-colors hover:bg-card/70"
+                    >
+                      Download CV
+                      <ArrowUpRight
+                        size={18}
+                        className="transition-transform duration-300 ease-out group-hover:rotate-45"
+                      />
+                    </button>
+                  </motion.div>
+                </div>
+
+                <motion.img
+                  src="/about/hero-illustration.svg"
+                  alt=""
+                  aria-hidden="true"
+                  className="aspect-[4/5] w-full max-w-[280px] rounded-[12px] object-cover sm:max-w-[320px]"
+                  initial={{ opacity: 0 }}
+                  animate={heroSection.isInView ? { opacity: 1 } : { opacity: 0 }}
+                  transition={{ duration: 0.8, delay: 0.1, ease: revealEase }}
+                />
               </div>
-
-              <motion.div
-                className="mt-8"
-                initial={{ opacity: 0, y: 10 }}
-                animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                transition={{ duration: 0.7, delay: 0.28, ease: revealEase }}
-              >
-                <Button asChild className="group h-10 rounded-full px-6 text-[16px] leading-none font-normal">
-                  <Link to="/contact">
-                    Get in Touch
-                    <ArrowUpRight
-                      size={18}
-                      className="transition-transform duration-300 ease-out group-hover:rotate-45"
-                    />
-                  </Link>
-                </Button>
-              </motion.div>
             </div>
           </div>
         </div>
@@ -192,14 +218,9 @@ export default function About() {
       </section>
 
       <section ref={stepsSection.ref} className={sectionShellClassName}>
-        <div className="flex flex-wrap items-end justify-between gap-6 pb-12">
-          <div className="max-w-[28rem]">
-            <p className="web-label text-muted-foreground">How I work</p>
-            <h2 className={`mt-4 ${sectionTitleClassName}`}>Every project runs the same 5 steps.</h2>
-          </div>
-          <p className="max-w-[24rem] web-body text-muted-foreground">
-            The logo is the last one: a D that exists only in the space the form leaves open.
-          </p>
+        <div className="pb-12">
+          <p className="web-label text-muted-foreground">How I work</p>
+          <h2 className={`mt-4 max-w-[28rem] ${sectionTitleClassName}`}>Every project runs the same 5 steps.</h2>
         </div>
 
         <motion.ol
@@ -250,19 +271,18 @@ export default function About() {
       </section>
 
       <section ref={experienceSection.ref} className={`${sectionShellClassName} pt-[72px] lg:pt-[96px]`}>
-        <div className={sectionGridClassName}>
-          <motion.p
-            className={sectionIntroClassName}
-            initial={{ opacity: 0 }}
-            animate={experienceSection.isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6, ease: revealEase }}
-          >
-            Experience
-          </motion.p>
-
-          <div className="lg:col-start-4 lg:col-end-13">
+        <div className="flex flex-wrap gap-12">
+          <div className="min-w-[280px] flex-[1_0_calc(33%-2rem)]">
+            <motion.p
+              className={sectionIntroClassName}
+              initial={{ opacity: 0 }}
+              animate={experienceSection.isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.6, ease: revealEase }}
+            >
+              Experience
+            </motion.p>
             <motion.h2
-              className={sectionTitleClassName}
+              className={`mt-4 ${sectionTitleClassName}`}
               initial={{ opacity: 0, y: 20 }}
               animate={experienceSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.08, ease: revealEase }}
@@ -270,7 +290,17 @@ export default function About() {
               From campaigns to the systems behind them.
             </motion.h2>
 
-            <div className="mt-10 flex flex-col border-t border-foreground/15">
+            <motion.div
+              className="mt-8 aspect-[4/5] w-full max-w-[18rem] rounded-xl bg-card"
+              initial={{ opacity: 0 }}
+              animate={experienceSection.isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.7, delay: 0.15, ease: revealEase }}
+              aria-hidden="true"
+            />
+          </div>
+
+          <div className="min-w-[280px] flex-[2_0_60%]">
+            <div className="flex flex-col border-t border-foreground/15">
               {experience.map((item, index) => (
                 <motion.div
                   key={item.name}
@@ -367,53 +397,41 @@ export default function About() {
         </div>
       </section>
 
-      <section ref={ctaSection.ref} className="container-wide pt-[64px] lg:pt-[96px] pb-[48px] lg:pb-[64px]">
-        <div className={sectionGridClassName}>
-          <motion.p
-            className={sectionIntroClassName}
-            initial={{ opacity: 0 }}
-            animate={ctaSection.isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6, ease: revealEase }}
-          >
-            Ready
-          </motion.p>
-
-          <div className="lg:col-start-4 lg:col-end-13">
+      <section ref={photographySection.ref} className={`${sectionShellClassName} pt-[96px] lg:pt-[128px]`}>
+        <div className="flex flex-wrap items-end gap-12">
+          <div className="min-w-[280px] flex-[1_0_calc(33%-2rem)]">
+            <motion.p
+              className={sectionIntroClassName}
+              initial={{ opacity: 0 }}
+              animate={photographySection.isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.6, ease: revealEase }}
+            >
+              Outside client work
+            </motion.p>
             <motion.h2
-              className={sectionTitleClassName}
+              className={`mt-4 ${sectionTitleClassName}`}
               initial={{ opacity: 0, y: 20 }}
-              animate={ctaSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              animate={photographySection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.08, ease: revealEase }}
             >
-              Got a project in mind?
+              I photograph documentary, street and experimental series.
             </motion.h2>
-
-            <motion.p
-              className="mt-8 max-w-[44rem] web-lead text-foreground/68"
-              initial={{ opacity: 0, y: 18 }}
-              animate={ctaSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
-              transition={{ duration: 0.74, delay: 0.15, ease: revealEase }}
-            >
-              Share what you're building and where you're blocked. I'll tell you plainly if I can help.
-            </motion.p>
-
-            <motion.div
-              className="mt-8"
-              initial={{ opacity: 0, y: 10 }}
-              animate={ctaSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-              transition={{ duration: 0.72, delay: 0.22, ease: revealEase }}
-            >
-              <Button asChild className="group h-10 rounded-full px-6 text-[16px] leading-none font-normal">
-                <Link to="/contact">
-                  Get in Touch
-                  <ArrowUpRight
-                    size={18}
-                    className="transition-transform duration-300 ease-out group-hover:rotate-45"
-                  />
-                </Link>
-              </Button>
-            </motion.div>
           </div>
+
+          <motion.div
+            className="grid flex-[2_0_60%] grid-cols-3 gap-4"
+            initial={{ opacity: 0, y: 16 }}
+            animate={photographySection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: revealEase }}
+          >
+            {[1, 2, 3].map((index) => (
+              <div
+                key={index}
+                className="aspect-[4/5] rounded-xl bg-card"
+                aria-hidden="true"
+              />
+            ))}
+          </motion.div>
         </div>
       </section>
     </div>

@@ -185,7 +185,7 @@ export default function CaseStudyYettel() {
   const productionSection = useReveal();
 
   return (
-    <article>
+    <article className="theme-yettel bg-background">
       <header className="container-wide pt-24 pb-0 md:pt-28 lg:pt-[128px] lg:pb-0">
         <div className="flex max-w-[56rem] flex-col items-start gap-6">
           <Link
@@ -230,7 +230,7 @@ export default function CaseStudyYettel() {
             {["Identity", "Design systems", "Strategy"].map((tag) => (
               <span
                 key={tag}
-                className="inline-flex h-8 items-center rounded-full bg-card px-4 text-[14px] font-medium text-foreground/68"
+                className="cs-tag inline-flex h-8 items-center text-[14px] font-semibold"
               >
                 {tag}
               </span>
@@ -330,7 +330,8 @@ export default function CaseStudyYettel() {
         </div>
       </section>
 
-      <section id="christmas" ref={xmasSection.ref} className="container-wide pt-24 lg:pt-32">
+      <section id="christmas" ref={xmasSection.ref} className="cs-deep pt-24 pb-24 lg:pt-32 lg:pb-32">
+      <div className="container-wide">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={xmasSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
@@ -375,9 +376,11 @@ export default function CaseStudyYettel() {
             </div>
           ))}
         </div>
+      </div>
       </section>
 
-      <section id="tv" ref={tvSection.ref} className="container-wide pt-24 lg:pt-32">
+      <section id="tv" ref={tvSection.ref} className="cs-light pt-24 pb-24 lg:pt-32 lg:pb-32">
+      <div className="container-wide">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={tvSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
@@ -424,6 +427,7 @@ export default function CaseStudyYettel() {
             </div>
           ))}
         </div>
+      </div>
       </section>
 
       <section
