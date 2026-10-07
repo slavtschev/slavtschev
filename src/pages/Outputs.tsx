@@ -120,7 +120,7 @@ export default function Outputs() {
         />
       </section>
 
-      <section ref={gridSection.ref} className="container-wide pt-[64px] pb-[128px]">
+      <section ref={gridSection.ref} className="container-wide pt-[64px] pb-24 lg:pb-[128px]">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={activeFilter}

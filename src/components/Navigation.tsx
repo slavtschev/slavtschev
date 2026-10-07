@@ -9,10 +9,10 @@ import { Logo } from "@/components/Logo";
 import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
 
 const navLinks = [
-  { number: "01", name: "About", path: "/about" },
-  { number: "02", name: "Case Studies", path: "/systems" },
-  { number: "03", name: "Selected Outputs", path: "/outputs" },
-  { number: "04", name: "Notes", path: "/playground" },
+  { name: "About", path: "/about" },
+  { name: "Case Studies", path: "/systems" },
+  { name: "Selected Outputs", path: "/outputs" },
+  { name: "Notes", path: "/playground" },
 ];
 
 export function Navigation() {
@@ -168,10 +168,11 @@ export function Navigation() {
                     onClick={() => setMobileOpen(false)}
                     className="group flex items-center gap-4 border-b border-white/15 py-5"
                   >
-                    <span className="web-label text-white/50">{link.number}</span>
-                    <span className="web-title flex-1 text-white">{link.name}</span>
+                    <span className="flex-1 text-[28px] font-semibold leading-tight tracking-tight text-white sm:text-[32px]">
+                      {link.name}
+                    </span>
                     <ArrowUpRight
-                      size={20}
+                      size={22}
                       className="shrink-0 text-white/60 transition-transform duration-300 ease-out group-hover:rotate-45"
                       aria-hidden="true"
                     />

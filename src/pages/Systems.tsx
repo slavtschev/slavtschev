@@ -119,7 +119,7 @@ export default function Systems() {
         </motion.div>
       </section>
 
-      <section ref={gridSection.ref} className="container-wide pt-[64px] pb-[128px]">
+      <section ref={gridSection.ref} className="container-wide pt-[64px] pb-24 lg:pb-[128px]">
         <div className="grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-12 lg:gap-y-16">
           {caseStudies.map((project, index) => (
             <motion.div

@@ -192,14 +192,9 @@ export default function About() {
       </section>
 
       <section ref={stepsSection.ref} className={sectionShellClassName}>
-        <div className="flex flex-wrap items-end justify-between gap-6 pb-12">
-          <div className="max-w-[28rem]">
-            <p className="web-label text-muted-foreground">How I work</p>
-            <h2 className={`mt-4 ${sectionTitleClassName}`}>Every project runs the same 5 steps.</h2>
-          </div>
-          <p className="max-w-[24rem] web-body text-muted-foreground">
-            The logo is the last one: a D that exists only in the space the form leaves open.
-          </p>
+        <div className="pb-12">
+          <p className="web-label text-muted-foreground">How I work</p>
+          <h2 className={`mt-4 max-w-[28rem] ${sectionTitleClassName}`}>Every project runs the same 5 steps.</h2>
         </div>
 
         <motion.ol

@@ -179,20 +179,37 @@ export default function Note() {
       </div>
 
       <nav aria-label="More notes" className="container-wide pt-24 pb-24 lg:pt-32 lg:pb-32">
-        <Link
-          to="/playground"
-          className="group flex flex-col justify-between gap-4 rounded-[12px] bg-card p-8 text-foreground no-underline"
-        >
-          <span className="web-label text-muted-foreground">All notes</span>
-          <span className="flex items-start justify-between gap-4">
-            <span className="web-title">How I build, written as I go</span>
-            <ArrowUpRight
-              size={18}
-              className="shrink-0 transition-transform duration-300 ease-out group-hover:rotate-45"
-              aria-hidden="true"
-            />
-          </span>
-        </Link>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <Link
+            to="/playground/digital-experiences"
+            className="group flex flex-col gap-4 rounded-[12px] bg-card p-8 text-foreground no-underline"
+          >
+            <span className="web-label text-muted-foreground">Earlier note · 15 Jan 2026</span>
+            <span className="flex items-start justify-between gap-4">
+              <span className="web-title">What I look for when shaping clearer digital experiences</span>
+              <ArrowUpRight
+                size={18}
+                className="shrink-0 transition-transform duration-300 ease-out group-hover:rotate-45"
+                aria-hidden="true"
+              />
+            </span>
+          </Link>
+
+          <Link
+            to="/playground"
+            className="group flex flex-col justify-between gap-4 rounded-[12px] bg-card p-8 text-foreground no-underline"
+          >
+            <span className="web-label text-muted-foreground">All notes</span>
+            <span className="flex items-start justify-between gap-4">
+              <span className="web-title">How I build, written as I go</span>
+              <ArrowUpRight
+                size={18}
+                className="shrink-0 transition-transform duration-300 ease-out group-hover:rotate-45"
+                aria-hidden="true"
+              />
+            </span>
+          </Link>
+        </div>
       </nav>
     </article>
   );
