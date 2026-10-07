@@ -130,7 +130,6 @@ const coreSkillsTabs = [
     lead: "I do a mix of things and I try to make each skill support the others.",
     paragraph:
       "Motion design and creative production for campaigns localized into 20+ markets, at Storytel. Concept, execution and the production system behind it, so work ships consistently across markets.",
-    image: { src: "/work/storytel.jpg", alt: "A grid of campaign versions for Storytel, one per market" },
     tools: ["After Effects", "Illustrator", "Photoshop"],
   },
   {
@@ -138,7 +137,6 @@ const coreSkillsTabs = [
     lead: "I turn complexity into interfaces that feel clear, fast, and intentional.",
     paragraph:
       "A concept for a localization platform: one place for every language and format of a campaign, with QA built in. Product thinking applied to the same localization problem Storytel's campaigns run into.",
-    image: { src: "/work/localization-platform.jpg", alt: "The localization platform overview: languages, versions, items to review" },
     tools: ["Figma", "Framer"],
   },
   {
@@ -146,7 +144,6 @@ const coreSkillsTabs = [
     lead: "I design workflows that remove repetitive work and protect creative quality.",
     paragraph:
       "Vibe Flow, an After Effects plugin I built by prompting: it swaps a master comp into every language version automatically, instead of by hand.",
-    image: { src: "/notes/vibe-flow.jpg", alt: "Vibe Flow running inside After Effects, rendering language versions" },
     tools: ["After Effects", "JavaScript"],
   },
   {
@@ -154,7 +151,6 @@ const coreSkillsTabs = [
     lead: "I build functional digital products quickly with modern no-code tools.",
     paragraph:
       "Portfolio sites for photographers, built on Webflow, Vite and Astro by prompting and shipped to production, start to finish.",
-    image: { src: "/work/photography-sites.jpg", alt: "Four photography and product sites in browser windows" },
     tools: ["Webflow", "JavaScript"],
   },
 ] as const;
@@ -176,8 +172,6 @@ function FeaturedCard({
   isInView: boolean;
   index: number;
 }) {
-  const [isHovered, setIsHovered] = useState(false);
-
   const aspectClasses = {
     large: "aspect-video",
     medium: "aspect-video",
@@ -202,12 +196,8 @@ function FeaturedCard({
       className={`block ${colSpanClasses[size]}`}
     >
       <Link to={link} className="block">
-        <article className="relative cursor-pointer">
-          <div
-            className={`${aspectClasses[size]} relative overflow-hidden bg-muted rounded-lg`}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
+        <article className="group relative cursor-pointer">
+          <div className={`${aspectClasses[size]} relative overflow-hidden bg-muted rounded-lg`}>
             <img
               src={image}
               alt={title}
@@ -217,11 +207,7 @@ function FeaturedCard({
           </div>
           <div className="pt-4">
             <h3 className="web-title text-foreground">{title}</h3>
-            <div
-              className={`mt-3 flex flex-wrap gap-2 transition-all duration-500 ease-[cubic-bezier(0.2,1,0.4,1)] ${
-                isHovered ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
-              }`}
-            >
+            <div className="mt-3 flex flex-wrap gap-2 transition-all duration-500 ease-[cubic-bezier(0.2,1,0.4,1)] lg:translate-y-3 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
               {tags.map((tag) => (
                 <span
                   key={tag}
@@ -299,7 +285,7 @@ export default function Index() {
         <div className="container-wide flex h-full flex-col">
           <div aria-hidden className="invisible flex-1" />
 
-          <div className="grid items-start gap-y-10 pb-0 lg:grid-cols-[minmax(18rem,0.92fr)_minmax(0,1.8fr)] lg:grid-rows-[auto_minmax(0,1fr)] lg:gap-x-10 xl:gap-x-12">
+          <div className="grid items-start gap-y-10 pt-24 pb-0 lg:grid-cols-[minmax(18rem,0.92fr)_minmax(0,1.8fr)] lg:grid-rows-[auto_minmax(0,1fr)] lg:gap-x-10 lg:pt-0 xl:gap-x-12">
             <div className="hidden lg:block" />
 
             <div className="w-full lg:col-start-2 lg:row-start-1">
@@ -520,35 +506,27 @@ export default function Index() {
                 className="max-w-[39rem] lg:col-start-1 lg:col-span-6"
               >
                 <p className="web-lead text-white/90">{coreSkillsTabs[activeCoreSkillTab].paragraph}</p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {coreSkillsTabs[activeCoreSkillTab].tools.map((tool) => (
-                    <span
-                      key={tool}
-                      title={tool}
-                      className="flex h-10 w-10 items-center justify-center rounded-[10px] bg-white/10 text-white/80"
-                    >
-                      <ToolIcon name={tool} className="h-[18px] w-[18px]" />
-                    </span>
-                  ))}
-                </div>
               </motion.div>
             </AnimatePresence>
 
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
-                key={`core-skills-images-${activeCoreSkillTab}`}
+                key={`core-skills-icons-${activeCoreSkillTab}`}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.46, ease: [0.22, 1, 0.36, 1] }}
-                className="aspect-square w-full max-w-[22rem] overflow-hidden rounded-[20px] bg-white/10 lg:col-start-8 lg:col-span-5"
+                className="flex aspect-square w-full max-w-[22rem] flex-wrap content-center items-center justify-center gap-4 overflow-hidden rounded-[20px] bg-white/10 p-8 lg:col-start-8 lg:col-span-5"
               >
-                <img
-                  src={coreSkillsTabs[activeCoreSkillTab].image.src}
-                  alt={coreSkillsTabs[activeCoreSkillTab].image.alt}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
+                {coreSkillsTabs[activeCoreSkillTab].tools.map((tool) => (
+                  <span
+                    key={tool}
+                    title={tool}
+                    className="flex h-20 w-20 items-center justify-center rounded-[16px] bg-white/10 text-white/80 sm:h-24 sm:w-24"
+                  >
+                    <ToolIcon name={tool} className="h-8 w-8 sm:h-10 sm:w-10" />
+                  </span>
+                ))}
               </motion.div>
             </AnimatePresence>
           </div>
@@ -578,7 +556,7 @@ export default function Index() {
           </div>
 
           <motion.div
-            className="mt-14 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4"
+            className="mt-14 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4"
             initial={{ opacity: 0 }}
             animate={clientsSection.isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}

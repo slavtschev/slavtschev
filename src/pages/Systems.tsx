@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/use-in-view";
 import { Link } from "@/components/ReloadLink";
@@ -49,16 +48,10 @@ function CaseStudyCard({
   image: string;
   tags: string[];
 }) {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <Link to={link} className="block">
-      <article className="relative cursor-pointer">
-        <div
-          className="relative aspect-video overflow-hidden rounded-[20px] bg-muted"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+      <article className="group relative cursor-pointer">
+        <div className="relative aspect-video overflow-hidden rounded-[20px] bg-muted">
           <img src={image} alt={title} className="h-full w-full object-cover" loading="lazy" />
         </div>
 
@@ -67,13 +60,7 @@ function CaseStudyCard({
             {title}
           </h3>
 
-          <div
-            className={`mt-3 flex flex-wrap gap-2 transition-all duration-500 ease-[cubic-bezier(0.2,1,0.4,1)] ${
-              isHovered
-                ? "translate-y-0 opacity-100"
-                : "pointer-events-none translate-y-3 opacity-0"
-            }`}
-          >
+          <div className="mt-3 flex flex-wrap gap-2 transition-all duration-500 ease-[cubic-bezier(0.2,1,0.4,1)] lg:translate-y-3 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
             {tags.map((tag) => (
               <span
                 key={tag}

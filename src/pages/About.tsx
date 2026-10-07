@@ -224,7 +224,7 @@ export default function About() {
         </div>
 
         <motion.ol
-          className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5"
+          className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5"
           initial={{ opacity: 0, y: 16 }}
           animate={stepsSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
           transition={{ duration: 0.7, ease: revealEase }}
