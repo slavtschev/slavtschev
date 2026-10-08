@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Check, Copy } from "lucide-react";
 import { useInView } from "@/hooks/use-in-view";
@@ -9,6 +10,17 @@ import { Section } from "@/components/Section";
 const revealEase = [0.25, 0.46, 0.45, 0.94] as const;
 
 const email = "slavchev.dimitar@yahoo.com";
+
+// Only ever break at "@" or "." (never mid-word) when the address has to wrap.
+function BreakableEmail({ value }: { value: string }): ReactNode {
+  const parts = value.split(/([@.])/);
+  return parts.map((part, index) => (
+    <span key={index}>
+      {part}
+      {(part === "@" || part === ".") && <wbr />}
+    </span>
+  ));
+}
 
 const profileLinks = [
   { name: "LinkedIn", href: "https://www.linkedin.com/in/slavtschev/", placeholder: "linkedin.com/in/slavtschev" },
@@ -97,27 +109,21 @@ export default function Contact() {
           initial={{ opacity: 0 }}
           animate={bannerSection.isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, ease: revealEase }}
-          className="flex flex-col gap-8 sm:relative sm:overflow-hidden sm:rounded-[12px] sm:bg-foreground sm:aspect-[8/3] sm:gap-0"
+          className="grid grid-cols-1 overflow-hidden rounded-[12px] bg-card sm:grid-cols-12"
         >
-          <img
-            src="/contact/banner.svg"
-            alt=""
-            aria-hidden="true"
-            className="order-2 hidden h-full w-full object-cover object-right sm:absolute sm:inset-0 sm:order-none sm:block"
-          />
-          <div className="order-1 flex flex-col items-start gap-6 sm:absolute sm:inset-0 sm:order-none sm:flex sm:max-w-[22rem] sm:items-center sm:justify-center sm:py-12 sm:pl-0 sm:pr-12">
+          <div className="flex flex-col items-start gap-6 px-6 py-10 sm:col-span-7 sm:justify-center sm:px-10 sm:py-12 lg:col-span-7">
             <span className="web-label text-muted-foreground">Email</span>
             <a
               href={`mailto:${email}`}
-              className="break-all text-[28px] font-semibold leading-[1.05] tracking-tight text-foreground underline decoration-accent decoration-[3px] underline-offset-8 sm:text-[36px]"
+              className="web-title text-foreground underline decoration-accent decoration-[3px] underline-offset-8 sm:whitespace-nowrap"
             >
-              {email}
+              <BreakableEmail value={email} />
             </a>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <button
                 type="button"
                 onClick={handleCopy}
-                className="inline-flex h-10 items-center gap-2 rounded-full bg-card px-6 text-[16px] font-medium leading-none text-foreground transition-colors hover:bg-card/70"
+                className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-background px-6 text-[16px] font-medium leading-none text-foreground transition-colors hover:bg-background/70"
               >
                 {copied ? (
                   <>
@@ -139,12 +145,15 @@ export default function Contact() {
               </Button>
             </div>
           </div>
-          <img
-            src="/contact/banner.svg"
-            alt=""
-            aria-hidden="true"
-            className="order-3 aspect-[8/3] w-full rounded-[12px] object-cover object-right sm:hidden"
-          />
+          <div className="sm:col-span-5 lg:col-span-5">
+            <img
+              src="/contact/banner-mark.svg"
+              alt=""
+              aria-hidden="true"
+              className="h-40 w-full object-cover sm:h-full"
+              loading="lazy"
+            />
+          </div>
         </motion.div>
       </section>
 
