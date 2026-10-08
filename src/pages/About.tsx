@@ -6,6 +6,27 @@ import { Button } from "@/components/ui/button";
 import { ToolIcon } from "@/components/ToolIcon";
 import { ArrowUpRight } from "lucide-react";
 
+// TODO: replace with the real photography website URL.
+const PHOTOGRAPHY_URL = "https://example.com/replace-with-photography-site";
+
+// Small brand marks built from the logo's own language: the "D" bowl and the stair-step
+// shapes already used in step-04-structure.svg and the Contact page banner.
+function StairStepMark({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 40 40" className={className} aria-hidden="true">
+      <path fill="currentColor" d="M0 40V28H12V18H24V8H40V40Z" />
+    </svg>
+  );
+}
+
+function DoorArcMark({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 40 40" className={className} aria-hidden="true">
+      <path fill="currentColor" d="M0 0H18A20 20 0 0 1 18 40H0Z" />
+    </svg>
+  );
+}
+
 const steps = [
   { number: "01", name: "Read", detail: "Understand what is already there.", image: "/about/step-01-read.svg" },
   { number: "02", name: "Find", detail: "Find what matters.", image: "/about/step-02-find.svg" },
@@ -112,7 +133,7 @@ export default function About() {
               About
             </motion.p>
 
-            <div className="lg:col-start-4 lg:col-end-13">
+            <div className="lg:col-start-3 lg:col-end-12">
               <div className="flex flex-wrap items-end gap-10">
                 <div className="min-w-[280px] flex-1">
                   <motion.h1
@@ -134,17 +155,6 @@ export default function About() {
                       I'm Dimitar Slavchev, a designer and creative technologist in Sofia. I spent 6 years at
                       Yettel on visual identity, design systems and creative strategy, and the last 2 at
                       Storytel on motion design and creative production across 20+ markets.
-                    </motion.p>
-
-                    <motion.p
-                      className="web-body lg:col-span-8 text-muted-foreground"
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-                      transition={{ duration: 0.68, delay: 0.2, ease: revealEase }}
-                    >
-                      On my own I built Vibe Flow, an After Effects plugin, and a run of sites on Webflow,
-                      Vite and Astro. Over those years my work moved from single outputs to the systems that
-                      produce them.
                     </motion.p>
                   </div>
 
@@ -201,14 +211,20 @@ export default function About() {
           transition={{ duration: 0.75, ease: revealEase }}
         >
           <div className="flex min-h-[15rem] flex-col justify-between gap-12 rounded-xl bg-card p-8">
-            <span className="web-title">Mission</span>
+            <div className="flex items-start justify-between gap-4">
+              <span className="web-title">Mission</span>
+              <StairStepMark className="h-9 w-9 shrink-0 text-accent" />
+            </div>
             <p className="web-lead">
               I build systems across design, technology, and production that keep working as the work
               gets bigger.
             </p>
           </div>
           <div className="flex min-h-[15rem] flex-col justify-between gap-12 rounded-xl bg-card p-8">
-            <span className="web-title">Purpose</span>
+            <div className="flex items-start justify-between gap-4">
+              <span className="web-title">Purpose</span>
+              <DoorArcMark className="h-9 w-9 shrink-0 text-foreground/80" />
+            </div>
             <p className="web-lead">
               To combine what I know across disciplines to shape products and services I believe in.
               Things that actually help and actually work.
@@ -416,6 +432,23 @@ export default function About() {
             >
               I photograph documentary, street and experimental series.
             </motion.h2>
+
+            <motion.div
+              className="mt-8"
+              initial={{ opacity: 0, y: 10 }}
+              animate={photographySection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+              transition={{ duration: 0.7, delay: 0.16, ease: revealEase }}
+            >
+              <Button asChild className="group h-10 rounded-full px-6 text-[16px] leading-none font-normal">
+                <a href={PHOTOGRAPHY_URL} target="_blank" rel="noopener noreferrer">
+                  View Photography
+                  <ArrowUpRight
+                    size={18}
+                    className="transition-transform duration-300 ease-out group-hover:rotate-45"
+                  />
+                </a>
+              </Button>
+            </motion.div>
           </div>
 
           <motion.div
