@@ -13,6 +13,14 @@ const featuredNote = {
 
 const earlierNotes = [
   {
+    date: "2 Feb 2026",
+    title: "My AI philosophy",
+    description: "[Placeholder] A short note on how AI fits into my process and where I draw the line.",
+    tag: "AI",
+    minutes: "3 min",
+    path: "/playground/ai-philosophy",
+  },
+  {
     date: "15 Jan 2026",
     title: "What I look for when shaping clearer digital experiences",
     description: "What clarity actually means when you're the one shaping the interface.",
@@ -29,7 +37,7 @@ export default function Playground() {
       <section className="container-wide pt-24 pb-0 md:pt-28 lg:pt-[128px] lg:pb-0">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="flex max-w-[34rem] flex-col gap-4">
-            <span className="web-label text-muted-foreground">Notes · 2 so far · newest first</span>
+            <span className="web-label text-muted-foreground">Notes · 3 so far · newest first</span>
             <h1 className="web-display text-foreground">Notes</h1>
           </div>
           <p className="web-lead max-w-[24rem] text-foreground/68">
