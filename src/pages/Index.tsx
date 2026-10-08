@@ -54,46 +54,47 @@ const featuredProjects: {
   },
 ];
 
+// TODO: replace every blurb below with a real 1-2 line summary of the work for that client.
 const clients = [
   {
     name: "Storytel",
     year: "2024 - ongoing",
-    hoverText: "2024 - ongoing",
+    blurb: "[Placeholder] A short summary of the work with Storytel goes here.",
   },
   {
     name: "Yettel",
     year: "2022 - 2024",
-    hoverText: "2022 - 2024",
+    blurb: "[Placeholder] A short summary of the work with Yettel goes here.",
   },
   {
     name: "Telenor",
     year: "2018 - 2022",
-    hoverText: "2018 - 2022",
+    blurb: "[Placeholder] A short summary of the work with Telenor goes here.",
   },
   {
     name: "Athlon Technology",
     year: "2026",
-    hoverText: "2026",
+    blurb: "[Placeholder] A short summary of the work with Athlon Technology goes here.",
   },
   {
     name: "Colliers International",
     year: "2016 - 2018",
-    hoverText: "2016 - 2018",
+    blurb: "[Placeholder] A short summary of the work with Colliers International goes here.",
   },
   {
     name: "StreetPhoto Lab",
     year: "ongoing",
-    hoverText: "ongoing",
+    blurb: "[Placeholder] A short summary of the work with StreetPhoto Lab goes here.",
   },
   {
     name: "Curly Ideas Studio",
     year: "2025",
-    hoverText: "2025",
+    blurb: "[Placeholder] A short summary of the work with Curly Ideas Studio goes here.",
   },
   {
     name: "Three Hills Club",
     year: "2026",
-    hoverText: "2026",
+    blurb: "[Placeholder] A short summary of the work with Three Hills Club goes here.",
   },
 ];
 
@@ -516,7 +517,7 @@ export default function Index() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.46, ease: [0.22, 1, 0.36, 1] }}
-                className="flex aspect-square w-full max-w-[22rem] flex-wrap content-center items-center justify-center gap-4 overflow-hidden rounded-[20px] bg-white/10 p-8 lg:col-start-8 lg:col-span-5"
+                className="flex w-full flex-wrap content-start gap-4 lg:col-start-8 lg:col-span-5"
               >
                 {coreSkillsTabs[activeCoreSkillTab].tools.map((tool) => (
                   <span
@@ -564,7 +565,7 @@ export default function Index() {
             {clients.map((client, index) => (
               <motion.article
                 key={client.name}
-                className="group relative flex min-h-[9rem] items-center justify-center overflow-hidden rounded-[16px] border border-black/5 bg-white px-4 text-center sm:min-h-[17rem] sm:px-8 lg:min-h-[18rem]"
+                className="group relative flex min-h-[9rem] flex-col items-center justify-center gap-3 overflow-hidden rounded-[16px] border border-black/5 bg-white px-4 py-6 text-center sm:min-h-[17rem] sm:px-8 lg:min-h-[18rem]"
                 initial={{ opacity: 0, scale: 0.92 }}
                 animate={clientsSection.isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.92 }}
                 transition={{
@@ -573,11 +574,11 @@ export default function Index() {
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
               >
-                <p className="text-[clamp(1.6rem,2.4vw,2.2rem)] font-bold leading-none tracking-[-0.02em] text-foreground transition-all duration-300 ease-out group-hover:opacity-20 group-hover:blur-[3px]">
+                <p className="text-[clamp(1.6rem,2.4vw,2.2rem)] font-bold leading-none tracking-[-0.02em] text-foreground transition-all duration-300 ease-out lg:group-hover:opacity-20 lg:group-hover:blur-[3px]">
                   {client.name}
                 </p>
-                <p className="pointer-events-none absolute inset-x-8 top-1/2 -translate-y-[56%] translate-y-3 text-[22px] font-medium leading-[1.1] tracking-[-0.02em] text-foreground opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
-                  {client.hoverText}
+                <p className="web-small line-clamp-2 max-w-[20rem] text-muted-foreground transition-all duration-300 ease-out lg:pointer-events-none lg:absolute lg:inset-x-8 lg:top-1/2 lg:-translate-y-[56%] lg:translate-y-3 lg:text-foreground lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
+                  {client.blurb}
                 </p>
                 <p className="pointer-events-none absolute bottom-5 right-5 text-[13px] font-medium leading-none tracking-[0.01em] text-muted-foreground sm:text-[14px]">
                   /{client.year}
