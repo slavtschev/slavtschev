@@ -49,9 +49,9 @@ export default function Playground() {
       <section className="container-wide pt-16 lg:pt-24">
         <Link
           to={featuredNote.path}
-          className="group grid grid-cols-1 items-center gap-8 rounded-[12px] bg-foreground p-8 text-background no-underline lg:grid-cols-2 lg:gap-12"
+          className="group grid grid-cols-1 items-center gap-8 rounded-[8px] bg-foreground p-8 text-background no-underline lg:grid-cols-2 lg:gap-12"
         >
-          <div className="aspect-video overflow-hidden rounded-[12px] bg-background/10">
+          <div className="aspect-video overflow-hidden rounded-[8px] bg-background/10">
             <img
               src={featuredNote.image}
               alt="Vibe Flow running inside After Effects, rendering 24 language versions"

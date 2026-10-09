@@ -192,7 +192,7 @@ export default function About() {
                   src="/about/hero-illustration.svg"
                   alt=""
                   aria-hidden="true"
-                  className="aspect-[4/5] w-full max-w-[280px] rounded-[12px] object-cover sm:max-w-[320px]"
+                  className="aspect-[4/5] w-full max-w-[280px] rounded-[8px] object-cover sm:max-w-[320px]"
                   initial={{ opacity: 0 }}
                   animate={heroSection.isInView ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ duration: 0.8, delay: 0.1, ease: revealEase }}
@@ -210,7 +210,7 @@ export default function About() {
           animate={missionSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
           transition={{ duration: 0.75, ease: revealEase }}
         >
-          <div className="flex min-h-[15rem] flex-col justify-between gap-12 rounded-xl bg-card p-8">
+          <div className="flex min-h-[15rem] flex-col justify-between gap-12 rounded-[8px] bg-card p-8">
             <div className="flex items-start justify-between gap-4">
               <span className="web-title">Mission</span>
               <StairStepMark className="h-9 w-9 shrink-0 text-accent" />
@@ -220,7 +220,7 @@ export default function About() {
               gets bigger.
             </p>
           </div>
-          <div className="flex min-h-[15rem] flex-col justify-between gap-12 rounded-xl bg-card p-8">
+          <div className="flex min-h-[15rem] flex-col justify-between gap-12 rounded-[8px] bg-card p-8">
             <div className="flex items-start justify-between gap-4">
               <span className="web-title">Purpose</span>
               <DoorArcMark className="h-9 w-9 shrink-0 text-foreground/80" />
@@ -274,7 +274,7 @@ export default function About() {
             transition={{ duration: 0.7, ease: revealEase }}
           >
             {values.map((value) => (
-              <div key={value.number} className="flex flex-col gap-4 rounded-xl bg-background/10 p-6">
+              <div key={value.number} className="flex flex-col gap-4 rounded-[8px] bg-background/10 p-6">
                 <span className="web-label text-background/55">
                   {value.number}
                 </span>
@@ -307,7 +307,7 @@ export default function About() {
             </motion.h2>
 
             <motion.div
-              className="mt-8 aspect-[4/5] w-full max-w-[18rem] rounded-xl bg-card"
+              className="mt-8 aspect-[4/5] w-full max-w-[18rem] rounded-[8px] bg-card"
               initial={{ opacity: 0 }}
               animate={experienceSection.isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.7, delay: 0.15, ease: revealEase }}
@@ -460,7 +460,7 @@ export default function About() {
             {[1, 2, 3].map((index) => (
               <div
                 key={index}
-                className="aspect-[4/5] rounded-xl bg-card"
+                className="aspect-[4/5] rounded-[8px] bg-card"
                 aria-hidden="true"
               />
             ))}

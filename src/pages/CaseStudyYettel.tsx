@@ -1,4 +1,3 @@
-import { useLayoutEffect } from "react";
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
@@ -98,15 +97,10 @@ function SectionHeader({
 export default function CaseStudyYettel() {
   usePageTitle("Yettel case study");
 
-  // The page lives in Yettel's brand: re-point the design-system tokens while it is open.
-  useLayoutEffect(() => {
-    const root = document.documentElement;
-    root.classList.add("theme-yettel");
-    return () => root.classList.remove("theme-yettel");
-  }, []);
-
   return (
-    <div className="bg-background font-sans text-foreground">
+    // Scoped to this page's own content only: Nav and Footer live outside this
+    // wrapper (see Layout.tsx) and always keep the site's default brand.
+    <div className="theme-yettel bg-background font-sans text-foreground">
       {/* Hero */}
       <section className="container-wide pt-24 md:pt-28 lg:pt-[128px]">
         <div className={sectionGrid}>
@@ -116,8 +110,7 @@ export default function CaseStudyYettel() {
           <div className="lg:col-start-4 lg:col-end-13">
             <Reveal y={24}>
               <h1 className="max-w-[14ch] text-[56px] font-medium leading-[0.98] tracking-[-0.04em] text-foreground sm:text-[64px] lg:text-[90px]">
-                {hero.titleStart}{" "}
-                <span className="cs-tag whitespace-nowrap">{hero.titleHighlight}</span>
+                {hero.titleStart} {hero.titleHighlight}
               </h1>
             </Reveal>
             <Reveal delay={0.12}>

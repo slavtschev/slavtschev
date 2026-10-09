@@ -1,15 +1,16 @@
 /*
   Yettel theme for the case study page.
   The page keeps the portfolio's layout, type scale and components; only the
-  design-system tokens are re-pointed to Yettel's palette while the page is open.
+  design-system tokens are re-pointed to Yettel's palette, scoped to this
+  page's own content wrapper. Nav and Footer live outside that wrapper (see
+  Layout.tsx) and always stay on the site's default brand.
 
   Navy Primary  #002340  ->  207 100% 12.5%
   Lime Primary  #B4FF00  ->  78 100% 50%
   Sky Secondary #C4DEEA  ->  198 47% 85%
 */
 
-/* html.* outranks the global :root tokens regardless of stylesheet order. */
-html.theme-yettel {
+.theme-yettel {
   --background: 207 100% 12.5%;
   --foreground: 100 19% 94%;
 
@@ -79,7 +80,7 @@ html.theme-yettel {
   border-top-right-radius: 50% clamp(28px, 4vw, 64px);
 }
 
-/* Yettel's slanted headline tag, used for highlights. */
+/* Yettel's slanted highlight tag, used for the Context section's inline highlight. */
 .theme-yettel .cs-tag {
   background-color: hsl(var(--accent));
   color: hsl(var(--accent-foreground));
@@ -87,14 +88,4 @@ html.theme-yettel {
   padding: 0 0.32em 0 0.1em;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-}
-
-/* Global footer keeps its layout; its hover accent follows the page brand. */
-.theme-yettel .footer-link:hover,
-.theme-yettel .footer-link:focus-visible {
-  color: hsl(78 100% 50%);
-}
-
-.theme-yettel .footer-link::before {
-  background: hsl(78 100% 50%);
 }

@@ -22,7 +22,7 @@ export const sectionBody =
 export const sectionBodyMuted =
   "max-w-[44rem] text-[20px] font-medium leading-[1.3] tracking-[-0.02em] text-foreground/62 sm:text-[24px] sm:leading-[1.28]";
 export const metaLabel = "text-[12px] font-medium uppercase tracking-[0.16em]";
-export const mediaRadius = "rounded-[max(10px,1.4vw)]";
+export const mediaRadius = "rounded-[max(7px,1vw)]";
 
 /* ---------- Hero + context ---------- */
 

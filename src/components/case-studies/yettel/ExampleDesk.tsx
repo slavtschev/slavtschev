@@ -121,7 +121,7 @@ export function ExampleDesk() {
               type="button"
               onClick={() => toggle(stream.key)}
               aria-pressed={isActive}
-              className={`group flex flex-col justify-between gap-6 rounded-[16px] border p-6 lg:min-h-[13rem] text-left transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+              className={`group flex flex-col justify-between gap-6 rounded-[10px] border p-6 lg:min-h-[13rem] text-left transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                 isActive
                   ? "border-foreground bg-foreground text-background"
                   : "border-black/5 bg-card text-foreground hover:border-black/15"
@@ -147,7 +147,7 @@ export function ExampleDesk() {
 
       <div
         ref={deskRef}
-        className="relative mt-4 h-[780px] overflow-hidden rounded-[16px] border border-black/5 bg-card sm:h-[640px] lg:h-[clamp(600px,52vw,760px)]"
+        className="relative mt-4 h-[780px] overflow-hidden rounded-[10px] border border-black/5 bg-card sm:h-[640px] lg:h-[clamp(600px,52vw,760px)]"
         style={{
           backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.09) 1px, transparent 1.5px)",
           backgroundSize: "24px 24px",
