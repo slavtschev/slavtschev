@@ -282,94 +282,88 @@ export default function Index() {
 
   return (
     <>
-      <section ref={heroSection.ref} className="relative h-[calc(100svh-5rem)] overflow-x-hidden">
-        <div className="container-wide flex h-full flex-col">
-          <div aria-hidden className="invisible flex-1" />
+      <section ref={heroSection.ref} className="container-wide pt-24 pb-0 md:pt-28 lg:pt-[128px] lg:pb-0">
+        <div className="border-b border-foreground/25 pb-10 lg:pb-14">
+          <motion.h1
+            className="web-display max-w-[20ch] text-foreground"
+            initial={{ opacity: 0, y: 20 }}
+            animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            I design the work,
+            <br />
+            and the workflow.
+          </motion.h1>
+        </div>
 
-          <div className="grid items-start gap-y-10 pt-24 pb-0 lg:grid-cols-[minmax(18rem,0.92fr)_minmax(0,1.8fr)] lg:grid-rows-[auto_minmax(0,1fr)] lg:gap-x-10 lg:pt-0 xl:gap-x-12">
-            <div className="hidden lg:block" />
+        <div className="grid grid-cols-1 gap-y-10 pt-10 lg:grid-cols-12 lg:gap-x-10 lg:pt-14 lg:pb-20">
+          <div className="lg:col-span-5">
+            <motion.div
+              className="flex max-w-[23rem] flex-wrap gap-[10px]"
+              initial={{ opacity: 0 }}
+              animate={heroSection.isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <span className="inline-flex items-center rounded-full bg-secondary/65 px-5 py-2 text-[14px] font-medium leading-none text-foreground/78">
+                Creative Production
+              </span>
+              <span className="inline-flex items-center rounded-full bg-secondary/65 px-5 py-2 text-[14px] font-medium leading-none text-foreground/78">
+                UX/UI Design
+              </span>
+              <span className="inline-flex items-center rounded-full bg-secondary/65 px-5 py-2 text-[14px] font-medium leading-none text-foreground/78">
+                Automation
+              </span>
+              <span className="inline-flex items-center rounded-full bg-secondary/65 px-5 py-2 text-[14px] font-medium leading-none text-foreground/78">
+                No Code Development
+              </span>
+            </motion.div>
 
-            <div className="w-full lg:col-start-2 lg:row-start-1">
-              <motion.h1
-                className="web-display text-foreground"
-                initial={{ opacity: 0, y: 20 }}
-                animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            <motion.p
+              className="web-lead mt-8 max-w-[23rem] text-foreground/68"
+              initial={{ opacity: 0, y: 10 }}
+              animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+              transition={{ duration: 0.7, delay: 0.35 }}
+            >
+              I care about how things are built and how to make them work better.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+            >
+              <Link
+                to="/systems"
+                className="group mt-7 inline-flex items-center gap-3 text-[20px] font-medium text-black transition-colors"
               >
-                I design the work,
-                <br />
-                and the workflow.
-              </motion.h1>
-            </div>
-
-            <div className="max-w-[24rem] lg:col-start-1 lg:row-start-2">
-              <motion.div
-                className="flex max-w-[23rem] flex-wrap gap-[10px]"
-                initial={{ opacity: 0 }}
-                animate={heroSection.isInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <span className="inline-flex items-center rounded-full bg-secondary/65 px-5 py-2 text-[14px] font-medium leading-none text-foreground/78">
-                  Creative Production
-                </span>
-                <span className="inline-flex items-center rounded-full bg-secondary/65 px-5 py-2 text-[14px] font-medium leading-none text-foreground/78">
-                  UX/UI Design
-                </span>
-                <span className="inline-flex items-center rounded-full bg-secondary/65 px-5 py-2 text-[14px] font-medium leading-none text-foreground/78">
-                  Automation
-                </span>
-                <span className="inline-flex items-center rounded-full bg-secondary/65 px-5 py-2 text-[14px] font-medium leading-none text-foreground/78">
-                  No Code Development
-                </span>
-              </motion.div>
-
-              <motion.p
-                className="web-lead mt-8 max-w-[23rem] text-foreground/68"
-                initial={{ opacity: 0, y: 10 }}
-                animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                transition={{ duration: 0.7, delay: 0.35 }}
-              >
-                I care about how things are built and how to make them work better.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={heroSection.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                transition={{ duration: 0.7, delay: 0.5 }}
-              >
-                <Link
-                  to="/systems"
-                  className="group mt-7 inline-flex items-center gap-3 text-[20px] font-medium text-black transition-colors"
-                >
-                  <span>Take a look at my work</span>
-                  <ArrowUpRight
-                    size={26}
-                    className="text-accent transition-transform duration-300 ease-out group-hover:rotate-45"
-                  />
-                </Link>
-              </motion.div>
-            </div>
-
-            <div className="w-full lg:col-start-2 lg:row-start-2 lg:h-full lg:self-end">
-              <motion.div
-                className="aspect-video overflow-hidden rounded-[12px] rounded-tr-none bg-card lg:ml-auto lg:mr-[-5rem]"
-                initial={{ opacity: 0 }}
-                animate={heroSection.isInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <video
-                  src="/Media/showreel.mp4"
-                  poster="/Media/showreel-poster.jpg"
-                  aria-label="Showreel: Storytel campaigns, Vibe Flow in After Effects, a localization platform, photography sites and three apps"
-                  className="h-full w-full object-cover"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
+                <span>Take a look at my work</span>
+                <ArrowUpRight
+                  size={26}
+                  className="text-accent transition-transform duration-300 ease-out group-hover:rotate-45"
                 />
-              </motion.div>
-            </div>
+              </Link>
+            </motion.div>
+          </div>
+
+          <div className="lg:col-span-7">
+            <motion.div
+              className="aspect-video w-full overflow-hidden rounded-[8px] bg-card"
+              initial={{ opacity: 0 }}
+              animate={heroSection.isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <video
+                src="/Media/showreel.mp4"
+                poster="/Media/showreel-poster.jpg"
+                aria-label="Showreel: Storytel campaigns, Vibe Flow in After Effects, a localization platform, photography sites and three apps"
+                className="h-full w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
@@ -465,35 +459,49 @@ export default function Index() {
 
             <div className="lg:col-start-8 lg:col-span-5">
               <div className="border-t border-white/25">
-                {coreSkillsTabs.map((tab, index) => (
-                  <button
-                    key={tab.label}
-                    type="button"
-                    onClick={() => setActiveCoreSkillTab(index)}
-                    className={`web-headline group w-full border-b border-white/25 py-4 text-left transition-colors ${
-                      activeCoreSkillTab === index ? "bg-white/8 text-white" : "text-[#ABABAB] hover:text-zinc-100"
-                    }`}
-                    aria-pressed={activeCoreSkillTab === index}
-                  >
-                    <span className="flex items-center justify-between gap-4">
-                      <span>{tab.label}</span>
-                      <span className="relative h-7 w-7 shrink-0" aria-hidden>
-                        <span
-                          className={`absolute left-1/2 top-1/2 h-[1px] w-7 -translate-x-1/2 -translate-y-1/2 bg-current transform-gpu transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.18,0.9,0.22,1)] ${
-                            activeCoreSkillTab === index ? "text-white" : "text-current"
-                          }`}
+                {coreSkillsTabs.map((tab, index) => {
+                  const isActive = activeCoreSkillTab === index;
+                  return (
+                    <button
+                      key={tab.label}
+                      type="button"
+                      onClick={() => setActiveCoreSkillTab(index)}
+                      className="group relative isolate block w-full border-b border-white/25 text-left"
+                      aria-pressed={isActive}
+                    >
+                      {isActive && (
+                        <motion.span
+                          layoutId="coreSkillHighlight"
+                          className="absolute inset-0 z-0 border-x border-accent/40 bg-white/10"
+                          transition={{ type: "spring", stiffness: 380, damping: 32 }}
                         />
-                        <span
-                          className={`absolute left-1/2 top-1/2 h-7 w-[1px] -translate-x-1/2 -translate-y-1/2 bg-current origin-center transform-gpu transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.18,0.9,0.22,1)] ${
-                            activeCoreSkillTab === index
-                              ? "rotate-90 opacity-0"
-                              : "rotate-0 opacity-100"
-                          }`}
-                        />
+                      )}
+                      <span
+                        className={`web-headline relative z-10 flex items-center justify-between gap-4 py-4 transition-colors duration-300 ${
+                          isActive ? "text-white" : "text-[#ABABAB] group-hover:text-zinc-100"
+                        }`}
+                      >
+                        <span>{tab.label}</span>
+                        <span className="relative h-7 w-7 shrink-0" aria-hidden>
+                          <motion.span
+                            className="absolute inset-0 rounded-[4px] border border-current"
+                            animate={{ rotate: isActive ? 45 : 0, scale: isActive ? 0.68 : 1 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 17 }}
+                          />
+                          <motion.span
+                            className="absolute inset-[6px] rounded-[1px] bg-accent"
+                            animate={{
+                              scale: isActive ? 1 : 0,
+                              rotate: isActive ? 45 : 0,
+                              opacity: isActive ? 1 : 0,
+                            }}
+                            transition={{ type: "spring", stiffness: 320, damping: 19 }}
+                          />
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                ))}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -513,20 +521,28 @@ export default function Index() {
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={`core-skills-icons-${activeCoreSkillTab}`}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.46, ease: [0.22, 1, 0.36, 1] }}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={{
+                  visible: { transition: { staggerChildren: 0.05 } },
+                  hidden: { transition: { staggerChildren: 0.03, staggerDirection: -1 } },
+                }}
                 className="flex w-full flex-wrap content-start gap-4 lg:col-start-8 lg:col-span-5"
               >
                 {coreSkillsTabs[activeCoreSkillTab].tools.map((tool) => (
-                  <span
+                  <motion.span
                     key={tool}
                     title={tool}
+                    variants={{
+                      hidden: { opacity: 0, scale: 0.6, rotate: -8 },
+                      visible: { opacity: 1, scale: 1, rotate: 0 },
+                    }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
                     className="flex h-20 w-20 items-center justify-center rounded-[16px] bg-white/10 text-white/80 sm:h-24 sm:w-24"
                   >
                     <ToolIcon name={tool} className="h-8 w-8 sm:h-10 sm:w-10" />
-                  </span>
+                  </motion.span>
                 ))}
               </motion.div>
             </AnimatePresence>
@@ -565,7 +581,7 @@ export default function Index() {
             {clients.map((client, index) => (
               <motion.article
                 key={client.name}
-                className="group relative flex min-h-[9rem] flex-col items-center justify-center gap-3 overflow-hidden rounded-[16px] border border-black/5 bg-white px-4 py-6 text-center sm:min-h-[17rem] sm:px-8 lg:min-h-[18rem]"
+                className="group relative flex min-h-[9rem] flex-col items-center justify-center gap-3 overflow-hidden rounded-[10px] border border-black/5 bg-white px-4 py-6 text-center transition-colors duration-500 ease-[cubic-bezier(0.2,1,0.4,1)] sm:min-h-[17rem] sm:px-8 lg:min-h-[18rem] lg:hover:bg-foreground"
                 initial={{ opacity: 0, scale: 0.92 }}
                 animate={clientsSection.isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.92 }}
                 transition={{
@@ -574,13 +590,22 @@ export default function Index() {
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
               >
-                <p className="text-[clamp(1.6rem,2.4vw,2.2rem)] font-bold leading-none tracking-[-0.02em] text-foreground transition-all duration-300 ease-out lg:group-hover:opacity-20 lg:group-hover:blur-[3px]">
+                <span
+                  aria-hidden="true"
+                  className="hidden h-8 translate-y-3 items-center justify-center rounded-[6px] border border-white/30 px-4 text-[11px] font-bold uppercase tracking-[0.14em] text-white opacity-0 transition-all duration-300 ease-out lg:flex lg:group-hover:translate-y-0 lg:group-hover:opacity-100"
+                >
+                  Logo
+                </span>
+
+                <p className="text-[clamp(1.6rem,2.4vw,2.2rem)] font-bold leading-none tracking-[-0.02em] text-foreground transition-all duration-500 ease-out lg:group-hover:scale-[0.94] lg:group-hover:text-white">
                   {client.name}
                 </p>
-                <p className="web-small line-clamp-2 max-w-[20rem] text-muted-foreground transition-all duration-300 ease-out lg:pointer-events-none lg:absolute lg:inset-x-8 lg:top-1/2 lg:-translate-y-[56%] lg:translate-y-3 lg:text-foreground lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
+
+                <p className="web-small line-clamp-2 max-w-[20rem] translate-y-0 text-muted-foreground transition-all duration-300 ease-out lg:translate-y-2 lg:text-white/70 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
                   {client.blurb}
                 </p>
-                <p className="pointer-events-none absolute bottom-5 right-5 text-[13px] font-medium leading-none tracking-[0.01em] text-muted-foreground sm:text-[14px]">
+
+                <p className="pointer-events-none absolute bottom-5 right-5 text-[13px] font-medium leading-none tracking-[0.01em] text-muted-foreground transition-colors duration-500 sm:text-[14px] lg:group-hover:text-white/50">
                   /{client.year}
                 </p>
               </motion.article>
@@ -621,7 +646,7 @@ export default function Index() {
                   {outputsSlides.map((project) => (
                     <Link key={`${project.title}-${groupIndex}`} to={project.link} className="block w-[74vw] shrink-0 sm:w-[44vw] lg:w-[22rem]">
                       <article className="group">
-                        <div className="aspect-square overflow-hidden rounded-[10px] bg-[#dcdcdc]">
+                        <div className="aspect-square overflow-hidden rounded-[8px] bg-[#dcdcdc]">
                           <img
                             src={project.image}
                             alt={project.title}
