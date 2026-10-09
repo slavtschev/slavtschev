@@ -41,7 +41,7 @@ export default function NoteDigitalExperiences() {
       </header>
 
       <figure className="container-wide mt-16 mb-0 lg:mt-24">
-        <span className="block aspect-video overflow-hidden rounded-[12px] bg-foreground">
+        <span className="block aspect-video overflow-hidden rounded-[8px] bg-foreground">
           <img
             src="/work/localization-platform.jpg"
             alt="The localization platform overview: languages, versions, items to review"
@@ -85,7 +85,7 @@ export default function NoteDigitalExperiences() {
       <nav aria-label="More notes" className="container-wide pt-24 pb-24 lg:pt-32 lg:pb-32">
         <Link
           to="/playground"
-          className="group flex flex-col justify-between gap-4 rounded-[12px] bg-card p-8 text-foreground no-underline"
+          className="group flex flex-col justify-between gap-4 rounded-[8px] bg-card p-8 text-foreground no-underline"
         >
           <span className="web-label text-muted-foreground">All notes</span>
           <span className="flex items-start justify-between gap-4">

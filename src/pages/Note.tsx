@@ -58,7 +58,7 @@ export default function Note() {
       </header>
 
       <figure className="container-wide mt-16 mb-0 lg:mt-24">
-        <span className="block aspect-video overflow-hidden rounded-[12px] bg-foreground">
+        <span className="block aspect-video overflow-hidden rounded-[8px] bg-foreground">
           <img
             src="/notes/vibe-flow.jpg"
             alt="Vibe Flow running inside After Effects, rendering a master into 24 language versions"
@@ -124,7 +124,7 @@ export default function Note() {
               slowest part of the job.
             </p>
 
-            <div className="flex flex-col overflow-hidden rounded-[12px] bg-foreground">
+            <div className="flex flex-col overflow-hidden rounded-[8px] bg-foreground">
               <span className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 border-b border-white/10 px-6 py-4">
                 <span className="web-label text-white/50">ExtendScript</span>
                 <span className="web-small text-white/50">The core of the swap</span>
@@ -182,7 +182,7 @@ export default function Note() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <Link
             to="/playground/digital-experiences"
-            className="group flex flex-col gap-4 rounded-[12px] bg-card p-8 text-foreground no-underline"
+            className="group flex flex-col gap-4 rounded-[8px] bg-card p-8 text-foreground no-underline"
           >
             <span className="web-label text-muted-foreground">Earlier note · 15 Jan 2026</span>
             <span className="flex items-start justify-between gap-4">
@@ -197,7 +197,7 @@ export default function Note() {
 
           <Link
             to="/playground"
-            className="group flex flex-col justify-between gap-4 rounded-[12px] bg-card p-8 text-foreground no-underline"
+            className="group flex flex-col justify-between gap-4 rounded-[8px] bg-card p-8 text-foreground no-underline"
           >
             <span className="web-label text-muted-foreground">All notes</span>
             <span className="flex items-start justify-between gap-4">

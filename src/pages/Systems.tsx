@@ -51,7 +51,7 @@ function CaseStudyCard({
   return (
     <Link to={link} className="block">
       <article className="group relative cursor-pointer">
-        <div className="relative aspect-video overflow-hidden rounded-[20px] bg-muted">
+        <div className="relative aspect-video overflow-hidden rounded-[8px] bg-muted">
           <img src={image} alt={title} className="h-full w-full object-cover" loading="lazy" />
         </div>
 

@@ -109,7 +109,7 @@ export default function Contact() {
           initial={{ opacity: 0 }}
           animate={bannerSection.isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, ease: revealEase }}
-          className="grid grid-cols-1 overflow-hidden rounded-[12px] bg-card sm:grid-cols-12"
+          className="grid grid-cols-1 overflow-hidden rounded-[8px] bg-card sm:grid-cols-12"
         >
           <div className="flex flex-col items-start gap-6 px-6 py-10 sm:col-span-7 sm:justify-center sm:px-10 sm:py-12 lg:col-span-7">
             <span className="web-label text-muted-foreground">Email</span>
@@ -184,7 +184,7 @@ export default function Contact() {
 
           <aside
             aria-label="Quick facts"
-            className="min-w-[280px] flex-[1_0_35%] rounded-[12px] bg-card p-8"
+            className="min-w-[280px] flex-[1_0_35%] rounded-[8px] bg-card p-8"
           >
             <div className="flex items-center gap-4">
               <img

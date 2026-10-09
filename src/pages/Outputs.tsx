@@ -233,7 +233,7 @@ export default function Outputs() {
               </div>
 
               <div className="mt-8 flex flex-wrap items-start gap-12">
-                <div className="min-w-[280px] flex-[1_0_60%] overflow-hidden rounded-xl bg-card">
+                <div className="min-w-[280px] flex-[1_0_60%] overflow-hidden rounded-[8px] bg-card">
                   <img
                     src={openProject.image}
                     alt={openProject.title}
@@ -291,7 +291,7 @@ export default function Outputs() {
                   transition={{ duration: 0.7, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
                   <span
-                    className={`block w-full overflow-hidden rounded-xl bg-card ${project.wide ? "aspect-[25/16]" : "aspect-[3/4]"}`}
+                    className={`block w-full overflow-hidden rounded-[8px] bg-card ${project.wide ? "aspect-[25/16]" : "aspect-[3/4]"}`}
                   >
                     <img
                       src={project.image}
